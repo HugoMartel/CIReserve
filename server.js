@@ -12,12 +12,12 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const https = require("https");
+const request = require("./server/modules/request");
 
 
 //const expressJwt = require('express-jwt');
-const hsKey = fs.readFileSync(__dirname + "ssl/server.key").toString();
-const hsCert = fs.readFileSync(__dirname + "ssl/server.crt").toString();
-//TODO generate certs
+const key = fs.readFileSync(__dirname + '/server/ssl/key.pem');
+const cert = fs.readFileSync(__dirname + '/server/ssl/cert.pem');
 
 // Request handling requires
 const jsonParser = express.json();
@@ -25,37 +25,80 @@ const jsonParser = express.json();
 
 // Setup server and socket
 /** @constant {Object} server https server used to host the project*/
-const server = https.createServer({ key: hsKey, cert: hsCert }, app);
+const server = https.createServer({ key: key, cert: cert }, app);
 /** @constant {number} port port used to host the server on*/
 const port = process.env.port || 4200; //! 4200 is also used by `ng serve`
+
+// Socket.io
+const io = require("socket.io")(server, { secure: true });
+
 
 // App params
 app.set("trust proxy", 1);
 // Router
-app.use(express.static(__dirname + "/../dist/CIReserve"));
+//app.use(express.static(__dirname + "/dist/cireserve"));
+app.use(express.static(__dirname + "/tempo-pauline/"));
 app.use(jsonParser);
 
 
 //*******************
 //!       GET       !
 //*******************
+app.get("/home", (req, res) => {
+    console.log("GET <- " + __dirname + "/dist/cireserve/index.html");
+    //res.sendFile(__dirname + "/dist/cireserve/index.html");
+    res.sendFile(__dirname + "/tempo-pauline/html/parcours.html");
+});
+
 app.get("/", (req, res) => {
-    console.log(__dirname + "/../dist/FarSpace832c/index.html");
-    res.sendFile(__dirname + "/../dist/FarSpace832c/index.html");
-
+    console.log("REDIRECT -> /home");
+     res.redirect("/home");
 });
 
-app.get("*", (req, res) => {
-    res.redirect("/");
-});
+
 
 //*******************
 //!     POST        !
 //*******************
-//TODO
+app.post("/login/", (req, res) => {
+    console.log("POST -> /login");
+
+    let username = req.body.username; //username is the id TODO in the login form
+    let password = req.body.password; //password is the id TODO in the login form
+});
+
+app.post("/register/", (req, res) => {
+    console.log("POST -> /register");
+
+    let username = req.body.username; //username is the id TODO in the register form
+    let password = req.body.password; //password is the id TODO in the register form
+});
+
+app.post("/book/", (req, res) => {
+    console.log("POST -> /book");
+
+});
 
 
-//****************************
+//***************************
+//*        Socket.io        *
+//***************************
+io.on('connection', (socket) => {
+
+    // Console message on connection
+    console.log("> " + socket.id + " connected");
+
+    // Console message on disconnection
+    socket.on("disconnect", () => {
+      console.log("< " + socket.id + " disconnected");
+    });
+
+    // Pour rediriger les différentes pages
+    socket.on("Redirection",(data) => { socket.emit("Redirection2", data); });
+});
+
+
+//****************************s
 //*       Server Start       *
 //****************************
 // Make the server use port 4200
@@ -95,3 +138,10 @@ process.on("exit", exitHandler.bind(null, { cleanup: true }));
 
 //catches ctrl+c event
 process.on("SIGINT", exitHandler.bind(null, { exit: true }));
+
+// catches "kill pid"
+process.on("SIGUSR1", exitHandler.bind(null, { exit: true }));
+process.on("SIGUSR2", exitHandler.bind(null, { exit: true }));
+
+//catches uncaught exceptions
+process.on("uncaughtException", exitHandler.bind(null, { exit: true }));
