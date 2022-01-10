@@ -2,7 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-## Development server
+## Development back server
+
+Run `ng build` to generate a static site, then `npm start` to start the [Express](https://expressjs.com/) webserver
+
+## Development front server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
