@@ -1,0 +1,28 @@
+div.separator {
+    height: 30px;
+    background-color: #fc5b39;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.5);
+}
+
+#linkCol {
+    display: grid;
+    grid-template-areas: "a a"
+                         "b b"
+                         "c d";
+}
+
+#teamTitle {
+    grid-area: a;
+}
+
+#teamSeparator {
+    grid-area: b;
+}
+
+#teamNames1 {
+    grid-area: c;
+}
+
+#teamNames2 {
+    grid-area: d;
+}

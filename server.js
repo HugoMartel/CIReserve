@@ -29,15 +29,11 @@ const server = https.createServer({ key: key, cert: cert }, app);
 /** @constant {number} port port used to host the server on*/
 const port = process.env.port || 4200; //! 4200 is also used by `ng serve`
 
-// Socket.io
-const io = require("socket.io")(server, { secure: true });
-
 
 // App params
 app.set("trust proxy", 1);
 // Router
-//app.use(express.static(__dirname + "/dist/cireserve"));
-app.use(express.static(__dirname + "/tempo-pauline/"));
+app.use(express.static(__dirname + "/dist/cireserve"));
 app.use(jsonParser);
 
 
@@ -46,13 +42,17 @@ app.use(jsonParser);
 //*******************
 app.get("/home", (req, res) => {
     console.log("GET <- " + __dirname + "/dist/cireserve/index.html");
-    //res.sendFile(__dirname + "/dist/cireserve/index.html");
-    res.sendFile(__dirname + "/tempo-pauline/html/parcours.html");
+    res.sendFile(__dirname + "/dist/cireserve/index.html");
 });
 
 app.get("/", (req, res) => {
+    console.log("GET <- " + __dirname + "/dist/cireserve/index.html");
+    res.sendFile(__dirname + "/dist/cireserve/index.html");
+});
+
+app.get("*", (req, res) => {
     console.log("REDIRECT -> /home");
-     res.redirect("/home");
+    res.redirect("/home");
 });
 
 
@@ -79,23 +79,6 @@ app.post("/book/", (req, res) => {
 
 });
 
-
-//***************************
-//*        Socket.io        *
-//***************************
-io.on('connection', (socket) => {
-
-    // Console message on connection
-    console.log("> " + socket.id + " connected");
-
-    // Console message on disconnection
-    socket.on("disconnect", () => {
-      console.log("< " + socket.id + " disconnected");
-    });
-
-    // Pour rediriger les différentes pages
-    socket.on("Redirection",(data) => { socket.emit("Redirection2", data); });
-});
 
 
 //****************************s
@@ -124,7 +107,7 @@ function exitHandler(options, exitCode) {
         console.log("         ,,,          Noe Klopocki             ,,,         ");
         console.log("        (0 0)         Louis Manouvriez        (* *)        ");
         console.log("  ---ooO-(_)-Ooo---   Hugo Martel       ---ooO-(_)-Ooo---  ");
-        console.log("                      Théodore Martin                      ");
+        console.log("                      Theodore Martin                      ");
         console.log("                      Leo Pawlicki                         ");
         console.log("                      Nicolas Urquijo                      ");
         console.log("***********************************************************");
