@@ -48,8 +48,29 @@ app.use(jsonParser);
     //! Query result is accessible here
 });*/
 
+// Example of connection.Connection.getUser() : display the information of the specified user
+/*connection.Connection.getUser("Alexis-C", {projection : { _id : 0, classe : 1}}, (result) =>{
+    console.log(result);
+    //! Query result is accessible here
+})*/
+
+// Example of connection.Connection.getUser() : display the information of the specified reservation
+/*connection.Connection.getBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), {projection : { _id : 0}}, (result) =>{
+    console.log(result);
+    //! Query result is accessible here
+})*/
+
 // Example of connection.Connection.newBook():  adds a new book in the db
-connection.Connection.newBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), 2, "AETZERreyt56yT5-", "Week-end");
+/*connection.Connection.getUser("Alexis-C", {projection : { _id : 1}}, (result) => {
+    connection.Connection.newBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), 2, result[0]._id, "Week-end");
+})*/
+
+// Example of connection.Connection.getUserWithId() : display the information of the specidied user id
+/*connection.Connection.getUser("Alexis-C", {projection : { _id : 1}}, (result) => {
+    connection.Connection.getUserWithId(result[0]._id, {_id : 0}, (result) => {
+        console.log(result);
+    });
+})*/
 
 // Example of connection.Connection.newUser() : adds a new user in the db
 //connection.Connection.newUser("Gugo", "mdpNoHash", true, 4);
