@@ -40,8 +40,8 @@ app.set("trust proxy", 1);
 app.use(express.static(__dirname + "/tempo-pauline/"));
 app.use(jsonParser);
 
-
-connection.Connection.getRoom((result) => {
+// Display the field group of all elements of temp2 
+connection.Connection.getRoom({}, { projection : { _id : 0, group : 1}}, (result) => {
     console.log(result);
     //! Query result is accessible here
 });
