@@ -12,7 +12,8 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const https = require("https");
-const request = require("./server/modules/request");
+const connection = require("./server/modules/connection.js");
+
 
 
 //const expressJwt = require('express-jwt');
@@ -21,7 +22,6 @@ const cert = fs.readFileSync(__dirname + '/server/ssl/cert.pem');
 
 // Request handling requires
 const jsonParser = express.json();
-
 
 // Setup server and socket
 /** @constant {Object} server https server used to host the project*/
@@ -40,6 +40,11 @@ app.set("trust proxy", 1);
 app.use(express.static(__dirname + "/tempo-pauline/"));
 app.use(jsonParser);
 
+
+connection.Connection.getRoom((result) => {
+    console.log(result);
+    //! Query result is accessible here
+});
 
 //*******************
 //!       GET       !
@@ -78,7 +83,6 @@ app.post("/book/", (req, res) => {
     console.log("POST -> /book");
 
 });
-
 
 //***************************
 //*        Socket.io        *
