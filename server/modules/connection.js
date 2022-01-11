@@ -1,4 +1,5 @@
 const {MongoClient} = require('mongodb');
+const { start } = require('repl');
 const { from } = require('rxjs');
 
 /**
@@ -129,6 +130,20 @@ const Connection = (function() {
         })
     }
 
+    /**
+     * @function Connection.deletBook/Connection.deletUser
+     * @param {String} collection 
+     * @param {Object} elem 
+     * @return {}/
+     * @description Execute a query to remove documents from a collection
+     */
+    function suppr(collection, elem){
+        MongoClient.connect(url, async function(err, client){
+            let db = client.db(dbName);
+            let cursor = db.collection(collection).remove(elem);
+        })
+    }
+
     return {
         getRoom : (nbFloor, nbBuild, options, callback) => getRoomCall({floor : nbFloor, building : nbBuild}, options, callback),
         newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
@@ -137,6 +152,9 @@ const Connection = (function() {
         isUserNameExist : (name, callback) => checkUserName(name, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
+        deletUser : (name) => suppr("Users", {userName : name}),
+        deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),
+
     };
 })();
 
