@@ -1,13 +1,14 @@
 import { Injectable, Inject } from '@angular/core';
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class User {
   id: number;
   userName: string;
-  passwd: string; //need to be hashed lmao
+  hash: string; //need to be hashed lmao
   isAdmin: Boolean;
   /*
    * +--------+----------+-------+------+------+------+------+------+------+------+------+------+------+----+----+
@@ -24,13 +25,18 @@ export class User {
     @Inject(String) private m_passwd: string,
     @Inject(Boolean) private m_isAdmin: boolean,
     @Inject(Number) private m_class: number
-) {
-    this.passwd = "";
-    //TODO: move the salt & saltround somewhere else so it can be reused (idk where it's safer to be)
+  ) {
+    //default shit, we don't want to change this property because else we're getting error hash used before being initialized
+    this.hash = "ghdfuifjzeopfoezdpjfsdifhe";
     let saltround = 12;
     let salt = bcrypt.gensalt(saltround);
     //not asynchronous, but could be done, cf https://vattacomsian.com/blog/nodejs-password-hashing-with-bcrypt for code exemple
-    bcrypt.hashpw(m_passwd, salt, (result:string) => (this.passwd = result), () => {});
+    bcrypt.hashSync(
+      m_passwd,
+      salt,
+      (result: string) => (this.hash = result),
+      () => {}
+    );
     this.id = m_id;
     this.userName = m_userName;
     this.classe = m_class;
@@ -73,7 +79,18 @@ export class User {
       case 12:
         return 'M2';
       default:
-        return "classe inconnue..";
+        return 'classe inconnue..';
     }
+  };
+
+  comparePasswd = (password: string):boolean => {
+    try {
+      // Compare password
+      return bcrypt.compareSync(password, this.hash);
+    } catch (error) {
+      console.log(error);
+    }
+    // Return false if error
+    return false;
   };
 }
