@@ -10,6 +10,7 @@ import { MapComponent } from './map/map.component';
 
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './book/book.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { BookComponent } from './book/book.component';
     AccountComponent,
     FooterComponent,
     MapComponent,
-    BookComponent
+    BookComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

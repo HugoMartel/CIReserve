@@ -65,3 +65,19 @@ li.dropdown {
   margin-top: 0%;
   margin-bottom: 0%
 }
+
+.navBut {
+  text-align: center;
+  margin: 14px 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+nav ul li:last-child {
+  float: right;
+  //todo: add broder in order to make it pop out of the screen
+}
