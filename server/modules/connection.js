@@ -81,13 +81,14 @@ const Connection = (function() {
      * @description Execute a query to find the password
      */
     function userHash(name, callback){
-        let result;
+        let result = [];
 
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').findOne({userName : name}, { projection : { _id : 0, hash : 1}})
-            result = await cursor.toArray()[0];
-            callback(result.hash);
+            let cursor = db.collection('Users').find({userName : name}, { projection : { _id : 0, hash : 1}})
+            result = await cursor.toArray();
+
+            callback(result[0].hash);
         })
     }
 
@@ -104,9 +105,9 @@ const Connection = (function() {
 
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').findOne({userName : name});
+            let cursor = db.collection('Users').find({userName : name});
             result = await cursor.toArray();
-            callback(result.length);
+            callback(Boolean(result.length));
         })
     }
 
@@ -122,11 +123,13 @@ const Connection = (function() {
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
             let cursor = db.collection(collection).find(elem);
-            let result = await cursor.toArray()[0];
+            let result = await cursor.toArray();
+            result = result[0];
             for(let key in newElem){
                 result[key] = newElem[key];
             }
-            db.collection(collection).findAndModify({query : elem, update : result});
+            
+            db.collection(collection).findOneAndUpdate(elem, {"$set" : result});
         })
     }
 
@@ -140,7 +143,7 @@ const Connection = (function() {
     function suppr(collection, elem){
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection(collection).remove(elem);
+            let cursor = db.collection(collection).deleteOne(elem);
         })
     }
 

@@ -9,8 +9,10 @@
 //****************************
 // Setup requires and https keys & certificates
 const express = require("express");
+const { Result } = require("express-validator");
 const app = express();
 const fs = require("fs");
+const { connect } = require("http2");
 const https = require("https");
 const connection = require("./server/modules/connection.js");
 
@@ -40,11 +42,41 @@ app.set("trust proxy", 1);
 app.use(express.static(__dirname + "/tempo-pauline/"));
 app.use(jsonParser);
 
-// Display the field group of all elements of temp2 
-connection.Connection.getRoom({}, { projection : { _id : 0, group : 1}}, (result) => {
+// Example of connection.Connection.getRoom(): displays the information of the specified room.
+/*connection.Connection.getRoom(108, 2, { projection : { _id : 0}}, (result) => {
     console.log(result);
     //! Query result is accessible here
-});
+});*/
+
+// Example of connection.Connection.newBook():  adds a new book in the db
+connection.Connection.newBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), 2, "AETZERreyt56yT5-", "Week-end");
+
+// Example of connection.Connection.newUser() : adds a new user in the db
+//connection.Connection.newUser("Gugo", "mdpNoHash", true, 4);
+
+// Example of conenction.Connection.getHash() : displays the password hash of someone
+/*connection.Connection.getHash("Gugo", (result) => {
+    console.log(result);
+    //! Query result is accessible here
+})*/
+
+// Example of connection.Connection.isUserNameExist() : checks if an userName is already uses
+/*connection.Connection.isUserNameExist("Gugo", (result) => {
+    console.log(result);
+    //! Query result is accessible here
+})*/
+
+// Example of conenction.Connection.modifyRoom() : updates datas of a room
+//connection.Connection.modifyRoom(108, 2, {nbPerson : 64});
+
+// Example of connection.Connection.modifyUser() : It updates datas of an user
+//connection.Connection.modifyUser("Gugo", {isAdmin : false});
+
+// Example of connection.Connection.deletUser() : removes an user from the db
+//connection.Connection.deletUser("Gugo");
+
+// Example of connection.Connection.deletBook() : removes a book from the db
+//connection.Connection.deletBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'),"AETZERreyt56yT5-");
 
 //*******************
 //!       GET       !
