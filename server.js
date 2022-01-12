@@ -5,18 +5,19 @@
  */
 
 //****************************
-//*         Consts           *
+//*         Consts           * 
 //****************************
 // Setup requires and https keys & certificates
 const { ObjectID } = require("bson");
 const express = require("express");
-const { Result } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 const app = express();
 const fs = require("fs");
 const { connect } = require("http2");
 const https = require("https");
 
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const request = require("./server/modules/request");
 const connection = require("./server/modules/connection.js");
@@ -98,7 +99,7 @@ function authenticateToken(req, res, next) {
 //*******************
 //!       GET       !
 //*******************
-app.get("/home", authenticateToken,(req, res) => {
+app.get("/home", authenticateToken, (req, res) => {
     console.log("GET <- " + __dirname + "/dist/cireserve/index.html");
     res.sendFile(__dirname + "/dist/cireserve/index.html");
 });
@@ -118,30 +119,88 @@ app.get("*", (req, res) => {
 //*******************
 //!     POST        !
 //*******************
-app.post("/login", (req, res) => {
+app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }), body('password').isLength({ max: 100 }), (req, res) => {
     console.log("POST -> /login");
 
-    let username = req.body.username; //username is the id TODO in the login form
+    let email = req.body.email; //username is the id TODO in the login form
     let password = req.body.password; //password is the id TODO in the login form
-    //TODO Sanitize user intput
 
-    //TODO db request
-    const userId = 0;//! TMP
+    //Sanitize user intput
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
 
-    /* Create session token */
-    const jwtBearerToken = jwt.sign({}, TOKEN_RSA_PRIVATE_KEY, {
-        algorithm: 'RS256',
-        expiresIn: '1800s',
-        subject: userId
-    });
 
-    // set it in an HTTP Only + Secure Cookie
-    //res.cookie("SESSIONID", jwtBearerToken, {httpOnly:true, secure:true});
+    // db request
+    connection.Connection.getUserWithMail(email, { _id: 0 }, (result) => {
 
-    // set it in the HTTP Response body
-    res.status(200).json({
-        idToken: jwtBearerToken,
-        expiresIn: 120
+        console.log(result);
+
+        if (
+            result[0] == undefined ||
+            result[0].userName == undefined ||
+            result[0].hash == undefined ||
+            result[0].classe == undefined ||
+            result[0].email == undefined ||
+            result[0].isAdmin == undefined
+        ) {
+            return res.status(200).json({
+                fail: "Wrong password or email..."
+            });
+        }
+
+        /* Check password */
+        bcrypt.compare(password, result[0].hash, function (err, same) {
+            if (err) {
+                console.log("Hash failed");
+                return res.status(400).json({ errors: "Error while processing login" });
+            } else {
+                /* Password is wrong, abort */
+                if (same === false) {
+                    return res.status(200).json({ fail: "Wrong password or email..." });
+                }
+                /* Password is good, continue */
+
+                // Convert classe
+                let classe;
+                switch (result[0].classe) {
+                    case -1: classe = "externe"; break;
+                    case 0: classe = "admin"; break;
+                    case 1: classe = "prof"; break;
+                    case 2: classe = "CIR1"; break;
+                    case 3: classe = "CIR2"; break;
+                    case 4: classe = "CIR3"; break;
+                    case 5: classe = "CPG1"; break;
+                    case 6: classe = "CPG2"; break;
+                    case 7: classe = "CPG3"; break;
+                    case 8: classe = "CNB1"; break;
+                    case 9: classe = "CNB2"; break;
+                    case 10: classe = "CNB3"; break;
+                    case 11: classe = "M1"; break;
+                    case 12: classe = "M2"; break;
+                    default: classe = "Classe inconnue.";
+                }
+
+                /* Create session token */
+                const jwtBearerToken = jwt.sign({ name: result[0].userName, email: result[0].email, admin: result[0].isAdmin, classe: classe }, TOKEN_RSA_PRIVATE_KEY, {
+                    algorithm: 'RS256',
+                    expiresIn: '1800s'
+                });
+
+                // set it in an HTTP Only + Secure Cookie
+                res.cookie("SESSIONID", jwtBearerToken, { httpOnly: true, secure: true });
+
+                // set it in the HTTP Response body
+                return res.status(200).json({
+                    success: "Successfully connected!",
+                    idToken: jwtBearerToken,
+                    expiresIn: 120
+                });
+            }
+        });
     });
 });
 

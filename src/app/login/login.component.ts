@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,16 +21,16 @@ export class LoginComponent implements OnInit {
     let email = beginEmail.value + endEmail.value;
 
     /* Check password */
-    const password = (document.getElementById("login-password") as HTMLInputElement).value;//! Hash passwd
+    const password = (document.getElementById("login-password") as HTMLInputElement).value;
 
-    // this.authService.login(email, password).subscribe((response) => {
-    //   if (response !== undefined) {
-    //     console.log(response);
-    //     this.authService.setSession(response);
-    //   } else {
-    //     console.log("no response...");
-    //   }
-    // });
+    this.authService.login(email, password).subscribe((response) => {
+      if (response !== undefined) {
+        console.log(response);
+        this.authService.setSession(response);
+      } else {
+        console.log("no response...");
+      }
+    });
 
   };
 }

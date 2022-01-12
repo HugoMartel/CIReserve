@@ -1,3 +1,9 @@
+/**
+ * @file Connection module used to communicate with the db
+ * @author CIReserve
+ * @version 1.0.0
+ */
+
 const {MongoClient} = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 

@@ -29,10 +29,8 @@ export class RequestService {
       {
         'headers': jsonHeaders
       }
-    )
+    );
 
-
-    // .do((res:any) => this.setSession).shareReplay();
   }
 
   public setSession(authResult:any) {

@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-const bcrypt = require('bcrypt');
+import * as bcrypt from 'bcrypt';
 
 @Injectable({
   providedIn: 'root',
