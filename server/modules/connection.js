@@ -154,6 +154,36 @@ const Connection = (function() {
         })
     }
 
+    /**
+     * @function Connection.allRoomFloor
+     * @param {Number} nbFloor 
+     * @param {Callback} callback 
+     * Callback function to return the data to
+     * @returns {}/
+     * @description Exucte a query to get all room of a specifyed floor
+     */
+    function getRoomFloor(nbFloor, callback){
+        let min = nbFloor * 100;
+        let max = (nbFloor+1) * 100;
+        
+        get("Rooms", {floor : {$lte : max, $gte : min}},{projection : {_id:0}}, callback);
+    }
+
+    /**
+     * @function Connection.allReservationAt
+     * @param {Number} nbFloor 
+     * @param {Date} time 
+     * @param {Callback} callback 
+     * Callback function to return the data to
+     * @returns {}/
+     * @description Execute a query to get all reservation for a specifyed floor at a specifyed time
+     */
+    function getReservationAt(nbFloor, time, callback){
+        let min = nbFloor * 100;
+        let max = (nbFloor+1) * 100;
+        get("Reservations", {floor : {$lte : max, $gte : min}, begin : {$lte : time}, end : {$gte : time}}, {projection : {_id:0}}, callback);
+    }
+
     return {
         getRoom : (nbFloor, nbBuild, options, callback) => get("Rooms", {floor : nbFloor, building : nbBuild}, options, callback),
         getUser : (name, options, callback) => get("Users", {userName : name}, options, callback),
@@ -171,6 +201,8 @@ const Connection = (function() {
         deletUser : (name) => suppr("Users", {userName : name}),
         deletUserWithMail : (mail) => suppr("Users", {email : mail}),
         deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),        
+        allRoomFloor : (nbFloor, callback) => getRoomFloor(nbFloor, callback),
+        allReservationAt : (nbFloor, time, callback) => getReservationAt(nbFloor, time, callback),
     };
 })();
 
