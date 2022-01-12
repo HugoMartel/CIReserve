@@ -1,6 +1,5 @@
 const {MongoClient} = require('mongodb');
-const { start } = require('repl');
-const { from } = require('rxjs');
+const ObjectId = require('mongodb').ObjectId;
 
 /**
  * Makes queries to the MongoDB database
@@ -53,7 +52,7 @@ const Connection = (function() {
     function book(nbFloor, nbBuild, start, finish, time, userId, why){
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Reservations').insertOne({floor : nbFloor, building : nbBuild, begin : start, end : finish, duration : time, user : userId, reason : why})
+            let cursor = db.collection('Reservations').insertOne({begin : start, end : finish, duration : time, user : userId, reason : why, building : nbBuild, floor : nbFloor})
         })
     }
     
@@ -69,7 +68,7 @@ const Connection = (function() {
     function addUser(name, mdp, admin, numClasse){
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').insertOne({userName : name, hash : mdp, isAdmin : admin, classe : numClasse});
+            let cursor = db.collection('Users').insertOne({userName : name, isAdmin : admin, classe : numClasse, hash : mdp});
         })
     }
 
@@ -152,9 +151,9 @@ const Connection = (function() {
         getRoom : (nbFloor, nbBuild, options, callback) => get("Rooms", {floor : nbFloor, building : nbBuild}, options, callback),
         getUser : (name, options, callback) => get("Users", {userName : name}, options, callback),
         getBook : (nbFloor, nbBuild, start, finish, options, callback) => get("Reservations", {floor : nbFloor, building: nbBuild, begin : start, end : finish}, options, callback),
-        getRoomWithId : (id, options, callback) => get("Rooms", {_id : id}, options, callback),
-        getUserWithId : (id, options, callback) => get("Users", {_id : id}, options, callback),
-        getReservationWithId : (id, options, callback) => get("Reservations", {_id : id}, options, callback),
+        getRoomWithId : (id, options, callback) => get("Rooms", {_id : new ObjectId(id)}, options, callback),
+        getUserWithId : (id, options, callback) => get("Users", {_id : new ObjectId(id)}, options, callback),
+        getReservationWithId : (id, options, callback) => get("Reservations", {_id : new ObjectID(id)}, options, callback),
         newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
         newUser : (name, mdp, admin, numClasse) => addUser(name, mdp, admin, numClasse),
         getHash : (name, callback) => userHash(name, callback),
