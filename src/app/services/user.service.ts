@@ -5,10 +5,10 @@ const bcrypt = require('bcrypt');
   providedIn: 'root',
 })
 
-export class User {
+export class UserService {
   id: number;
   userName: string;
-  hash: string; //need to be hashed lmao
+  hash: string;
   isAdmin: Boolean;
   /*
    * +--------+----------+-------+------+------+------+------+------+------+------+------+------+------+----+----+

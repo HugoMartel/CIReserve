@@ -4,13 +4,18 @@ import { Injectable, Inject } from '@angular/core';
   providedIn: 'root',
 })
 export class Reservation {
+  id: number;
   begin: Date;
   end: Date;
   duration: number;
-  user: number;
+  user: string;
   reason: string;
+  floor: number; // 956 i.e
+  building: string; // "C" i.e
+
 
   constructor(
+    @Inject(Number) private m_id: number,
     @Inject(Number) private b_hour: number,
     @Inject(Number) private b_minutes: number,
     @Inject(Number) private b_day: number,
@@ -21,9 +26,16 @@ export class Reservation {
     @Inject(Number) private e_day: number,
     @Inject(Number) private e_month: number,
     @Inject(Number) private e_year: number,
-    @Inject(Number) private m_user: number,
-    @Inject(Number) private m_reason: string
+    @Inject(String) private m_user: string,
+    @Inject(String) private m_reason: string,
+    @Inject(Number) private m_floor: number,
+    @Inject(String) private m_building: string,
+
   ) {
+    this.floor = m_floor;
+    this.building = m_building;
+    this.id = m_id;
+
     this.begin = new Date(
       b_day.toString() + '-' + b_month.toString() + '-' + b_year.toString()
     );
@@ -40,7 +52,7 @@ export class Reservation {
       this.begin = dateTmp;
       this.duration = Math.abs(this.duration);
     }
-    m_user > 0 ? (this.user = m_user) : (this.user = -1);
+    /*m_user > 0 ?*/ (this.user = m_user) /*: (this.user = -1);*/
     this.reason = m_reason;
   }
 
@@ -53,6 +65,8 @@ export class Reservation {
       duration: this.duration,
       reason: this.reason,
       user: this.user,
+      floor: this.floor,
+      building: this.building, 
     };
   };
 
@@ -64,6 +78,8 @@ export class Reservation {
       endHour: this.end.getHours(),
       endMinutes: this.end.getMinutes(),
       duration: this.duration,
+      floor: this.floor,
+      building: this.building, 
     };
   };
 }
