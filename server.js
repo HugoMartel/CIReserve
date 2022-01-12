@@ -43,64 +43,6 @@ app.set("trust proxy", 1);
 app.use(express.static(__dirname + "/tempo-pauline/"));
 app.use(jsonParser);
 
-// Example of connection.Connection.getRoom(): displays the information of the specified room.
-/*connection.Connection.getRoom(108, 2, { projection : { _id : 0, "size(m²)" : 1}}, (result) => {
-    console.log(result);
-    //! Query result is accessible here
-});*/
-
-// Example of connection.Connection.getUser() : display the information of the specified user
-/*connection.Connection.getUser("Noé", {projection : { _id : 0}}, (result) =>{
-    console.log(result);
-    //! Query result is accessible here
-})*/
-
-// Example of connection.Connection.getUser() : display the information of the specified reservation
-/*connection.Connection.getBook(108, 2, new Date('2022-01-11T08:00:00.000+00:00'), new Date('2022-01-12T10:00:00.000+00:00'), {projection : { _id : 0}}, (result) =>{
-    console.log(result);
-    //! Query result is accessible here
-})*/
-
-// Example of connection.Connection.newBook():  adds a new book in the db
-/*connection.Connection.getUser("Alexi", {projection : { _id : 1}}, (result) => {
-    connection.Connection.newBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), 2, result[0]._id.toString(), "Week-end");
-})*/
-
-// Example of connection.Connection.getUserWithId() : display the information of the specidied user id
-/*connection.Connection.getUser("Noé", {projection : { _id : 1}}, (result) => {
-    connection.Connection.getUserWithId(result[0]._id.toString(), {_id : 0}, (result) => {
-        console.log(result);
-    });
-})*/
-
-// Example of connection.Connection.newUser() : adds a new user in the db
-//connection.Connection.newUser("Gugo", "mdpNoHash", true, 4);
-
-// Example of conenction.Connection.getHash() : displays the password hash of someone
-/*connection.Connection.getHash("Noé", (result) => {
-    console.log("'"+result+"'");
-    //! Query result is accessible here
-})*/
-
-// Example of connection.Connection.isUserNameExist() : checks if an userName is already uses
-/*connection.Connection.isUserNameExist("Noé", (result) => {
-    console.log(result);
-    //! Query result is accessible here
-})*/
-
-// Example of conenction.Connection.modifyRoom() : updates datas of a room
-//connection.Connection.modifyRoom(108, 2, {nbPerson : 64});
-
-// Example of connection.Connection.modifyUser() : It updates datas of an user
-//connection.Connection.modifyUser("Noé", {isAdmin : true});
-
-// Example of connection.Connection.deletUser() : removes an user from the db
-//connection.Connection.deletUser("Noé");
-
-// Example of connection.Connection.deletBook() : removes a book from the db
-/*connection.Connection.getUser("Alexi", {projection : { _id : 1}}, (result) => {
-    connection.Connection.deletBook(110, 1, new Date('January 15, 2022 10:00:00'), new Date('January 15, 2022 12:00:00'), result[0]._id.toString());
-})*/
 
 //*******************
 //!       GET       !

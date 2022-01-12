@@ -16,7 +16,7 @@ const Connection = (function() {
    
 
     /**
-     * @function Connection.getRoom/Connection.getUser/Connection.getBook/Connection.getRoomWithId/Connection.getUserWithId/Connection.getBook
+     * @function Connection.getRoom/Connection.getUser/Connection.getBook/Connection.getRoomWithId/Connection.getUserWithId/Connection.getBookWithId/Connection.getUserWithMail
      * @param {String} collection
      * @param {Object} elem 
      * @param {Object} options
@@ -40,7 +40,7 @@ const Connection = (function() {
     /**
      * @function Connection.newBook
      * @param {Number} nbFloor
-     * @param {Number} nbBuild
+     * @param {String} nbBuild
      * @param {Date} start
      * @param {Date} finish 
      * @param {Number} time
@@ -59,33 +59,34 @@ const Connection = (function() {
     /**
      * @function Connection.newUser
      * @param {String} name 
+     * @param {String} mail
      * @param {String} mdp 
      * @param {Boolean} admin 
      * @param {Number} numClasse
      * @returns {}/
      * @description Execute a query to add an user to the db
      */
-    function addUser(name, mdp, admin, numClasse){
+    function addUser(name, mail, mdp, admin, numClasse){
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').insertOne({userName : name, isAdmin : admin, classe : numClasse, hash : mdp});
+            let cursor = db.collection('Users').insertOne({userName : name, isAdmin : admin, classe : numClasse, hash : mdp, email : mail});
         })
     }
 
     /**
      * @function Connection.getHash
-     * @param {String} name 
+     * @param {String} mail 
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
      * @description Execute a query to find the password
      */
-    function userHash(name, callback){
+    function userHash(mail, callback){
         let result = [];
 
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').find({userName : name}, { projection : { _id : 0, hash : 1}})
+            let cursor = db.collection('Users').find({email : mail}, { projection : { _id : 0, hash : 1}})
             result = await cursor.toArray();
 
             callback(result[0].hash);
@@ -134,7 +135,7 @@ const Connection = (function() {
     }
 
     /**
-     * @function Connection.deletBook/Connection.deletUser
+     * @function Connection.deletBook/Connection.deletUser/Connection.deletUserWithMail
      * @param {String} collection 
      * @param {Object} elem 
      * @return {}/
@@ -154,13 +155,15 @@ const Connection = (function() {
         getRoomWithId : (id, options, callback) => get("Rooms", {_id : new ObjectId(id)}, options, callback),
         getUserWithId : (id, options, callback) => get("Users", {_id : new ObjectId(id)}, options, callback),
         getReservationWithId : (id, options, callback) => get("Reservations", {_id : new ObjectID(id)}, options, callback),
+        getUserWithMail : (mail, options, callback) => get("Users", {email : mail}, options, callback),
         newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
-        newUser : (name, mdp, admin, numClasse) => addUser(name, mdp, admin, numClasse),
-        getHash : (name, callback) => userHash(name, callback),
+        newUser : (name, mail, mdp, admin, numClasse) => addUser(name, mail, mdp, admin, numClasse),
+        getHash : (mail, callback) => userHash(mail, callback),
         isUserNameExist : (name, callback) => checkUserName(name, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
         deletUser : (name) => suppr("Users", {userName : name}),
+        deletUserWithMail : (mail) => suppr("Users", {email : mail}),
         deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),        
     };
 })();
