@@ -1,8 +1,8 @@
 <!-- Connexion // accessible seulement aux gens déconnectés -->
-<li class="nav-item"><button id="GoConnexion" name="GoConnexion">Connexion</button></li>
+<li *ngIf="connected" class="nav-item"><button id="GoConnexion" name="GoConnexion">Connexion</button></li>
 <!-- Redirection vers Mon Compte // accessible seulement aux gens connectés -->
-<li class="nav-item">
+<li *ngIf="!connected" class="nav-item">
     <button id="GoCompte" class="navbar-brand bouton" name="GoCompte">Mon Compte</button>
 </li>
 <!-- Déconnexion // accessible seulement aux gens connectés -->
-<li class="nav-item"><button id="GoDeconnexion" name="GoDeconnexion">Déconnexion</button></li>
+<li *ngIf="!connected" class="nav-item"><button id="GoDeconnexion" name="GoDeconnexion">Déconnexion</button></li>
