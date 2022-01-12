@@ -204,17 +204,38 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
     });
 });
 
-app.post("/register/", (req, res) => {
+app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 100 }), body('password').trim().escape().isLength({min : 5, max: 100 }), body('username').trim().escape().isLength({min : 1, max : 20}), body('isAdmin').isBoolean(), body('classe').isNumeric(), (req, res) => {
     console.log("POST -> /register");
 
     let username = req.body.username; //username is the id TODO in the register form
     let password = req.body.password; //password is the id TODO in the register form
+    let email = req.body.email;
+    let isAdmin = req.body.isAdmin;
+    let classe = req.body.classe;
 
-    //TODO: verif user input
+    // Sanitize user intput
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
 
-    //TODO: store in the database and get the user id
+    // Store in the database and get the user id
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+            
+            if(err){
+                return res.status(400).json({
+                    errors: "Impossible to generate a password."
+                })
+            }
 
-    res.json(generateAccessToken({ id: 0 }))//! move into the request callback
+            connection.Connection.newUser(username, email, hash, isAdmin, classe);
+            
+            return res.status(200).json(generateAccessToken({ id: 0 }))//! move into the request callback
+        });
+    });
 
 });
 
