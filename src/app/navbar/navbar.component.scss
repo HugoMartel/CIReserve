@@ -8,6 +8,10 @@ nav {
   font-size: 20px;
 }
 
+nav img {
+  box-shadow: 5px 5px 5px #000000;
+}
+
 ul {
   margin: 0px;
   padding: 0px;
@@ -22,10 +26,30 @@ li {
 
 li a, .dropbtn {
   display: inline-block;
+  position: relative;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
   text-decoration: none;
+  text-shadow: 0.75px 0.75px rgba(255, 255, 255, 0.5);
+}
+
+a:not(#Logo):after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+a:not(#Logo):hover:after {
+  width: 100%;
+  left: 0;
 }
 
 li.dropdown {

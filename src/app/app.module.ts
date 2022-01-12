@@ -13,6 +13,7 @@ import { MapComponent } from './map/map.component';
 import { BookComponent } from './book/book.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ConnectedComponent } from './connected/connected.component';
 
 
 import { RequestService } from './services/request.service';
@@ -26,7 +27,8 @@ import { RequestService } from './services/request.service';
     MapComponent,
     BookComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConnectedComponent
   ],
   imports: [
     BrowserModule,

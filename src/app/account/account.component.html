@@ -1,2 +1,2 @@
-<button *ngIf="!connected" class="navBut" (click)="loginModalClick" name="accountBtn"> Login </button>
-<button *ngIf="connected" class="navBut" (click)="accountModalClick" name="accountBtn">{{name}}</button>
+<button *ngIf="!connected" class="navBut" (click)="loginModalClick()" name="accountBtn"> Login </button>
+<button *ngIf="connected" class="navBut" (click)="accountModalClick()" name="accountBtn">{{name}}</button>

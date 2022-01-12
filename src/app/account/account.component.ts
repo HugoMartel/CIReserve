@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
@@ -8,8 +7,8 @@ import { RequestService } from 'src/app/services/request.service';
     styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-    connected:boolean;
-    name?:string;
+    connected: boolean;
+    name?: string;
 
 
     constructor(private authService: RequestService) {
@@ -18,26 +17,15 @@ export class AccountComponent implements OnInit {
 
         this.connected = false;
 
-        // this.form = this.fb.group({
-        //     email: ['',Validators.required],
-        //     password: ['',Validators.required]
-        // });
     }
 
-    ngOnInit(): void {
-        console.log("OnInit Account Component");
-
-        /* Check Token to connect or not */
-        this.connected = this.authService.isLoggedIn() ? true : false;
-        if (this.connected) {
-            this.name = localStorage.getItem("id_token") as string;
-        }
-    }
-
+    //put this on the click of the login button
     loginModalClick() {
+        console.log("clicked login");
         (document.getElementById('loginModal') as HTMLElement).style.display = 'block';
         document.addEventListener('click', this.closingLoginFunc, false);
     }
+
 
     closingLoginFunc = (event: MouseEvent): void => {
         // If user either clicks X button OR clicks outside the modal window, then close modal
@@ -46,18 +34,51 @@ export class AccountComponent implements OnInit {
             console.log(event.target);
             if (
                 (element.matches('.close') ||
-                element.matches('.submitLogin') ||
-                !element.closest('.loginContent')) &&
+                    element.matches('.submitLogin') ||
+                    !element.closest('.loginContent')) &&
                 !element.matches('.navBut')
             ) {
-                (document.getElementById('loginModal') as HTMLElement).style.display = 'none';
+                (document.getElementById('loginModal') as HTMLElement).style.display =
+                    'none';
                 document.removeEventListener('click', this.closingLoginFunc);
             }
         }
-      }
+    }
 
+
+    closingConnectedFunc = (event: MouseEvent): void => {
+        // If user either clicks X button OR clicks outside the modal window, then close modal
+        if (event != null && event.target != null) {
+            const element = event.target as Element;
+            console.log(event.target);
+            if (
+                (element.matches('.close') ||
+                    element.matches('.disconnect') ||
+                    !element.closest('.accountContent')) &&
+                !element.matches('.navBut')
+            ) {
+                (document.getElementById('accountModal') as HTMLElement).style.display =
+                    'none';
+                document.removeEventListener('click', this.closingConnectedFunc);
+            }
+        }
+    }
+
+    //put this on the click of the account button
     accountModalClick() {
-        //TODO
+        (document.getElementById('accountModal') as HTMLElement).style.display = 'block';
+        document.addEventListener('click', this.closingLoginFunc, false);
+    }
+
+    // ON INIT
+    ngOnInit(): void {
+        console.log("OnInit Account Component");
+
+        /* Check Token to connect or not */
+        this.connected = this.authService.isLoggedIn() ? true : false;
+        if (this.connected) {
+            this.name = localStorage.getItem("id_token") as string;
+        }
     }
 
 }

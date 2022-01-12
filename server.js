@@ -114,7 +114,7 @@ app.get("*", (req, res) => {
 //*******************
 //!     POST        !
 //*******************
-app.post("/login/", (req, res) => {
+app.post("/login", (req, res) => {
     console.log("POST -> /login");
 
     let username = req.body.username; //username is the id TODO in the login form

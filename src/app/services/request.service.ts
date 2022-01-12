@@ -21,6 +21,7 @@ export class RequestService {
   }
 
   login(email: string, password: string):Observable<any> {
+    console.log(email, password);
     return this.http.post<any>(
       '/login',
       {

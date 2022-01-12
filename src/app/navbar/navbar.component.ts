@@ -15,10 +15,12 @@ export class NavbarComponent implements OnInit {
         this.admin = false;//TODO Check with RequestService
     }
 
+
     ngOnInit(): void {
         console.log("Init navbar");
         if (this.authService.isLoggedIn()) {
             this.admin = localStorage.getItem("admin") == "true";
         }
     }
+
 }
