@@ -1,5 +1,5 @@
 .modal {
-  display: hidden; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   float: center;
   z-index: 5; /* Sit on top */
@@ -9,7 +9,7 @@
   backdrop-filter: blur(4px);
 }
 
-.loginContent {
+.accountContent {
   border-radius: 25px;
   margin: 15rem auto auto auto;
   position: relative;
@@ -24,16 +24,16 @@
   animation-duration: 0.4s;
 }
 
-.loginContent form{
-    width: auto;
-    font-family: "Roboto";
-    text-align: center;
+.accountContent form {
+  width: auto;
+  font-family: "Roboto";
+  text-align: center;
 }
 
-.loginContent input {
-    box-shadow: 2.5px 1.25px 1.25px black;
-    text-align: center;
-    border-radius: 10px;
+.accountModal input {
+  box-shadow: 2.5px 1.25px 1.25px black;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .labelContent label {
@@ -42,20 +42,24 @@
   text-align: center;
 }
 
-.loginContent select {
+.accountContent select {
   padding: 5px;
   border-radius: 10px;
 }
 
-.submitLogin {
-    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
-    color: white;
-    border-radius: 15px;
-    width: 7rem;
-    height: 3rem;
+.accountContent a {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: black;
 }
 
-
+.disconnect {
+  background: linear-gradient(to right, rgba(203,45,62,1) 0%, rgba(239,71,58,1) 35%);
+  color: white;
+  border-radius: 15px;
+  width: 7rem;
+  height: 3rem;
+}
 
 @keyframes animatetop {
   from {
@@ -88,19 +92,23 @@
   font-family: Lato;
   text-align: center;
   padding: 2px 16px;
-  background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 102, 125),
+    rgb(255, 163, 117)
+  );
   color: white;
 }
 
 .modal-header h2 {
   padding-top: 0.5rem;
-  color:white;
+  color: white;
   text-align: center;
   width: 100%;
 }
 
-.loginContent hr {
-    margin: 1rem auto 1rem auto;
-    color: black;
-    width: 75%;
+.accountContent hr {
+  margin: 1rem auto 1rem auto;
+  color: black;
+  width: 75%;
 }
