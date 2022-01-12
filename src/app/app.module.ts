@@ -10,6 +10,11 @@ import { MapComponent } from './map/map.component';
 
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './book/book.component';
+import { LoginComponent } from './login/login.component';
+
+import { RequestService } from '../services/request.service';
+import { RegisterComponent } from './register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +22,16 @@ import { BookComponent } from './book/book.component';
     AccountComponent,
     FooterComponent,
     MapComponent,
-    BookComponent
+    BookComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ RequestService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
