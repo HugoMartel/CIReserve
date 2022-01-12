@@ -4,7 +4,8 @@
         <li>
             <!-- logo et nom -->
             <a id="Logo" routerLink="/home" routerLinkActive="active" name="GoParcours">
-                <img src="../../assets/img/logoisen.jpg" style="width:40px; border-radius: 50%; margin: auto 0.75rem auto 0.75rem" alt="Logo">
+                <img src="../../assets/img/logoisen.jpg"
+                    style="width:40px; border-radius: 50%; margin: auto 0.75rem auto 0.75rem" alt="Logo">
                 CIRéservé
             </a>
         </li>
@@ -17,27 +18,25 @@
         </li>
         <!-- Redirection vers réservation de salle // accessible à tous -->
         <li>
-            <a id="GoReservation" routerLink="/book" routerLinkActive="active"
-                name="GoReservation">Réservation
+            <a id="GoReservation" routerLink="/book" routerLinkActive="active" name="GoReservation">Réservation
                 de salle</a>
         </li>
         <!-- Redirections vers admin // accessible seulement aux admin -->
-        <!--<li *ngIf="admin" class="dropdown">-->
-        <li class="dropdown">
+        <li *ngIf="admin" class="dropdown">
             <a class="dropbtn" href="javascript:void(0)" role="button">Administration</a>
             <div class="dropdown-content">
                 <a id="GoRegister" href="#" name="GoRegister">Création
                     de compte</a>
-                <hr class="whiteHr"/>
+                <hr class="whiteHr" />
                 <a id="GoModifPlan" href="#" name="GoModifPlan">Modification
                     du plan</a>
-                <hr class="whiteHr"/>
+                <hr class="whiteHr" />
                 <a id="GoResaPerm" href="#" name="GoResaPerm">Création
                     de réservation permanente</a>
-                <hr class="whiteHr"/>
+                <hr class="whiteHr" />
                 <a id="GoModifResa" href="#" name="GoModifResa">Modification
                     de réservation existente</a>
-                <hr class="whiteHr"/>
+                <hr class="whiteHr" />
                 <a id="GoParametre" href="#" name="GoParametre">Paramètres
                     généraux</a>
             </div>
