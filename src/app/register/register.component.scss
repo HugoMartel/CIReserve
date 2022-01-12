@@ -123,8 +123,8 @@ input {
 }
 
 input:hover {
-    background-color: #ecf0f1;
-    color: #e2dedb;
+  background-color: #ecf0f1;
+  color: #e2dedb;
 }
 
 #submit {
@@ -151,10 +151,14 @@ input:hover {
 }
 
 .topBefore input:hover {
-    background-color: #ecf0f1;
-    color: #e2dedb;
+  background-color: #ecf0f1;
+  color: #e2dedb;
 }
 .topBefore select:hover {
-    background-color: #ecf0f1;
-    color: #e2dedb;
+  background-color: #ecf0f1;
+  color: #e2dedb;
+}
+
+.topBefore option{
+    color: black;
 }
