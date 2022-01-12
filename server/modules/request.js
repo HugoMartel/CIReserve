@@ -1,5 +1,5 @@
 /**
- * @file Main page of the project, start the webserver by executing it
+ * @file Request module used to communicate with the client
  * @author CIReserve
  * @version 1.0.0
  */

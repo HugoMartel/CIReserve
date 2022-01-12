@@ -1,0 +1,117 @@
+.modal {
+  display: hidden; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  float: center;
+  z-index: 5; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  backdrop-filter: blur(4px);
+}
+
+.loginContent {
+  border-radius: 25px;
+  margin: 15rem auto auto auto;
+  position: relative;
+  background-color: #fefefe;
+  padding: 0;
+  border: 1px solid #888;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.loginContent form{
+    width: auto;
+    font-family: "Roboto";
+    text-align: center;
+}
+
+.loginContent input {
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0.3px 0.3px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-radius: 7px;
+}
+
+.labelContent label {
+  //Centering it
+  width: 100%;
+  text-align: center;
+}
+
+.loginContent select {
+  padding: 5px;
+  border-radius: 7px;
+  box-shadow: 0.7px 0.5px 0.5px rgba(0, 0, 0, 0.19);
+}
+
+.submitLogin {
+    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
+    color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 7rem;
+    height: 3rem;
+}
+
+
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-radius: 25px 25px 0 0;
+  font-family: Lato;
+  text-align: center;
+  padding: 2px 16px;
+  background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
+  color: white;
+}
+
+.modal-header h2 {
+  padding-top: 0.5rem;
+  color:white;
+  text-align: center;
+  width: 100%;
+}
+
+.loginContent hr {
+    margin: 1rem auto 1rem auto;
+    color: black;
+    width: 75%;
+    height: 1px;
+}
+
+@-moz-document url-prefix() {
+  .modal {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+}
