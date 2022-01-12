@@ -1,8 +1,2 @@
-<!-- Connexion // accessible seulement aux gens déconnectés -->
-<li *ngIf="connected" class="nav-item"><button id="GoConnexion" name="GoConnexion">Connexion</button></li>
-<!-- Redirection vers Mon Compte // accessible seulement aux gens connectés -->
-<li *ngIf="!connected" class="nav-item">
-    <button id="GoCompte" class="navbar-brand bouton" name="GoCompte">Mon Compte</button>
-</li>
-<!-- Déconnexion // accessible seulement aux gens connectés -->
-<li *ngIf="!connected" class="nav-item"><button id="GoDeconnexion" name="GoDeconnexion">Déconnexion</button></li>
+<button *ngIf="!connected" class="navBut" (click)="loginModalClick" name="accountBtn"> Login </button>
+<button *ngIf="connected" class="navBut" (click)="accountModalClick" name="accountBtn">{{name}}</button>

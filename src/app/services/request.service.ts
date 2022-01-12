@@ -12,16 +12,16 @@ interface Login {
 const jsonHeaders:HttpHeaders = new HttpHeaders({'Content-Type':'application/json', 'Response-Type': 'application/json'});
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequestService {
 
   constructor(private http: HttpClient) {
-
+    console.log("Request Service constructed");
   }
 
   login(email: string, password: string):Observable<any> {
-    return this.http.post<Login>(
+    return this.http.post<any>(
       '/login',
       {
         'email': email,
@@ -31,16 +31,6 @@ export class RequestService {
         'headers': jsonHeaders
       }
     )
-
-    //TODO add to the appropriate button
-    // .subscribe((response) => {
-    //   if (response !== undefined) {
-    //     console.log(response);
-    //     this.setSession(response);
-    //   } else {
-    //     console.log("no response...")
-    //   }
-    // });
 
 
     // .do((res:any) => this.setSession).shareReplay();
@@ -59,6 +49,7 @@ export class RequestService {
   }
 
   public isLoggedIn() {
+    console.log("TEST LOGGED")
     return moment().isBefore(this.getExpiration());
   }
 
@@ -67,9 +58,13 @@ export class RequestService {
   }
 
   getExpiration() {
-    const expiration:string = localStorage.getItem("expires_at") as string;
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    const expiration:string|null = localStorage.getItem("expires_at");
+    if (expiration == null) {
+      return moment().subtract(1, 'months');
+    } else {
+      const expiresAt = JSON.parse(expiration);
+      return moment(expiresAt);
+    }
   }
 
 }

@@ -70,23 +70,24 @@ function authenticateToken(req, res, next) {
 
     if (token == null) {
         next();
-        return;
         //return res.json({ connected: false });
         //return res.sendStatus(401);
+    } else {
+
+        jwt.verify(token, TOKEN_RSA_PUBLIC_KEY, (err, id) => {
+            console.log(err)
+
+            if (err) {
+                console.log("Wrong auth token");
+                return res.sendStatus(403);
+            }
+
+            req.id = id;
+
+            next();
+        });
+
     }
-
-    jwt.verify(token, TOKEN_RSA_PUBLIC_KEY, (err, id) => {
-        console.log(err)
-
-        if (err) {
-            console.log("Wrong auth token");
-            return res.sendStatus(403);
-        }
-
-        req.id = id;
-
-        next();
-    })
 }
 
 

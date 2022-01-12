@@ -106,7 +106,7 @@ dist
 .tern-port
 
 # compiled output
-/dist
+# /dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
