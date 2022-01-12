@@ -31,9 +31,10 @@
 }
 
 .loginContent input {
-    box-shadow: 2.5px 1.25px 1.25px black;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0.3px 0.3px rgba(0, 0, 0, 0.3);
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .labelContent label {
@@ -44,12 +45,14 @@
 
 .loginContent select {
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 7px;
+  box-shadow: 0.7px 0.5px 0.5px rgba(0, 0, 0, 0.19);
 }
 
 .submitLogin {
     background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
     color: white;
+    border: 1px solid black;
     border-radius: 15px;
     width: 7rem;
     height: 3rem;
@@ -103,4 +106,5 @@
     margin: 1rem auto 1rem auto;
     color: black;
     width: 75%;
+    height: 1px;
 }
