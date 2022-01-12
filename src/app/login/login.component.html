@@ -5,9 +5,15 @@
       <span class="close">&times;</span>
     </div>
     <form class="modal-body">
-      <input type="email" name="email" placeholder="@(student).junia.com" style="width: auto;">
+      <label for="email">Email</label><br/>
+      <input type="email" name="email" style="width: 55%; margin: auto 0.5rem auto 0.5rem">
+      <select style="width:40%">
+        <option value="junia">@junia.com</option>
+        <option value="student">@student.junia.com</option>
+      </select>
       <hr />
-      <input type="password" name="password" placeholder="password">
+      <label for="password">Password</label><br/>
+      <input type="password" name="password">
       <hr />
       <button class="submitLogin" (click)="submitLogin()">Login</button>
     </form>

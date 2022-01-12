@@ -26,7 +26,6 @@ export class NavbarComponent implements OnInit {
         (document.getElementById('loginModal') as HTMLElement).style.display =
           'none';
         document.removeEventListener('click', this.closingFunc);
-        console.log('removed');
       }
     }
   };

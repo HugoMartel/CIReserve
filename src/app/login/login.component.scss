@@ -16,7 +16,7 @@
   background-color: #fefefe;
   padding: 0;
   border: 1px solid #888;
-  width: 20%;
+  width: 25%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -36,11 +36,26 @@
     border-radius: 10px;
 }
 
+.labelContent label {
+  //Centering it
+  width: 100%;
+  text-align: center;
+}
+
+.loginContent select {
+  padding: 5px;
+  border-radius: 10px;
+}
+
 .submitLogin {
     background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
     color: white;
     border-radius: 15px;
+    width: 7rem;
+    height: 3rem;
 }
+
+
 
 @keyframes animatetop {
   from {
