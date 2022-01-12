@@ -1,45 +1,50 @@
 <!-- Barre Navigation à insérer dans toutes les pages -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <!-- logo et nom -->
-        <a id="Logo" routerLink="/home" routerLinkActive="active" class="navbar-brand bouton" name="GoParcours">
-            <img src="../../assets/img/logoisen.jpg" style="width:40px;" class="rounded-pill" alt="Logo">
-            CIRéservé
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <!-- Redirection vers parcours de Junia // accessible à tous -->
-                <li class="nav-item">
-                    <a id="GoParcours" routerLink="/home" routerLinkActive="active" class="navbar-brand bouton" name="GoParcours">Parcours dans Junia
-                        ISEN</a>
-                </li>
-                <!-- Redirection vers réservation de salle // accessible à tous -->
-                <li class="nav-item">
-                    <a id="GoReservation" routerLink="/book" routerLinkActive="active" class="navbar-brand bouton" name="GoReservation">Réservation de
-                        salle</a>
-                </li>
-                <!-- Redirections vers admin // accessible seulement aux admin -->
-                <li *ngIf="admin" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown">Administration</a>
-                    <ul class="dropdown-menu">
-                        <li><button id="GoRegister" class="navbar-brand bouton" name="GoRegister"
-                                style="color:black">Création de compte</button></li>
-                        <li><button id="GoModifPlan" class="navbar-brand bouton" name="GoModifPlan"
-                                style="color:black">Modification du plan</button></li>
-                        <li><button id="GoResaPerm" class="navbar-brand bouton" name="GoResaPerm"
-                                style="color:black">Création de réservation permanente</button></li>
-                        <li><button id="GoModifResa" class="navbar-brand bouton" name="GoModifResa"
-                                style="color:black">Modification de réservation existente</button></li>
-                        <li><button id="GoParametre" class="navbar-brand bouton" name="GoParametre"
-                                style="color:black">Paramètres généraux</button></li>
-                    </ul>
-                </li>
-                <app-account></app-account>
-            </ul>
-        </div>
-    </div>
+<nav>
+    <ul>
+        <li>
+            <!-- logo et nom -->
+            <a id="Logo" routerLink="/home" routerLinkActive="active" name="GoParcours">
+                <img src="../../assets/img/logoisen.jpg" style="width:40px; border-radius: 50%; margin: auto 0.75rem auto 0.75rem" alt="Logo">
+                CIRéservé
+            </a>
+        </li>
+        <!-- Redirection vers parcours de Junia // accessible à tous -->
+        <li>
+            <a id="GoParcours" routerLink="/home" routerLinkActive="active" name="GoParcours">Parcours
+                dans
+                Junia
+                ISEN</a>
+        </li>
+        <!-- Redirection vers réservation de salle // accessible à tous -->
+        <li>
+            <a id="GoReservation" routerLink="/book" routerLinkActive="active"
+                name="GoReservation">Réservation
+                de salle</a>
+        </li>
+        <!-- Redirections vers admin // accessible seulement aux admin -->
+        <!--<li *ngIf="admin" class="dropdown">-->
+        <li class="dropdown">
+            <a class="dropbtn" href="javascript:void(0)" role="button">Administration</a>
+            <div class="dropdown-content">
+                <a id="GoRegister" href="#" name="GoRegister">Création
+                    de compte</a>
+                <hr class="whiteHr"/>
+                <a id="GoModifPlan" href="#" name="GoModifPlan">Modification
+                    du plan</a>
+                <hr class="whiteHr"/>
+                <a id="GoResaPerm" href="#" name="GoResaPerm">Création
+                    de réservation permanente</a>
+                <hr class="whiteHr"/>
+                <a id="GoModifResa" href="#" name="GoModifResa">Modification
+                    de réservation existente</a>
+                <hr class="whiteHr"/>
+                <a id="GoParametre" href="#" name="GoParametre">Paramètres
+                    généraux</a>
+            </div>
+        </li>
+        <li class="nav-li">
+            <button class="navBut" (click)="loginModalClick()"> login </button>
+        </li>
+        <!--<app-account></app-account>-->
+    </ul>
 </nav>
