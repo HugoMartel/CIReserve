@@ -2,11 +2,11 @@
 
     <div class="buttonGroup">
         <label for="selectDate">Heure & date de réservation</label>
-        <input type="date" id="selectDate" name="selectDate">
+        <input (change)="dateUpdateCallback()" type="date" id="selectDate" name="selectDate">
         <label for="beginTime">Début :</label>
-        <input type="time" name="beginTime" id="beginTime">
+        <input (change)="dateUpdateCallback()" type="time" name="beginTime" id="beginTime">
         <label for="endTime">Fin :</label>
-        <input type="time" name="endTime" id="endTime">
+        <input (change)="dateUpdateCallback()" type="time" name="endTime" id="endTime">
         <hr />
         <button (click)="clickBtn1()" id="btn1" type="button" class="">Etage 100</button>
         <button (click)="clickBtn2()" id="btn2" type="button" class="">Etage 2/300</button>
@@ -25,34 +25,17 @@
         </svg>
     </div>
 
+  <div id="etageContainer">
+    <img id="current_etage" src="../../assets/img/400.jpg" alt="Etage 400" />
+    <svg id="room_coords">
+        <!-- To insert into -->
+    </svg>
+  </div>
 </div>
 
-
-<hr/>
-
-<!-- <script src="js/etages.js"></script> -->
-
-<!-- Button trigger modal -->
-<!-- Modal -->
 
 <div id="infoModal" class="modal">
     <div class="infoContent">
-        <div class="modal-header">
-            <h2>room number</h2>
-            <span class="close">&times;</span>
-        </div>
-        <div class="modal-body">
-            <h6> Statut réservation : </h6>
-            <h6> Capacité salle : </h6>
-            <h6> Projecteur :</h6>
-            <h6> Nombre de prises :</h6>
-            <hr/>
-            <button class="book">Réserver</button>
-        </div>
-    </div>
+        <!-- To insert into -->
+  </div>
 </div>
-
-    <!-- To change into an <area> -->
-    <button type="button" (click)="showModal()" class="roomInfoBtn">
-        Informations sur la salle
-    </button>
