@@ -7,53 +7,169 @@
 // }
 
 .parent {
-    display: grid;
-    grid-template-columns: 1fr 9fr;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+
+.parent hr {
+  color: black;
+  width: 75%;
+}
+
+#etageContainer {
+  margin-top: 1rem;
 }
 
 #current_etage {
-    margin-top: 1rem;
-    margin-left: 25%;
-    padding: 2rem;
-    width: 1082px;
-    height: 723px;
-    border: 1px solid black;
-    border-radius: 7px;
-    box-shadow: 2px 2px rgb(0, 0, 0, 0.5)
+  margin-top: 1rem;
+  margin-left: 25%;
+  padding: 2rem;
+  width: 1082px;
+  height: 723px;
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 2px 2px rgb(0, 0, 0, 0.5);
 }
 
-
 .buttonGroup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
 
 .buttonGroup button {
-    transition: all .5s ease;
-    //background-color: transparent;
-    border: 1px solid black;
-    border-radius: 7px;
-    font-family: Lato, arial;
-    margin: 0.5rem;
-    width: 80%;
+  transition: all 0.5s ease;
+  //background-color: transparent;
+  border: 1px solid black;
+  border-radius: 7px;
+  font-family: Lato, arial;
+  margin: 0.5rem;
+  width: 80%;
 }
 
 .buttonGroup button:hover {
-    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 102, 125),
+    rgb(255, 163, 117)
+  );
 }
 
 .current {
-    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
-    color:white;
-    text-shadow: 0.75px 0.75px rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 102, 125),
+    rgb(255, 163, 117)
+  );
+  color: white;
+  text-shadow: 0.75px 0.75px rgba(255, 255, 255, 0.5);
 }
 
 .buttonGroup input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    border-radius: 7px;
-    font-family: "Roboto", arial;
-    border: 1px solid black;
+  margin-left: 1rem;
+  border-radius: 7px;
+  font-family: "Roboto", arial;
+  border: 1px solid black;
+}
+
+.buttonGroup label {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-left: 0rem;
+  margin-bottom:0.5rem;
+}
+
+//modal...
+
+.modal {
+  display: hidden; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  float: center;
+  z-index: 5; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  backdrop-filter: blur(4px);
+}
+
+.infoContent {
+  text-align: center;
+  border-radius: 25px;
+  margin: 7% auto auto auto;
+  position: relative;
+  background-color: #fefefe;
+  padding: 0;
+  border: 1px solid #888;
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.book {
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 102, 125),
+    rgb(255, 163, 117)
+  );
+  color: white;
+  border-radius: 15px;
+  width: 7rem;
+  height: 3rem;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-radius: 25px 25px 0 0;
+  font-family: Lato;
+  text-align: center;
+  padding: 2px 16px;
+  background-image: linear-gradient(
+    to right,
+    rgb(254, 102, 125),
+    rgb(255, 163, 117)
+  );
+  color: white;
+}
+
+.modal-header h2 {
+  padding-top: 0.5rem;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.infoContent hr {
+  margin: 1rem auto 1rem auto;
+  color: black;
+  width: 75%;
 }

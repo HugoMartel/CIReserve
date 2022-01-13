@@ -9,16 +9,13 @@ html {
     font-style: italic;
 }
 
+@font-face {
+    font-family: "Roboto";
+    src: url('../assets//fonts/roboto.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-}
-
-app-navbar {
-    min-height: 15%;
-}
-
-app-foooter {
-    flex-shrink: 0;
-    min-height: 10%
+    margin-bottom:60px;
 }

@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-
-  current_button:number;
+  current_button: number;
 
   constructor(/*private route:Router*/) {
     this.current_button = 3;
@@ -18,12 +17,19 @@ export class MapComponent implements OnInit {
   clickBtn1() {
     if (this.current_button != 1) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn1") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn1') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 1;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/100.png";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/100.png';
     }
   }
 
@@ -31,12 +37,19 @@ export class MapComponent implements OnInit {
   clickBtn2() {
     if (this.current_button != 2) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn2") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn2') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 2;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/300.jpg";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/300.jpg';
     }
   }
 
@@ -44,12 +57,19 @@ export class MapComponent implements OnInit {
   clickBtn3() {
     if (this.current_button != 3) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn3") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn3') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 3;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/400.png";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/400.png';
     }
   }
 
@@ -57,12 +77,19 @@ export class MapComponent implements OnInit {
   clickBtn4() {
     if (this.current_button != 4) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn4") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn4') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 4;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/600.jpg";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/600.jpg';
     }
   }
 
@@ -70,12 +97,19 @@ export class MapComponent implements OnInit {
   clickBtn5() {
     if (this.current_button != 5) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn5") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn5') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 5;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/800.jpg";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/800.jpg';
     }
   }
 
@@ -83,22 +117,51 @@ export class MapComponent implements OnInit {
   clickBtn6() {
     if (this.current_button != 6) {
       // Change the current button class
-      (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
-      (document.getElementById("btn6") as HTMLButtonElement).classList.add("current");
+      (
+        document.getElementById(
+          'btn' + this.current_button
+        ) as HTMLButtonElement
+      ).classList.remove('current');
+      (document.getElementById('btn6') as HTMLButtonElement).classList.add(
+        'current'
+      );
       this.current_button = 6;
 
       // Change the img src
-      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/900.jpg";
+      (document.getElementById('current_etage') as HTMLImageElement).src =
+        '../../assets/img/900.jpg';
     }
   }
 
+  showModal() {
+    (document.getElementById('infoModal') as HTMLElement).style.display =
+      'block';
+    document.addEventListener('click', this.closingLoginFunc, false);
+  }
 
+  closingLoginFunc = (event: MouseEvent): void => {
+    // If user either clicks X button OR clicks outside the modal window, then close modal
+    if (event != null && event.target != null) {
+      const element = event.target as Element;
+
+      // Check if the element is closable
+      if (
+        (element.matches('.close') ||
+          !element.closest('.infoContent')) &&
+        !element.matches('.roomInfoBtn') &&
+        !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
+      ) {
+        // remove the modal
+        (document.getElementById('infoModal') as HTMLElement).style.display =
+          'none';
+        // Remove the close event listener
+        document.removeEventListener('click', this.closingLoginFunc);
+      }
+    }
+  };
   // Request info on the floor from the server
-
-
 
   ngOnInit(): void {
     // this.route.navigate(['/home']);
   }
-
 }

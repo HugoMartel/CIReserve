@@ -1,6 +1,11 @@
 footer {
-    position: relative;
+    position: fixed;
     width: 100%;
+    left: 0px;
+    right: 0px;
+    height:50px;
+    margin-bottom: 0px;
+    bottom: 0;
     background-color: #333;
     color: white;
     font-size: 0.8rem;
@@ -12,7 +17,7 @@ footer {
 }
 
 div.separator {
-    height: 30px;
+    height: 10px;
     background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
     //box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.5);
 }

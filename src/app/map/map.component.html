@@ -1,7 +1,12 @@
 <div class='parent'>
 
     <div class="buttonGroup">
-        <input type="datetime-local" id="horaire" name="selectDate">
+        <label for="selectDate">Heure & date de réservation</label>
+        <input type="date" id="selectDate" name="selectDate">
+        <label for="beginTime">Début :</label>
+        <input type="time" name="beginTime" id="beginTime">
+        <label for="endTime">Fin :</label>
+        <input type="time" name="endTime" id="endTime">
         <hr />
         <button (click)="clickBtn1()" id="btn1" type="button" class="">Etage 100</button>
         <button (click)="clickBtn2()" id="btn2" type="button" class="">Etage 2/300</button>
@@ -19,43 +24,31 @@
 </div>
 
 
-<hr />
+<hr/>
 
 <!-- <script src="js/etages.js"></script> -->
 
 <!-- Button trigger modal -->
-<!-- To change into an <area> -->
-<button type="button" class="roomInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Informations sur la salle
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="testModal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="id_salle" id="testModalLabel">Salle </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-            </div>
-            <div class="modal-body">
-
-                <h6> Statut réservation : </h6>
-
-                <h6> Capacité salle : </h6>
-
-
-                <h6> Projecteur :</h6>
-
-                <h6> Nombre de prises :</h6>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Réserver</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+<div id="infoModal" class="modal">
+    <div class="infoContent">
+        <div class="modal-header">
+            <h2>room number</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h6> Statut réservation : </h6>
+            <h6> Capacité salle : </h6>
+            <h6> Projecteur :</h6>
+            <h6> Nombre de prises :</h6>
+            <hr/>
+            <button class="book">Réserver</button>
         </div>
     </div>
-
 </div>
+
+    <!-- To change into an <area> -->
+    <button type="button" (click)="showModal()" class="roomInfoBtn">
+        Informations sur la salle
+    </button>
