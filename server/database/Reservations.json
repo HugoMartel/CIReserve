@@ -12,7 +12,7 @@
   "user": "61dd90b23b4e68067486d38a",
   "reason": "project",
   "building": "B",
-  "floor": 108
+  "floor": 804
 },{
   "_id": {
     "$oid": "61ddf4da25b0723f2661372f"
@@ -43,4 +43,64 @@
   "reason": "project",
   "building": "C",
   "floor": 956
+},{
+  "_id": {
+    "$oid": "61e0b8579163996a83291f34"
+  },
+  "begin": {
+    "$date": "2022-01-11T08:00:00Z"
+  },
+  "end": {
+    "$date": "2022-01-11T10:00:00Z"
+  },
+  "duration": 2,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": "B",
+  "floor": 803
+},{
+  "_id": {
+    "$oid": "61e0b85f9163996a83291f35"
+  },
+  "begin": {
+    "$date": "2022-01-11T08:00:00Z"
+  },
+  "end": {
+    "$date": "2022-01-11T10:00:00Z"
+  },
+  "duration": 2,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": "B",
+  "floor": 802
+},{
+  "_id": {
+    "$oid": "61e0b86b9163996a83291f36"
+  },
+  "begin": {
+    "$date": "2022-01-14T08:30:00Z"
+  },
+  "end": {
+    "$date": "2022-01-14T17:30:00Z"
+  },
+  "duration": 9,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": "C",
+  "floor": 955
+},{
+  "_id": {
+    "$oid": "61e0b8729163996a83291f37"
+  },
+  "begin": {
+    "$date": "2022-01-14T08:30:00Z"
+  },
+  "end": {
+    "$date": "2022-01-14T17:30:00Z"
+  },
+  "duration": 9,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": "C",
+  "floor": 954
 }]
