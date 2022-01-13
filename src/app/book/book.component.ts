@@ -37,7 +37,5 @@ export class BookComponent implements OnInit {
         document.removeEventListener('click', this.closingBookFunc);
       }
     }
-  };
-
-
+  }
 }

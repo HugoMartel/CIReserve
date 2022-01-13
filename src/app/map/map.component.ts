@@ -9,7 +9,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 })
 export class MapComponent implements OnInit {
   current_button: number;
-  point_array:number[];
+  point_array: number[];
 
   constructor(private bookService:BookService) {
     this.current_button = 3;
@@ -136,7 +136,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  //
+  // Callback if the dates values have changed and query the database/server
   dateUpdateCallback() {
 
     let date = (document.getElementById('selectDate') as HTMLInputElement).value;
@@ -161,6 +161,12 @@ export class MapComponent implements OnInit {
     // |         5 | 700/800         |
     // |         6 | 900             |
     // +-----------+-----------------+
+    /*
+      ___               ___
+     (o o)             (o o)
+    (  V  ) js = caca (  V  )
+------m-m---------------m-m---
+____*/
 
     this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
       if (response !== undefined) {
@@ -220,6 +226,7 @@ export class MapComponent implements OnInit {
     });
   }
 
+  //callback of the info modal to close it if click somewhere
   closingModalFunc = (event: MouseEvent): void => {
     // If user either clicks X button OR clicks outside the modal window, then close modal
     if (event != null && event.target != null) {
@@ -241,6 +248,7 @@ export class MapComponent implements OnInit {
     }
   };
 
+
   closingLoginFunc = (event: MouseEvent): void => {
     // If user either clicks X button OR clicks outside the modal window, then close modal
     if (event != null && event.target != null) {
@@ -248,10 +256,10 @@ export class MapComponent implements OnInit {
 
       // Check if the element is closable
       if (
-        (element.matches('.close') ||
-          !element.closest('.infoContent')) &&
+        (element.matches('.close') || !element.closest('.infoContent')) &&
         !element.matches('.roomInfoBtn') &&
-        !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
+        !element.matches('.infoContent') &&
+        !element.matches('.roomInfoBtn')/*TMP TO REMOVE */
       ) {
         // remove the modal
         (document.getElementById('infoModal') as HTMLElement).style.display =
@@ -261,6 +269,39 @@ export class MapComponent implements OnInit {
       }
     }
   };
+
+  //function to open the booking modal from the info one
+  bookModalFromInfo() {
+    (document.getElementById('bookModal') as HTMLElement).style.display =
+      'block';
+    document.addEventListener('click', this.closingBookFromInfoFunc, false);
+  }
+
+  //callback to close the booking modal if clicked somewhere else
+  closingBookFromInfoFunc = (event: MouseEvent): void => {
+    // If user either clicks X button OR clicks outside the modal window, then close modal but no click on
+    if (event != null && event.target != null) {
+      const element = event.target as Element;
+
+      // Check if the element is closable
+      if (
+        (element.matches('.close') || !element.closest('.bookContent')) &&
+        !element.matches('.openBook') &&
+        !element.matches('.bookContent') &&
+        !element.matches('.bookSubmit')
+      ) {
+        // remove the modal
+        (document.getElementById('bookModal') as HTMLElement).style.display =
+          'none';
+        // Remove the close event listener
+        document.removeEventListener('click', this.closingBookFromInfoFunc);
+      }
+    }
+    //closing the other one;
+    (document.getElementById('infoModal') as HTMLElement).style.display =
+      'none';
+  };
+
   // Request info on the floor from the server
 
   ngOnInit(): void {
@@ -270,7 +311,7 @@ export class MapComponent implements OnInit {
     const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));
     (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[2] + "-" + nowDate[1] + "-" + nowDate[0];
     (document.getElementById("beginTime") as HTMLInputElement).value = nowTime;
-    (document.getElementById("endTime") as HTMLInputElement).value =  parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 7 ? pastTime : '0' + pastTime ) : "23:59:00";
+    (document.getElementById("endTime") as HTMLInputElement).value = parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 7 ? pastTime : '0' + pastTime ) : "23:59:00";
 
     // Request the default floor
     this.dateUpdateCallback();
@@ -284,3 +325,4 @@ export class MapComponent implements OnInit {
     });
   }
 }
+

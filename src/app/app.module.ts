@@ -17,6 +17,7 @@ import { ConnectedComponent } from './connected/connected.component';
 
 
 import { RequestService } from './services/request.service';
+import { BookModalComponent } from './book-modal/book-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RequestService } from './services/request.service';
     BookComponent,
     LoginComponent,
     RegisterComponent,
-    ConnectedComponent
+    ConnectedComponent,
+    BookModalComponent
   ],
   imports: [
     BrowserModule,
