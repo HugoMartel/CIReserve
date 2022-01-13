@@ -1,4 +1,27 @@
-<canvas id="mapCanvas">Your browser doesn't support the Canvas element...</canvas>
+<div class='parent'>
+
+    <div class="buttonGroup">
+        <input type="datetime-local" id="horaire" name="selectDate">
+        <hr />
+        <button (click)="clickBtn1()" id="btn1" type="button" class="">Etage 100</button>
+        <button (click)="clickBtn2()" id="btn2" type="button" class="">Etage 2/300</button>
+        <button (click)="clickBtn3()" id="btn3" type="button" class="current">Etage 4/500</button>
+        <button (click)="clickBtn4()" id="btn4" type="button" class="">Etage 600</button>
+        <button (click)="clickBtn5()" id="btn5" type="button" class="">Etage 7/800</button>
+        <button (click)="clickBtn6()" id="btn6" type="button" class="">Etage 900</button>
+    </div>
+
+
+    <div id="etageContainer">
+        <img id="current_etage" src="../../assets/img/400.png" alt="Etage 400" />
+    </div>
+
+</div>
+
+
+<hr />
+
+<!-- <script src="js/etages.js"></script> -->
 
 <!-- Button trigger modal -->
 <!-- To change into an <area> -->

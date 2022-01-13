@@ -1,7 +1,59 @@
-.roomInfoBtn {
-    position: fixed;
-    inset: 10rem 2rem auto auto;
-    background-color:black;
+// .roomInfoBtn {
+//     position: fixed;
+//     inset: 10rem 2rem auto auto;
+//     background-color:black;
+//     color:white;
+//     box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+// }
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+}
+
+#current_etage {
+    margin-top: 1rem;
+    margin-left: 25%;
+    padding: 2rem;
+    width: 1082px;
+    height: 723px;
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 2px 2px rgb(0, 0, 0, 0.5)
+}
+
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.buttonGroup button {
+    transition: all .5s ease;
+    //background-color: transparent;
+    border: 1px solid black;
+    border-radius: 7px;
+    font-family: Lato, arial;
+    margin: 0.5rem;
+    width: 80%;
+}
+
+.buttonGroup button:hover {
+    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
+}
+
+.current {
+    background-image: linear-gradient(to right,rgb(254, 102, 125), rgb(255, 163, 117));
     color:white;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    text-shadow: 0.75px 0.75px rgba(255, 255, 255, 0.5);
+}
+
+.buttonGroup input {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-radius: 7px;
+    font-family: "Roboto", arial;
+    border: 1px solid black;
 }

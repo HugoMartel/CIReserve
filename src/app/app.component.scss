@@ -8,3 +8,17 @@ html {
     font-weight: bold;
     font-style: italic;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+app-navbar {
+    min-height: 15%;
+}
+
+app-foooter {
+    flex-shrink: 0;
+    min-height: 10%
+}

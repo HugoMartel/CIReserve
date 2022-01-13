@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 interface Login {
   email: string;
