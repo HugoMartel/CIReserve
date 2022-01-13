@@ -27,7 +27,7 @@ export class AccountComponent implements OnInit {
                 (element.matches('.close') ||
                     element.matches('.submitLogin') ||
                     !element.closest('.loginContent')) &&
-                !element.matches('.navBut')
+                (!element.matches('.navBut') && !element.matches(".submitLogin"))
             ) {
                 // remove the modal
                 (document.getElementById('loginModal') as HTMLElement).style.display = 'none';
