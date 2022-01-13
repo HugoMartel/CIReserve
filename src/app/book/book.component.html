@@ -1,1 +1,64 @@
-<p>book works!</p>
+<!--begin booking modal-->
+<div id="bookModal" class="modal">
+    <div class="bookContent">
+        <div class="modal-header">
+            <h2>Réservation</h2>
+            <span class="close">&times;</span>
+        </div>
+        <form class="modal-body">
+            <label for="dateB">Date et Heure début: </label>
+            <input type="date" id="date"><br/>
+            <label for="dateE">Date et Heure fin: </label>
+            <input type="date" id="date"><br/>
+            <label for="reason">Motif: </label>
+            <input type="text" id="reason"><br/>
+            <label for="room">Salle: </label>
+            <input type="text" id="room"><br/>
+            <hr/>
+            <button class="bookSubmit">Réserver</button>
+        </form>
+    </div>
+</div>
+<!--end booking modal-->
+
+
+<!--start of the code-->
+<div class="bookings">
+    <div class="bookingHeader">
+        <h1>Mes réservations</h1>
+        <button (click)="showBookModal()" class="showBook">Ajouter une réservation</button>
+        <hr /><br />
+    </div>
+    <table>
+        <tr class="tableHead">
+            <th class="date">Date</th>
+            <th class="room">Salle</th>
+            <th class="why">Motif</th>
+        </tr>
+        <tr>
+            <td>12/24 12h25, 12/24 16h12</td>
+            <td>C956</td>
+            <td>fioghriojgprjioepoerjpoejpogjfmiogjtrhotriohgreio</td>
+        </tr>
+        <tr>
+            <td>12/24 12h25, 12/24 16h12</td>
+            <td>C956</td>
+            <td>fioghriojgprjioepoerjpoejpogjfmiogjtrhotriohgreio</td>
+        </tr>
+        <tr>
+            <td>12/24 12h25, 12/24 16h12</td>
+            <td>C956</td>
+            <td>fioghriojgprjioepoerjpoejpogjfmiogjtrhotriohgreio</td>
+        </tr>
+        <tr>
+            <td>12/24 12h25, 12/24 16h12</td>
+            <td>C956</td>
+            <td>fioghriojgprjioepoerjpoejpogjfmiogjtrhotriohgreio</td>
+        </tr>
+        <tr>
+            <td>12/24 12h25, 12/24 16h12</td>
+            <td>C956</td>
+            <td>fioghriojgprjioepoerjpoejpogjfmiogjtrhotriohgreio</td>
+        </tr>
+    </table>
+</div>
