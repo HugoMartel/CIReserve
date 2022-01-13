@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as moment from 'moment';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-map',
@@ -209,11 +210,15 @@ ____*/
             // Append to the svg
             svgElement.innerHTML += poly;
 
-            (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
-              (e.target as HTMLElement).style.display = 'block';
-              document.addEventListener('click', this.closingModalFunc, false);
-            });
+          });
 
+          response.rooms.forEach( (room:any):void => {
+            // Display room informations
+            (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
+              (document.getElementsByClassName("infoContent")[0] as HTMLElement).innerHTML = room.modalContent;
+              (document.getElementById('infoModal') as HTMLElement).style.display = 'block';
+              document.addEventListener('click', this.closingModalFunc, true);
+            });
           });
 
         } else {
