@@ -403,4 +403,3034 @@
   "other": "Locaux divers atelier de mécanique",
   "roomSize_m2": 79.24,
   "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df50da609312af4e83426e"
+  },
+  "floor": 301,
+  "building": "B",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Bureaux",
+  "roomSize_m2": 26,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df511c609312af4e83426f"
+  },
+  "floor": 302,
+  "building": "B",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 7,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "BDE",
+  "roomSize_m2": 16.3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5170609312af4e834270"
+  },
+  "floor": 303,
+  "building": "B",
+  "nbPerson": 20,
+  "hasProj": false,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "secretariat",
+  "roomSize_m2": 52,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df51a8609312af4e834271"
+  },
+  "floor": 304,
+  "building": "B",
+  "nbPerson": 60,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 67,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df51c0609312af4e834272"
+  },
+  "floor": 305,
+  "building": "B",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 67,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df5212609312af4e834273"
+  },
+  "floor": 306,
+  "building": "B",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 7,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5430609312af4e834274"
+  },
+  "floor": 307,
+  "building": "B",
+  "nbPerson": 18,
+  "hasProj": false,
+  "nbPlug": 21,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 45,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5475609312af4e834275"
+  },
+  "floor": 308,
+  "building": "B",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de reunion",
+  "roomSize_m2": 17.6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5494609312af4e834276"
+  },
+  "floor": 309,
+  "building": "B",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 3,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "stockage",
+  "roomSize_m2": 7.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df559d609312af4e834277"
+  },
+  "floor": 251,
+  "building": "C",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 1,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes F",
+  "roomSize_m2": 7.46,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df55bf609312af4e834278"
+  },
+  "floor": 252,
+  "building": "C",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes H",
+  "roomSize_m2": 9.57,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5633609312af4e834279"
+  },
+  "floor": 253,
+  "building": "C",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA Bassin d'essais",
+  "roomSize_m2": 130,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df567a609312af4e83427a"
+  },
+  "floor": 254,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 17.7,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5698609312af4e83427b"
+  },
+  "floor": 255,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 17.9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df56ba609312af4e83427c"
+  },
+  "floor": 256,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 16,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 27,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5735609312af4e83427d"
+  },
+  "floor": 257,
+  "building": "C",
+  "nbPerson": 16,
+  "hasProj": false,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA labo (56m2+16m2+16.8m2)",
+  "roomSize_m2": 88.8,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5a42609312af4e83427e"
+  },
+  "floor": 351,
+  "building": "C",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 1,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes H",
+  "roomSize_m2": 8.7,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5a5d609312af4e83427f"
+  },
+  "floor": 352,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 1,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes F",
+  "roomSize_m2": 10,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5b0d609312af4e834280"
+  },
+  "floor": 353,
+  "building": "C",
+  "nbPerson": 25,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salles de reunion",
+  "roomSize_m2": 40.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5e6b609312af4e834281"
+  },
+  "floor": 354,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 18.75,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5e9c609312af4e834282"
+  },
+  "floor": 355,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 16.75,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5ee6609312af4e834283"
+  },
+  "floor": 356,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 18.12,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5f1c609312af4e834284"
+  },
+  "floor": 357,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 17.64,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5f6e609312af4e834285"
+  },
+  "floor": 358,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA bureau",
+  "roomSize_m2": 15.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df5fb0609312af4e834286"
+  },
+  "floor": 359,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "RA secretariat",
+  "roomSize_m2": 15.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df62dd609312af4e834287"
+  },
+  "floor": 401,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "?",
+  "roomSize_m2": 3.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df636d609312af4e834289"
+  },
+  "floor": 402,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "?",
+  "roomSize_m2": 7,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df638b609312af4e83428a"
+  },
+  "floor": 403,
+  "building": "A",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Reserves TP",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df6475609312af4e83428b"
+  },
+  "floor": 404,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 3,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Chambre Gardien",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df6484609312af4e83428c"
+  },
+  "floor": 405,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 3,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Chambre Gardien",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df6588609312af4e83428d"
+  },
+  "floor": 406,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "Sanitaires",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df65dd609312af4e83428e"
+  },
+  "floor": 407,
+  "building": "A",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Local Al",
+  "roomSize_m2": 20.15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df670c609312af4e83428f"
+  },
+  "floor": 408,
+  "building": "A",
+  "nbPerson": 42,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP Prepa (21 postes)",
+  "roomSize_m2": 102,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df675c609312af4e834290"
+  },
+  "floor": 409,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP Stockage",
+  "roomSize_m2": 23,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61df69c4609312af4e834291"
+  },
+  "floor": 410,
+  "building": "A",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Projet Special/4 postes",
+  "roomSize_m2": 22,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df6b05609312af4e834292"
+  },
+  "floor": 411,
+  "building": "A",
+  "nbPerson": 16,
+  "hasProj": true,
+  "nbPlug": 16,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP info prépa/8 postes",
+  "roomSize_m2": 50,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df6b96609312af4e834293"
+  },
+  "floor": 412,
+  "building": "A",
+  "nbPerson": 20,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP info prépa/10 postes",
+  "roomSize_m2": 47.92,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df6c12609312af4e834294"
+  },
+  "floor": 401,
+  "building": "C",
+  "nbPerson": 60,
+  "hasProj": true,
+  "nbPlug": 30,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa/salle de classe",
+  "roomSize_m2": 92.23,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df6c2d609312af4e834295"
+  },
+  "floor": 402,
+  "building": "C",
+  "nbPerson": 60,
+  "hasProj": true,
+  "nbPlug": 30,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa/salle de classe",
+  "roomSize_m2": 96.53,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df6d57609312af4e834296"
+  },
+  "floor": 403,
+  "building": "C",
+  "nbPerson": 44,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa/salle de dedoublement",
+  "roomSize_m2": 62.92,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df722d609312af4e834297"
+  },
+  "floor": 404,
+  "building": "C",
+  "nbPerson": 44,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa/salle de dedoublement",
+  "roomSize_m2": 62.92,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df73b5609312af4e834298"
+  },
+  "floor": 405,
+  "building": "C",
+  "nbPerson": 60,
+  "hasProj": true,
+  "nbPlug": 30,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa salle de classe amphi maths",
+  "roomSize_m2": 88.3,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df73f9609312af4e83429a"
+  },
+  "floor": 406,
+  "building": "C",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 24,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle prépa salle de classe",
+  "roomSize_m2": 84.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df74ce609312af4e83429b"
+  },
+  "floor": 501,
+  "building": "B",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 5,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP Projet/6 postes",
+  "roomSize_m2": 33.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df74ff609312af4e83429c"
+  },
+  "floor": 502,
+  "building": "B",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 5,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP Projet/6 postes",
+  "roomSize_m2": 33,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df75c0609312af4e83429d"
+  },
+  "floor": 503,
+  "building": "B",
+  "nbPerson": 22,
+  "hasProj": false,
+  "nbPlug": 11,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP Projet/11 postes",
+  "roomSize_m2": 48,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df775b609312af4e83429e"
+  },
+  "floor": 505,
+  "building": "B",
+  "nbPerson": 30,
+  "hasProj": true,
+  "nbPlug": 15,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle ingé salle de cours",
+  "roomSize_m2": 43,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61df77c5609312af4e83429f"
+  },
+  "floor": 506,
+  "building": "B",
+  "nbPerson": 84,
+  "hasProj": true,
+  "nbPlug": 30,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle ingé salle de cours",
+  "roomSize_m2": 92,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfd5869163996a83291e7b"
+  },
+  "floor": 451,
+  "building": "C",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "Toilettes H",
+  "roomSize_m2": 9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd59c9163996a83291e7c"
+  },
+  "floor": 452,
+  "building": "C",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "Toilettes F",
+  "roomSize_m2": 11.8,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd5e99163996a83291e7d"
+  },
+  "floor": 453,
+  "building": "C",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Labo Info",
+  "roomSize_m2": 32.64,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd60d9163996a83291e7e"
+  },
+  "floor": 454,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Photocopie Bureau",
+  "roomSize_m2": 15.85,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd7b49163996a83291e7f"
+  },
+  "floor": 455,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Local serveur",
+  "roomSize_m2": 24.3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd7dc9163996a83291e80"
+  },
+  "floor": 456,
+  "building": "C",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Archives recherche",
+  "roomSize_m2": 16,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd8ee9163996a83291e81"
+  },
+  "floor": 457,
+  "building": "C",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle de réunion",
+  "roomSize_m2": 26.25,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd9709163996a83291e82"
+  },
+  "floor": 458,
+  "building": "C",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Local Info",
+  "roomSize_m2": 19.34,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd9939163996a83291e83"
+  },
+  "floor": 459,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec bureau",
+  "roomSize_m2": 13.85,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd9c99163996a83291e84"
+  },
+  "floor": 460,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec bureau",
+  "roomSize_m2": 14,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfd9f19163996a83291e85"
+  },
+  "floor": 461,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info CIR Bureau",
+  "roomSize_m2": 15.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda0c9163996a83291e86"
+  },
+  "floor": 462,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec Bureau",
+  "roomSize_m2": 15.76,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda1a9163996a83291e87"
+  },
+  "floor": 463,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda349163996a83291e88"
+  },
+  "floor": 464,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec secretariat",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda4b9163996a83291e89"
+  },
+  "floor": 465,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec secretariat",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda7a9163996a83291e8a"
+  },
+  "floor": 466,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "etude CIR secretariat",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfda939163996a83291e8b"
+  },
+  "floor": 467,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec bureau",
+  "roomSize_m2": 14.73,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdab49163996a83291e8c"
+  },
+  "floor": 468,
+  "building": "C",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec",
+  "roomSize_m2": 18.25,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdb919163996a83291e8d"
+  },
+  "floor": 601,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "?",
+  "roomSize_m2": 3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdbb79163996a83291e8e"
+  },
+  "floor": 602,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes H",
+  "roomSize_m2": 2.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdbc49163996a83291e8f"
+  },
+  "floor": 603,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes F",
+  "roomSize_m2": 2.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdc119163996a83291e90"
+  },
+  "floor": 604,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED SECRET DIR ETUDES FHS",
+  "roomSize_m2": 22,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdc329163996a83291e91"
+  },
+  "floor": 605,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED SECRET PREPA",
+  "roomSize_m2": 22,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdce09163996a83291e93"
+  },
+  "floor": 606,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED DIR CYCLE PREPA",
+  "roomSize_m2": 22,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdd2c9163996a83291e94"
+  },
+  "floor": 608,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED CYCLE PREPA",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdd3a9163996a83291e95"
+  },
+  "floor": 609,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED CYCLE PREPA",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdd459163996a83291e96"
+  },
+  "floor": 610,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED CYCLE PREPA",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdd869163996a83291e97"
+  },
+  "floor": 611,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED CAFETARIA",
+  "roomSize_m2": 19.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdda49163996a83291e98"
+  },
+  "floor": 612,
+  "building": "A",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 5,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED CYCLE PREPA PASSAGE",
+  "roomSize_m2": 20.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfddd59163996a83291e99"
+  },
+  "floor": 613,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED BUREAU FHS",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfde009163996a83291e9a"
+  },
+  "floor": 614,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED SCI HUMAINE BUREAU FHS",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfde129163996a83291e9b"
+  },
+  "floor": 615,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED SCI HUMAINE BUREAU FHS",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfde1b9163996a83291e9c"
+  },
+  "floor": 616,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED SCI HUMAINE BUREAU FHS",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfde449163996a83291e9d"
+  },
+  "floor": 617,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED ENS PREPA BUREAU",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdebc9163996a83291e9e"
+  },
+  "floor": 618,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ANI PED ENS PREPA BUREAU",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdeef9163996a83291e9f"
+  },
+  "floor": 619,
+  "building": "A",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "LOCAL TECH PHOTOCOPIEUR",
+  "roomSize_m2": 20,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdf169163996a83291ea0"
+  },
+  "floor": 620,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "LOCAL TGBT2",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdf619163996a83291ea1"
+  },
+  "floor": 621,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle Ingénieur Directeur Etudes",
+  "roomSize_m2": 22.7,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfdfbb9163996a83291ea2"
+  },
+  "floor": 622,
+  "building": "A",
+  "nbPerson": 20,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle cours",
+  "roomSize_m2": 29.9,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfe0399163996a83291ea3"
+  },
+  "floor": 624,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle inge travail individuel",
+  "roomSize_m2": 18,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfe0579163996a83291ea4"
+  },
+  "floor": 625,
+  "building": "A",
+  "nbPerson": 8,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle inge travail individuel",
+  "roomSize_m2": 14,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfe0929163996a83291ea5"
+  },
+  "floor": 626,
+  "building": "A",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Bureau",
+  "roomSize_m2": 13.25,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe15c9163996a83291ea6"
+  },
+  "floor": 601,
+  "building": "C",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Cycle ingenieur salle de cours",
+  "roomSize_m2": 59,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfe18b9163996a83291ea7"
+  },
+  "floor": 602,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Pyhsique Bureau",
+  "roomSize_m2": 26.7,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe1c09163996a83291ea8"
+  },
+  "floor": 603,
+  "building": "C",
+  "nbPerson": 30,
+  "hasProj": false,
+  "nbPlug": 15,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "CAFETARIA",
+  "roomSize_m2": 65.9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe1f69163996a83291ea9"
+  },
+  "floor": 604,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info CIR Bureau",
+  "roomSize_m2": 24.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe2369163996a83291eaa"
+  },
+  "floor": 605,
+  "building": "C",
+  "nbPerson": 25,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R SST LABO",
+  "roomSize_m2": 82.6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe2ac9163996a83291eab"
+  },
+  "floor": 606,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R SST BUREAU",
+  "roomSize_m2": 16,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe2c09163996a83291eac"
+  },
+  "floor": 607,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "INFO BUREAU",
+  "roomSize_m2": 16,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe37e9163996a83291ead"
+  },
+  "floor": 608,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R PHYS BUREAU",
+  "roomSize_m2": 25.84,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe3ef9163996a83291eae"
+  },
+  "floor": 609,
+  "building": "C",
+  "nbPerson": 16,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R PHYS MEB + PREPINIERE MENAPIC (21.2m2 + 43.8m2)",
+  "roomSize_m2": 64.9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe42c9163996a83291eaf"
+  },
+  "floor": 610,
+  "building": "C",
+  "nbPerson": 16,
+  "hasProj": false,
+  "nbPlug": 18,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Elec laboratoire",
+  "roomSize_m2": 69.3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe4969163996a83291eb0"
+  },
+  "floor": 651,
+  "building": "C",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes hommes",
+  "roomSize_m2": 9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe4f79163996a83291eb1"
+  },
+  "floor": 652,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes femmes",
+  "roomSize_m2": 8.6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe51f9163996a83291eb2"
+  },
+  "floor": 653,
+  "building": "C",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R elec Bureau",
+  "roomSize_m2": 30.14,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe5ad9163996a83291eb3"
+  },
+  "floor": 654,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R SST Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe5e49163996a83291eb4"
+  },
+  "floor": 655,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R PHYS Bureau",
+  "roomSize_m2": 14.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe6009163996a83291eb5"
+  },
+  "floor": 656,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R PHYS Bureau",
+  "roomSize_m2": 14.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe62d9163996a83291eb6"
+  },
+  "floor": 657,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 3,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "ENTRETIEN",
+  "roomSize_m2": 6.8,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe6489163996a83291eb7"
+  },
+  "floor": 658,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe65a9163996a83291eb8"
+  },
+  "floor": 659,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info Bureau",
+  "roomSize_m2": 15.4,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe6879163996a83291eb9"
+  },
+  "floor": 660,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info Bureau",
+  "roomSize_m2": 13.67,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe6b19163996a83291eba"
+  },
+  "floor": 661,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Secret Bureau Physique",
+  "roomSize_m2": 13.86,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe6e89163996a83291ebb"
+  },
+  "floor": 662,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Bureau Physique",
+  "roomSize_m2": 14,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe72c9163996a83291ebc"
+  },
+  "floor": 663,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Bureau Physique",
+  "roomSize_m2": 15.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe77b9163996a83291ebd"
+  },
+  "floor": 664,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info Bureau",
+  "roomSize_m2": 15.76,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe7b29163996a83291ebe"
+  },
+  "floor": 665,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info CIR Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe7c99163996a83291ebf"
+  },
+  "floor": 666,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Phys Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe7d59163996a83291ec0"
+  },
+  "floor": 667,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R Phys Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe7f29163996a83291ec1"
+  },
+  "floor": 668,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R SST Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe8059163996a83291ec2"
+  },
+  "floor": 669,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "R SST Bureau",
+  "roomSize_m2": 14.73,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe83d9163996a83291ec3"
+  },
+  "floor": 670,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Info Bureau",
+  "roomSize_m2": 18,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe9559163996a83291ec5"
+  },
+  "floor": 501,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Apoph'ISEN",
+  "roomSize_m2": 28,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe9769163996a83291ec6"
+  },
+  "floor": 701,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 16,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Crysteo",
+  "roomSize_m2": 28,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe99c9163996a83291ec7"
+  },
+  "floor": 801,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "Toilettes mixtes",
+  "roomSize_m2": 3.35,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfe9d09163996a83291ec8"
+  },
+  "floor": 802,
+  "building": "A",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "?",
+  "roomSize_m2": 4.14,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfea159163996a83291ec9"
+  },
+  "floor": 803,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfea1e9163996a83291eca"
+  },
+  "floor": 804,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfea269163996a83291ecb"
+  },
+  "floor": 805,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfea4d9163996a83291ecc"
+  },
+  "floor": 806,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "BUREAU PROF D'ANGLAIS",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfea639163996a83291ecd"
+  },
+  "floor": 807,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 7,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "LOCAL CE",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeb149163996a83291ece"
+  },
+  "floor": 808,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "TOILETTES MIXTES ???",
+  "roomSize_m2": 5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeb419163996a83291ecf"
+  },
+  "floor": 809,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Archives compta",
+  "roomSize_m2": 9.75,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeb709163996a83291ed0"
+  },
+  "floor": 810,
+  "building": "A",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Club etudiant",
+  "roomSize_m2": 12,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeb9a9163996a83291ed1"
+  },
+  "floor": 811,
+  "building": "A",
+  "nbPerson": 40,
+  "hasProj": true,
+  "nbPlug": 16,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle de cours",
+  "roomSize_m2": 50.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfebe89163996a83291ed2"
+  },
+  "floor": 812,
+  "building": "A",
+  "nbPerson": 20,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle de cours",
+  "roomSize_m2": 33.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfec279163996a83291ed3"
+  },
+  "floor": 813,
+  "building": "A",
+  "nbPerson": 15,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Club etudiant",
+  "roomSize_m2": 31.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfecba9163996a83291ed4"
+  },
+  "floor": 814,
+  "building": "A",
+  "nbPerson": 20,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 33.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfecd29163996a83291ed5"
+  },
+  "floor": 815,
+  "building": "A",
+  "nbPerson": 20,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 33.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfecfa9163996a83291ed6"
+  },
+  "floor": 816,
+  "building": "A",
+  "nbPerson": 36,
+  "hasProj": true,
+  "nbPlug": 18,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 50.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dfed329163996a83291ed7"
+  },
+  "floor": 817,
+  "building": "A",
+  "nbPerson": 7,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 15.28,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfed979163996a83291ed8"
+  },
+  "floor": 801,
+  "building": "C",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administration compta",
+  "roomSize_m2": 30.73,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfee149163996a83291ed9"
+  },
+  "floor": 802,
+  "building": "C",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "reunion administration",
+  "roomSize_m2": 22.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfee4a9163996a83291eda"
+  },
+  "floor": 803,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administra. chef. compta",
+  "roomSize_m2": 16.8,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeec29163996a83291edb"
+  },
+  "floor": 804,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administra. sec. sec. G",
+  "roomSize_m2": 21,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeee69163996a83291edc"
+  },
+  "floor": 805,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administra. sec. G",
+  "roomSize_m2": 22.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfef0d9163996a83291edd"
+  },
+  "floor": 806,
+  "building": "C",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administra. comm.",
+  "roomSize_m2": 18.28,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfef3c9163996a83291ede"
+  },
+  "floor": 807,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "administra. DG",
+  "roomSize_m2": 22.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfefb49163996a83291edf"
+  },
+  "floor": 808,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "admin. sec. direc.",
+  "roomSize_m2": 17.22,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfeffc9163996a83291ee0"
+  },
+  "floor": 809,
+  "building": "C",
+  "nbPerson": 32,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "admin. salle du conseil",
+  "roomSize_m2": 73.22,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff0339163996a83291ee1"
+  },
+  "floor": 810,
+  "building": "C",
+  "nbPerson": 16,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "admin. reu & bureau (14.67m2 + 12.23m2 + 29.76m2)",
+  "roomSize_m2": 56.66,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff14e9163996a83291ee2"
+  },
+  "floor": 811,
+  "building": "C",
+  "nbPerson": 14,
+  "hasProj": false,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "labo femto",
+  "roomSize_m2": 60.12,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff1fa9163996a83291ee3"
+  },
+  "floor": 851,
+  "building": "C",
+  "nbPerson": 60,
+  "hasProj": false,
+  "nbPlug": 30,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "centre de documentation",
+  "roomSize_m2": 120,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3109163996a83291ee4"
+  },
+  "floor": 852,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "documentation",
+  "roomSize_m2": 16,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3319163996a83291ee5"
+  },
+  "floor": 853,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "baie de brassage",
+  "roomSize_m2": 8.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3839163996a83291ee6"
+  },
+  "floor": 854,
+  "building": "C",
+  "nbPerson": 100,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "SALLE DE DS",
+  "roomSize_m2": 193,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3a49163996a83291ee7"
+  },
+  "floor": 855,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Bureau",
+  "roomSize_m2": 15,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3bc9163996a83291ee8"
+  },
+  "floor": 856,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "photocopie",
+  "roomSize_m2": 15.26,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff3e89163996a83291ee9"
+  },
+  "floor": 857,
+  "building": "C",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "relation interne bureau",
+  "roomSize_m2": 17.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff41a9163996a83291eea"
+  },
+  "floor": 858,
+  "building": "C",
+  "nbPerson": 7,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes hommes",
+  "roomSize_m2": 13.8,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff4429163996a83291eeb"
+  },
+  "floor": 859,
+  "building": "C",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "locale entretien",
+  "roomSize_m2": 1.95,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff4eb9163996a83291eec"
+  },
+  "floor": 860,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "toilettes femmes",
+  "roomSize_m2": 9.4,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff52d9163996a83291eed"
+  },
+  "floor": 801,
+  "building": "B",
+  "nbPerson": 16,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 22,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff5539163996a83291eee"
+  },
+  "floor": 802,
+  "building": "B",
+  "nbPerson": 60,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 69,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff56d9163996a83291eef"
+  },
+  "floor": 803,
+  "building": "B",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 24,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 58.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff59c9163996a83291ef0"
+  },
+  "floor": 804,
+  "building": "B",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 24,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 60,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff5bd9163996a83291ef1"
+  },
+  "floor": 805,
+  "building": "B",
+  "nbPerson": 1,
+  "hasProj": false,
+  "nbPlug": 1,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "local depot entretien",
+  "roomSize_m2": 2.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff61e9163996a83291ef2"
+  },
+  "floor": 806,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes femmes",
+  "roomSize_m2": 3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff62f9163996a83291ef3"
+  },
+  "floor": 807,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes hommes",
+  "roomSize_m2": 3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff6559163996a83291ef4"
+  },
+  "floor": 808,
+  "building": "B",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 26,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff6749163996a83291ef5"
+  },
+  "floor": 809,
+  "building": "B",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff6a09163996a83291ef6"
+  },
+  "floor": 810,
+  "building": "B",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "local entretien",
+  "roomSize_m2": 12,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff7439163996a83291ef7"
+  },
+  "floor": 901,
+  "building": "A",
+  "nbPerson": 3,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 18.4,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff7bb9163996a83291ef8"
+  },
+  "floor": 902,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 11.9,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff8429163996a83291ef9"
+  },
+  "floor": 903,
+  "building": "A",
+  "nbPerson": 28,
+  "hasProj": true,
+  "nbPlug": 14,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 33,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff86a9163996a83291efa"
+  },
+  "floor": 904,
+  "building": "A",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 6,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff8939163996a83291efb"
+  },
+  "floor": 905,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "bureau",
+  "roomSize_m2": 17.35,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff8c09163996a83291efc"
+  },
+  "floor": 906,
+  "building": "A",
+  "nbPerson": 28,
+  "hasProj": true,
+  "nbPlug": 15,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle",
+  "roomSize_m2": 33,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dff9af9163996a83291efd"
+  },
+  "floor": 908,
+  "building": "A",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dff9ee9163996a83291efe"
+  },
+  "floor": 909,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes femmes",
+  "roomSize_m2": 11,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffa329163996a83291eff"
+  },
+  "floor": 910,
+  "building": "A",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes hommes",
+  "roomSize_m2": 8.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffa549163996a83291f00"
+  },
+  "floor": 911,
+  "building": "A",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "archive compta",
+  "roomSize_m2": 18.56,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffa869163996a83291f01"
+  },
+  "floor": 913,
+  "building": "A",
+  "nbPerson": 24,
+  "hasProj": true,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 47.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dffb2b9163996a83291f02"
+  },
+  "floor": 914,
+  "building": "A",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "club etudiant",
+  "roomSize_m2": 11.3,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffb5a9163996a83291f03"
+  },
+  "floor": 915,
+  "building": "A",
+  "nbPerson": 12,
+  "hasProj": false,
+  "nbPlug": 10,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "musique etudes",
+  "roomSize_m2": 22.41,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffb889163996a83291f04"
+  },
+  "floor": 916,
+  "building": "A",
+  "nbPerson": 5,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Archives ADM",
+  "roomSize_m2": 22.1,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffbb99163996a83291f05"
+  },
+  "floor": 917,
+  "building": "A",
+  "nbPerson": 10,
+  "hasProj": false,
+  "nbPlug": 8,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Club etudiant",
+  "roomSize_m2": 20.6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffbdd9163996a83291f06"
+  },
+  "floor": 918,
+  "building": "A",
+  "nbPerson": 28,
+  "hasProj": true,
+  "nbPlug": 14,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle de cours",
+  "roomSize_m2": 33,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dffc1f9163996a83291f07"
+  },
+  "floor": 919,
+  "building": "A",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 24,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "Salle de cours",
+  "roomSize_m2": 71,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61dffcb99163996a83291f08"
+  },
+  "floor": 901,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "loc div depot",
+  "roomSize_m2": 6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffcf09163996a83291f09"
+  },
+  "floor": 902,
+  "building": "B",
+  "nbPerson": 14,
+  "hasProj": false,
+  "nbPlug": 14,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP elec/7 postes",
+  "roomSize_m2": 27,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffd749163996a83291f0a"
+  },
+  "floor": 903,
+  "building": "B",
+  "nbPerson": 30,
+  "hasProj": false,
+  "nbPlug": 15,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP elec/15 postes",
+  "roomSize_m2": 69.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffdeb9163996a83291f0b"
+  },
+  "floor": 904,
+  "building": "B",
+  "nbPerson": 54,
+  "hasProj": false,
+  "nbPlug": 27,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "TP elec/27 postes",
+  "roomSize_m2": 69.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffe459163996a83291f0c"
+  },
+  "floor": 905,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes hommes",
+  "roomSize_m2": 5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffebc9163996a83291f0d"
+  },
+  "floor": 906,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes femmes",
+  "roomSize_m2": 5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dffee39163996a83291f0e"
+  },
+  "floor": 907,
+  "building": "B",
+  "nbPerson": 2,
+  "hasProj": false,
+  "nbPlug": 2,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "?",
+  "roomSize_m2": 2.5,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfff409163996a83291f0f"
+  },
+  "floor": 908,
+  "building": "B",
+  "nbPerson": 6,
+  "hasProj": false,
+  "nbPlug": 4,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "archives",
+  "roomSize_m2": 12,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61dfffbc9163996a83291f10"
+  },
+  "floor": 910,
+  "building": "B",
+  "nbPerson": 15,
+  "hasProj": false,
+  "nbPlug": 12,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "magasin elec / procure",
+  "roomSize_m2": 36,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61e000189163996a83291f11"
+  },
+  "floor": 951,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes femmes",
+  "roomSize_m2": 8.6,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61e000329163996a83291f12"
+  },
+  "floor": 952,
+  "building": "C",
+  "nbPerson": 4,
+  "hasProj": false,
+  "nbPlug": 0,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": false,
+  "other": "toilettes hommes",
+  "roomSize_m2": 8.14,
+  "isBookable": false
+},{
+  "_id": {
+    "$oid": "61e000d79163996a83291f13"
+  },
+  "floor": 953,
+  "building": "C",
+  "nbPerson": 25,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 55,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61e0011e9163996a83291f14"
+  },
+  "floor": 954,
+  "building": "C",
+  "nbPerson": 25,
+  "hasProj": true,
+  "nbPlug": 25,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 50.5,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61e001a69163996a83291f15"
+  },
+  "floor": 955,
+  "building": "C",
+  "nbPerson": 38,
+  "hasProj": true,
+  "nbPlug": 20,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours",
+  "roomSize_m2": 58,
+  "isBookable": true
+},{
+  "_id": {
+    "$oid": "61e0022d9163996a83291f16"
+  },
+  "floor": 956,
+  "building": "C",
+  "nbPerson": 48,
+  "hasProj": true,
+  "nbPlug": 28,
+  "planning": [],
+  "imgPos": [],
+  "hasPlug": true,
+  "other": "salle de cours CIR1",
+  "roomSize_m2": 73.2,
+  "isBookable": true
 }]

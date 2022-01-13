@@ -11,7 +11,7 @@
   "duration": 2,
   "user": "61dd90b23b4e68067486d38a",
   "reason": "project",
-  "building": 2,
+  "building": "B",
   "floor": 108
 },{
   "_id": {
@@ -26,7 +26,7 @@
   "duration": 3,
   "user": "61dd90b23b4e68067486d38a",
   "reason": "project",
-  "building": 3,
+  "building": "C",
   "floor": 956
 },{
   "_id": {
@@ -41,6 +41,6 @@
   "duration": 9,
   "user": "61dd90b23b4e68067486d38a",
   "reason": "project",
-  "building": 3,
+  "building": "C",
   "floor": 956
 }]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { BookService } from '../services/book.service';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 @Component({
   selector: 'app-map',
@@ -10,7 +11,7 @@ export class MapComponent implements OnInit {
   current_button: number;
   point_array:number[];
 
-  constructor(/*private route:Router*/) {
+  constructor(private bookService:BookService) {
     this.current_button = 3;
     this.point_array = [];
   }
@@ -30,8 +31,8 @@ export class MapComponent implements OnInit {
       this.current_button = 1;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/100.jpg';
+      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/100.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -50,8 +51,8 @@ export class MapComponent implements OnInit {
       this.current_button = 2;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/300.png';
+      (document.getElementById('current_etage') as HTMLImageElement).src = '../../assets/img/300.png';
+      this.dateUpdateCallback();
     }
   }
 
@@ -70,8 +71,8 @@ export class MapComponent implements OnInit {
       this.current_button = 3;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/400.jpg';
+      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/400.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -90,8 +91,8 @@ export class MapComponent implements OnInit {
       this.current_button = 4;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/600.jpg';
+      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/600.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -110,8 +111,8 @@ export class MapComponent implements OnInit {
       this.current_button = 5;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/800.jpg';
+      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/800.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -130,16 +131,115 @@ export class MapComponent implements OnInit {
       this.current_button = 6;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/900.jpg';
+      (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/900.jpg";
+      this.dateUpdateCallback();
     }
   }
 
-  showModal() {
-    (document.getElementById('infoModal') as HTMLElement).style.display =
-      'block';
-    document.addEventListener('click', this.closingLoginFunc, false);
+  //
+  dateUpdateCallback() {
+
+    let date = (document.getElementById('selectDate') as HTMLInputElement).value;
+    let beginTime = (document.getElementById('beginTime') as HTMLInputElement).value;
+    let endTime = (document.getElementById('endTime') as HTMLInputElement).value;
+
+    if(date == "" || beginTime == "" || endTime == ""){
+      return;
+    }
+
+    let dateBegin = new Date(date+ "T" + beginTime) as Date;
+    let dateEnd = new Date(date+ "T" + endTime) as Date;
+    // Send POST request
+    //
+    // +-----------+-----------------+
+    // | Btn Value | Floors to query |
+    // +===========+=================+
+    // |         1 | 100             |
+    // |         2 | 200/300         |
+    // |         3 | 400/500         |
+    // |         4 | 600             |
+    // |         5 | 700/800         |
+    // |         6 | 900             |
+    // +-----------+-----------------+
+
+    this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
+      if (response !== undefined) {
+        console.log(response);
+        console.log(localStorage);
+
+        if (response.errors !== undefined) {
+          //TODO
+          console.error(response.errors);
+
+        } else if (response.fail !== undefined) {
+          /* 5s fail notification */
+          Notify.failure(response.fail, {
+            timeout: 5000,
+            position: 'center-top',
+            clickToClose: true
+          });
+
+        }else if (response.rooms !== undefined) {
+
+          // Create the svg elements and associated modals
+          const svgElement = (document.getElementById("room_coords") as HTMLElement);
+          svgElement.innerHTML = "";
+
+          // For each room of the floor
+          response.rooms.forEach( (room:any):void => {
+
+            // Create polyline html element inside the svg element
+            let poly = '<polyline points="';
+
+            // Add the points of the shape
+            room.imgPos.forEach((pos:any):void => {
+              poly += pos + ',';
+            });
+
+            poly += '" id="room' + room.name + '"';
+
+            // Opacity & fill color
+            poly += ' style="opacity:.8;" fill="' + (room.isBookable ? (room.booked ? 'red' : 'green') : 'blue') + '"/>';
+
+            // Append to the svg
+            svgElement.innerHTML += poly;
+
+            (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
+              (e.target as HTMLElement).style.display = 'block';
+              document.addEventListener('click', this.closingModalFunc, false);
+            });
+
+          });
+
+        } else {
+          console.error("wrong response...");
+        }
+      }else {
+        console.error("no response...");
+      }
+    });
   }
+
+  closingModalFunc = (event: MouseEvent): void => {
+    // If user either clicks X button OR clicks outside the modal window, then close modal
+    if (event != null && event.target != null) {
+      const element = event.target as Element;
+
+      // Check if the element is closable
+      if (
+        (element.matches('.close') ||
+          !element.closest('.infoContent')) &&
+        !element.matches('.roomInfoBtn') &&
+        !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
+      ) {
+        // remove the modal
+        (document.getElementById('infoModal') as HTMLElement).style.display =
+          'none';
+        // Remove the close event listener
+        document.removeEventListener('click', this.closingModalFunc);
+      }
+    }
+  };
 
   closingLoginFunc = (event: MouseEvent): void => {
     // If user either clicks X button OR clicks outside the modal window, then close modal
@@ -164,7 +264,18 @@ export class MapComponent implements OnInit {
   // Request info on the floor from the server
 
   ngOnInit(): void {
-    // DEBUG to generate
+    // Put current dates
+    const nowDate:string[] = new Date().toLocaleDateString().split('/');
+    const nowTime:string = new Date().toLocaleTimeString();
+    const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));
+    (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[2] + "-" + nowDate[1] + "-" + nowDate[0];
+    (document.getElementById("beginTime") as HTMLInputElement).value = nowTime;
+    (document.getElementById("endTime") as HTMLInputElement).value =  parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 7 ? pastTime : '0' + pastTime ) : "23:59:00";
+
+    // Request the default floor
+    this.dateUpdateCallback();
+
+    // DEBUG to generate points array
     (document.getElementById("room_coords") as HTMLElement).addEventListener("click", (e:MouseEvent) => {
       e.preventDefault();
       this.point_array.push(e.clientX - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().x);
