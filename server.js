@@ -207,8 +207,8 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
 app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 100 }), body('password').trim().escape().isLength({min : 5, max: 100 }), body('username').trim().escape().isLength({min : 1, max : 20}), body('isAdmin').isBoolean(), body('classe').isNumeric(), (req, res) => {
     console.log("POST -> /register");
 
-    let username = req.body.username; //username is the id TODO in the register form
-    let password = req.body.password; //password is the id TODO in the register form
+    let username = req.body.username; //username is the id TODO in the register form (?)
+    let password = req.body.password; //password is the id TODO in the register form (?)
     let email = req.body.email;
     let isAdmin = req.body.isAdmin;
     let classe = req.body.classe;
@@ -238,7 +238,7 @@ app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 1
 
                 connection.Connection.newUser(username, email, hash, isAdmin, classe);
                 
-                return res.status(200).json(generateAccessToken({ id: 0 }))//! move into the request callback
+                return res.status(200).json(generateAccessToken({ id: 0 }))//! move into the request callback (?)
             });
         });
     })
