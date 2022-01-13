@@ -170,7 +170,7 @@ const Connection = (function() {
     }
 
     /**
-     * @function Connection.allReservationAt
+     * @function Connection.allReservationDuring
      * @param {Number} nbFloor 
      * @param {Date} time 
      * @param {Callback} callback 
@@ -178,10 +178,10 @@ const Connection = (function() {
      * @returns {}/
      * @description Execute a query to get all reservation for a specifyed floor at a specifyed time
      */
-    function getReservationAt(nbFloor, time, callback){
+    function getReservationDuring(nbFloor, begin, end, callback){
         let min = nbFloor * 100;
         let max = (nbFloor+1) * 100;
-        get("Reservations", {floor : {$lte : max, $gte : min}, begin : {$lte : time}, end : {$gte : time}}, {projection : {_id:0}}, callback);
+        get("Reservations", {floor : {$lte : max, $gte : min}, begin : {$lte : end}, end : {$gte : begin}}, {projection : {_id:0}}, callback);
     }
 
     return {
@@ -202,7 +202,7 @@ const Connection = (function() {
         deletUserWithMail : (mail) => suppr("Users", {email : mail}),
         deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),        
         allRoomFloor : (nbFloor, callback) => getRoomFloor(nbFloor, callback),
-        allReservationAt : (nbFloor, time, callback) => getReservationAt(nbFloor, time, callback),
+        allReservationDuring : (nbFloor, begin, end, callback) => getReservationDuring(nbFloor, begin, end, callback),
     };
 })();
 

@@ -225,6 +225,51 @@ app.post("/book/", (req, res) => {
 
 });
 
+app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNumeric, (req, res) => {
+    console.log("POST -> /floor");
+
+    let floor = res.body.floor;
+    let begin = res.body.begin;
+    let end = res.body.end;
+
+    //Sanitize user intput
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
+    
+    // Check value
+    if(begin > end){
+        return res.status(200).json({
+            fail : "La tranche horaire est incohérente.."
+        });
+    }
+
+    // db query
+    connection.Connection.allRoomFloor(floor, (resultRoom) => {
+        connection.Connection.allReservationDuring(floor, begin, end, (resultReservation) => {
+            
+            resultReservation.forEach(reserv => {
+                let find = false;
+                let x = 0;
+                while(x < resultRoom.length && !find){
+                    if(reserv.floor == resultRoom[x].floor && reserv.building == resultRoom[x].building){
+                        find = true;
+                        resultRoom[x].reservation = reserv;
+                    }
+                    x++;
+                }
+            })
+            
+            
+            return res.status(200).json({
+                rooms : resultRoom,
+            })
+        })
+    })
+})
 
 
 //****************************s
