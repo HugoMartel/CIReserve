@@ -20,7 +20,7 @@
                 de salle</a>
         </li>
         <!-- Redirections vers admin // accessible seulement aux admin -->
-        <li class="dropdown">
+        <li *ngIf="this.authService.admin" class="dropdown">
             <a class="dropbtn" href="javascript:void(0)" role="button">Administration</a>
             <div class="dropdown-content">
                 <a id="GoRegister" href="#" routerLink="/register" name="GoRegister">Création
