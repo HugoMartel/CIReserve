@@ -100,19 +100,19 @@ const Connection = (function() {
     }
 
     /**
-     * @function Connection.isUserNameExist
-     * @param {String} name 
+     * @function Connection.isEmailExist
+     * @param {String} mail
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
-     * @description Execute a query to know if a userName already exist
+     * @description Execute a query to know if an email already exist
      */
-    function checkUserName(name, callback){
+    function checkEmail(mail, callback){
         let result = [];
 
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').find({userName : name});
+            let cursor = db.collection('Users').find({email : mail});
             result = await cursor.toArray();
             callback(Boolean(result.length));
         })
@@ -165,7 +165,7 @@ const Connection = (function() {
         newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
         newUser : (name, mail, mdp, admin, numClasse) => addUser(name, mail, mdp, admin, numClasse),
         getHash : (mail, callback) => userHash(mail, callback),
-        isUserNameExist : (name, callback) => checkUserName(name, callback),
+        isEmailExist : (mail, callback) => checkEmail(mail, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
         deletUser : (name) => suppr("Users", {userName : name}),
