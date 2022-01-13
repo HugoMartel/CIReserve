@@ -12,10 +12,11 @@ export class MapComponent implements OnInit {
 
   constructor(private bookService:BookService) {
     this.current_button = 3;
+    console.log("Constructor", this.current_button);
   }
 
   // Btn 1 Click Event Callback
-  clickBtn1() {
+  clickBtn1() {    
     if (this.current_button != 1) {
       // Change the current button class
       (document.getElementById("btn" + this.current_button) as HTMLButtonElement).classList.remove("current");
@@ -24,6 +25,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/100.png";
+      this.dateUpdateCallback();
     }
   }
 
@@ -37,6 +39,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/300.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -50,6 +53,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/400.png";
+      this.dateUpdateCallback();
     }
   }
 
@@ -63,6 +67,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/600.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -76,6 +81,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/800.jpg";
+      this.dateUpdateCallback();
     }
   }
 
@@ -89,16 +95,18 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById("current_etage") as HTMLImageElement).src = "../../assets/img/900.jpg";
+      this.dateUpdateCallback();
     }
   }
 
   //
   dateUpdateCallback() {
+    
     let date = (document.getElementById('selectDate') as HTMLInputElement).value;
     let beginTime = (document.getElementById('beginTime') as HTMLInputElement).value;
     let endTime = (document.getElementById('endTime') as HTMLInputElement).value;
 
-    if(date == null && beginTime == null && endTime == null){
+    if(date == "" || beginTime == "" || endTime == ""){
       return;
     }
 
@@ -116,6 +124,7 @@ export class MapComponent implements OnInit {
     // |         5 | 700/800         |
     // |         6 | 900             |
     // +-----------+-----------------+
+
     this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
       if (response !== undefined) {
         console.log(response);
@@ -139,10 +148,6 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit(): void {
-    (document.getElementById("selectDate") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
-    (document.getElementById("beginTime") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
-    (document.getElementById("endTime") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
-
 
     // Set Current date
 

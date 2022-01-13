@@ -224,22 +224,22 @@ app.post("/book/", (req, res) => {
 
 });
 
-app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNumeric, (req, res) => {
+app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').isDate(), body('end').isDate()
     console.log("POST -> /floor");
 
-    let floor = res.body.floor;
-    let begin = res.body.begin;
-    let end = res.body.end;
+    let floor = req.body.floor;
+    let begin = req.body.begin;
+    let end = req.body.end;
     let floorMax, floorMin;
 
     switch(floor){
-        case 1: floorMax = 100; floorMin = 199; break;
-        case 2: floorMax = 200; floorMin = 399; break;
-        case 3: floorMax = 400; floorMin = 599; break;
-        case 4: floorMax = 600; floorMin = 699; break;
-        case 5: floorMax = 700; floorMin = 899; break;
-        case 6: floorMax = 900; floorMin = 999; break;
-        default : floorMax = 0; floorMin = 0;
+        case 1: floorMin = 100; floorMax = 199; break;
+        case 2: floorMin = 200; floorMax = 399; break;
+        case 3: floorMin = 400; floorMax = 599; break;
+        case 4: floorMin = 600; floorMax = 699; break;
+        case 5: floorMin = 700; floorMax = 899; break;
+        case 6: floorMin = 900; floorMax = 999; break;
+        default : floorMin = 0; floorMax = 0;
     }
 
 // +-----------+-----------------+
@@ -272,7 +272,6 @@ app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNum
     connection.Connection.allRoomFloor(floorMin, floorMax, (resultRoom) => {
         connection.Connection.allReservationDuring(floorMin, floorMax, begin, end, (resultReservation) => {
             let result = [];
-
 
             resultRoom.forEach(room => {
                 let find = false;
@@ -326,11 +325,8 @@ app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNum
                 }
 
                 toPush.modalContent += "</div>";
-
                 result.push(toPush);
             })
-
-            console.log(result);//! DEBUG
 
             return res.status(200).json({
                 rooms : result,
