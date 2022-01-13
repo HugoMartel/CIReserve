@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
   current_button: number;
+  point_array:number[];
 
   constructor(/*private route:Router*/) {
     this.current_button = 3;
+    this.point_array = [];
   }
 
   // Btn 1 Click Event Callback
@@ -29,7 +31,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/100.png';
+        '../../assets/img/100.jpg';
     }
   }
 
@@ -49,7 +51,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/300.jpg';
+        '../../assets/img/300.png';
     }
   }
 
@@ -69,7 +71,7 @@ export class MapComponent implements OnInit {
 
       // Change the img src
       (document.getElementById('current_etage') as HTMLImageElement).src =
-        '../../assets/img/400.png';
+        '../../assets/img/400.jpg';
     }
   }
 
@@ -162,6 +164,12 @@ export class MapComponent implements OnInit {
   // Request info on the floor from the server
 
   ngOnInit(): void {
-    // this.route.navigate(['/home']);
+    // DEBUG to generate
+    (document.getElementById("room_coords") as HTMLElement).addEventListener("click", (e:MouseEvent) => {
+      e.preventDefault();
+      this.point_array.push(e.clientX - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().x);
+      this.point_array.push(e.clientY - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().y);
+      console.log(this.point_array);
+    });
   }
 }
