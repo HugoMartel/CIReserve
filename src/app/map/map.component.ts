@@ -311,7 +311,7 @@ ____*/
     const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));
     (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[2] + "-" + nowDate[1] + "-" + nowDate[0];
     (document.getElementById("beginTime") as HTMLInputElement).value = nowTime;
-    (document.getElementById("endTime") as HTMLInputElement).value = parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 7 ? pastTime : '0' + pastTime ) : "23:59:00";
+    (document.getElementById("endTime") as HTMLInputElement).value = parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 8 ? pastTime : '0' + pastTime ) : "23:59:00";
 
     // Request the default floor
     this.dateUpdateCallback();
