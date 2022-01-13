@@ -5,7 +5,7 @@
  */
 
 //****************************
-//*         Consts           * 
+//*         Consts           *
 //****************************
 // Setup requires and https keys & certificates
 const { ObjectID } = require("bson");
@@ -148,7 +148,7 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
             result[0].isAdmin == undefined
         ) {
             return res.status(200).json({
-                fail: "Wrong password or email..."
+                fail: "Mauvais email ou mot de passe..."
             });
         }
 
@@ -160,7 +160,7 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
             } else {
                 /* Password is wrong, abort */
                 if (same === false) {
-                    return res.status(200).json({ fail: "Wrong password or email..." });
+                    return res.status(200).json({ fail: "Mauvais email ou mot de passe..." });
                 }
                 /* Password is good, continue */
 
@@ -195,7 +195,9 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
 
                 // set it in the HTTP Response body
                 return res.status(200).json({
-                    success: "Successfully connected!",
+                    success: "Vous êtes connecté !",
+                    name: result[0].userName,
+                    admin: result[0].isAdmin,
                     idToken: jwtBearerToken,
                     expiresIn: 120
                 });

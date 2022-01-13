@@ -7,15 +7,8 @@ import { RequestService } from 'src/app/services/request.service';
     styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-    connected: boolean;
-    name?: string;
 
-
-    constructor(private authService: RequestService) {
-
-        this.connected = false;
-
-    }
+    constructor(public authService: RequestService) {}
 
     //put this on the click of the login button
     loginModalClick() {
@@ -73,9 +66,10 @@ export class AccountComponent implements OnInit {
     ngOnInit(): void {
 
         /* Check Token to connect or not */
-        this.connected = this.authService.isLoggedIn() ? true : false;
-        if (this.connected) {
-            this.name = localStorage.getItem("id_token") as string;
+        this.authService.connected = this.authService.isLoggedIn();
+        if (this.authService.connected) {
+            this.authService.name = localStorage.getItem("name") as string;
+            this.authService.admin = localStorage.getItem("admin") == "true";
         }
     }
 

@@ -1,0 +1,5 @@
+mongoimport Reservations.json -d CIReserve -c Reservations --drop --jsonArray
+
+mongoimport Users.json -d CIReserve -c Users --drop --jsonArray
+
+mongoimport Rooms.json -d CIReserve -c Rooms --drop --jsonArray

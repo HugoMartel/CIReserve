@@ -7,17 +7,16 @@ import { RequestService } from 'src/app/services/request.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-    admin:boolean;
 
-    constructor(private authService:RequestService) {
-        this.admin = false;//TODO Check with RequestService
+    constructor(public authService:RequestService) {
     }
 
 
     ngOnInit(): void {
 
+        /* Update admin variable */
         if (this.authService.isLoggedIn()) {
-            this.admin = localStorage.getItem("admin") == "true";
+            this.authService.admin = localStorage.getItem("admin") == "true";
         }
     }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { RequestService } from '../services/request.service';
 
 @Component({
   selector: 'app-connected',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:RequestService) { }
+
+  accountDisconnect() {
+    this.authService.logout();
+    /* 5s success notification */
+    Notify.info("Vous avez été déconnecté.", {
+      timeout: 5000,
+      position: 'center-top',
+      clickToClose: true
+    });
+  }
 
   ngOnInit(): void {
   }

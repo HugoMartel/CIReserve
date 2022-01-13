@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "61dd93ff3b4e68067486d38b"
+  },
+  "begin": {
+    "$date": "2022-01-11T08:00:00Z"
+  },
+  "end": {
+    "$date": "2022-01-11T10:00:00Z"
+  },
+  "duration": 2,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": 2,
+  "floor": 108
+},{
+  "_id": {
+    "$oid": "61ddf4da25b0723f2661372f"
+  },
+  "begin": {
+    "$date": "2022-01-13T08:30:00Z"
+  },
+  "end": {
+    "$date": "2022-01-13T11:30:00Z"
+  },
+  "duration": 3,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": 3,
+  "floor": 956
+},{
+  "_id": {
+    "$oid": "61ddf56025b0723f26613730"
+  },
+  "begin": {
+    "$date": "2022-01-14T08:30:00Z"
+  },
+  "end": {
+    "$date": "2022-01-14T17:30:00Z"
+  },
+  "duration": 9,
+  "user": "61dd90b23b4e68067486d38a",
+  "reason": "project",
+  "building": 3,
+  "floor": 956
+}]

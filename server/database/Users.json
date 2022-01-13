@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "61dd90b23b4e68067486d38a"
+  },
+  "userName": "Noé",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$kKqrk9YM2Q2pclhZ4RYZQOKe4GZZaxMyCOzX9DpdgOzNKyC/FjYDO",
+  "email": "noe.klopocki@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf2c825b0723f26613726"
+  },
+  "userName": "Spac3Drunk",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$hNlHIUIs3emuRdFOUxjhg.ugVXFvfm5Tw7hNUlHDBJ0GUX3YcEk.S",
+  "email": "louis.manouvriez@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf2e225b0723f26613727"
+  },
+  "userName": "Alexi",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$GkimzyJ3sCrH4T8RBDsdKuQ/9N.YMZXn0g5XJ2IbnvzRh.uKoDgWe",
+  "email": "alexis.chevet@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf30c25b0723f26613728"
+  },
+  "userName": "TT_",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$zXFUnGUgjfHnYEDBIHmD6uxspOZ9m0PQcenQKHCDl2f.RL76qyMn6",
+  "email": "theodore.martin@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf32625b0723f26613729"
+  },
+  "userName": "NicoluGB99",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$u18KRkgQWYVWneED4k7dO.HAnUtWZpkDfNyP6f9cmCabfARXIuZnu",
+  "email": "nicolas.urquijo@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf34825b0723f2661372a"
+  },
+  "userName": "Pauli",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$tESa00VyTNuarAmVl32yWe6pWWyFzbszGb.W8c1l1jws5k8EAP5gO",
+  "email": "pauline.jaspart@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf36525b0723f2661372b"
+  },
+  "userName": "Léo",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$kKqrk9YM2Q2pclhZ4RYZQOKe4GZZaxMyCOzX9DpdgOzNKyC/FjYDO",
+  "email": "leo.pawlicki@student.junia.com"
+},{
+  "_id": {
+    "$oid": "61ddf37425b0723f2661372c"
+  },
+  "userName": "Hugros",
+  "isAdmin": true,
+  "classe": 4,
+  "hash": "$2b$12$VvHqyuc/TT4TqC9NnUYRRuOJYMf2LF/wfWj7fPaxD3l.QqUTm3Oqi",
+  "email": "hugo.martel@student.junia.com"
+}]

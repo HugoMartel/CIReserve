@@ -15,9 +15,47 @@ const jsonHeaders:HttpHeaders = new HttpHeaders({'Content-Type':'application/jso
   providedIn: 'root',
 })
 export class RequestService {
+  admin:boolean;
+  connected:boolean;
+  name: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.admin = false;
+    this.connected = false;
+    this.name = "";
+  }
 
+  // Setter for connected variable
+  // public setConnected(c:boolean):void {
+  //   this.connected = c;
+  // }
+
+  // // Getter for connected variable
+  // public getConnected():boolean {
+  //   return this.connected;
+  // }
+
+  // // Setter for connected variable
+  // public setAdmin(a:boolean):void {
+  //   this.admin = a;
+  // }
+
+  // // Getter for connected variable
+  // public getAdmin():boolean {
+  //   return this.admin;
+  // }
+
+  // // Setter for connected variable
+  // public setName(n:string):void {
+  //   this.name = n;
+  // }
+
+  // // Getter for connected variable
+  // public getName():string {
+  //   return this.name;
+  // }
+
+  // Login POST XHR
   login(email: string, password: string):Observable<any> {
     console.log(email, password);
     return this.http.post<any>(
@@ -33,16 +71,20 @@ export class RequestService {
 
   }
 
-  public setSession(authResult:any) {
+  public setSession(authResult:any):void {
     const expiresAt:moment.Moment = moment().add(authResult.expiresIn, 'second');
 
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem("name", authResult.name);
+    localStorage.setItem("admin", authResult.admin == true ? "true":"false");
   }
 
-  logout() {
+  logout():void {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
+    localStorage.removeItem("admin");
+    localStorage.removeItem("name");
   }
 
   public isLoggedIn() {
