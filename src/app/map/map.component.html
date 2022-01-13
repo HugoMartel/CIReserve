@@ -1,70 +1,41 @@
-<div class="parent">
-  <div class="buttonGroup">
-    <label for="selectDate">Heure & date de réservation</label>
-    <input type="date" id="selectDate" name="selectDate" />
-    <label for="beginTime">Début :</label>
-    <input type="time" name="beginTime" id="beginTime" />
-    <label for="endTime">Fin :</label>
-    <input type="time" name="endTime" id="endTime" />
-    <hr />
-    <button (click)="clickBtn1()" id="btn1" type="button" class="">
-      Etage 100
-    </button>
-    <button (click)="clickBtn2()" id="btn2" type="button" class="">
-      Etage 2/300
-    </button>
-    <button (click)="clickBtn3()" id="btn3" type="button" class="current">
-      Etage 4/500
-    </button>
-    <button (click)="clickBtn4()" id="btn4" type="button" class="">
-      Etage 600
-    </button>
-    <button (click)="clickBtn5()" id="btn5" type="button" class="">
-      Etage 7/800
-    </button>
-    <button (click)="clickBtn6()" id="btn6" type="button" class="">
-      Etage 900
-    </button>
-  </div>
+<div class='parent'>
+
+    <div class="buttonGroup">
+        <label for="selectDate">Heure & date de réservation</label>
+        <input (change)="dateUpdateCallback()" type="date" id="selectDate" name="selectDate">
+        <label for="beginTime">Début :</label>
+        <input (change)="dateUpdateCallback()" type="time" name="beginTime" id="beginTime">
+        <label for="endTime">Fin :</label>
+        <input (change)="dateUpdateCallback()" type="time" name="endTime" id="endTime">
+        <hr />
+        <button (click)="clickBtn1()" id="btn1" type="button" class="">Etage 100</button>
+        <button (click)="clickBtn2()" id="btn2" type="button" class="">Etage 2/300</button>
+        <button (click)="clickBtn3()" id="btn3" type="button" class="current">Etage 4/500</button>
+        <button (click)="clickBtn4()" id="btn4" type="button" class="">Etage 600</button>
+        <button (click)="clickBtn5()" id="btn5" type="button" class="">Etage 7/800</button>
+        <button (click)="clickBtn6()" id="btn6" type="button" class="">Etage 900</button>
+    </div>
+
+
+    <div id="etageContainer">
+        <img id="current_etage" src="../../assets/img/400.jpg" alt="Etage 400" />
+        <svg id="room_coords">
+            <polyline points="0,0,82,126,52,12" fill="red" id="NOMSALLE" onclick="console.log('XDDDDDDDDDDDDDDDDDDD')"/>
+            <polyline points="155.08331298828125, 82, 214, 81.05000305175781, 214, 137.0500030517578, 156, 136.0500030517578" fill="blue" />
+        </svg>
+    </div>
 
   <div id="etageContainer">
     <img id="current_etage" src="../../assets/img/400.jpg" alt="Etage 400" />
     <svg id="room_coords">
-      <polyline
-        points="0,0,82,126,52,12"
-        fill="red"
-        id="NOMSALLE"
-        onclick="console.log('XDDDDDDDDDDDDDDDDDDD')"
-      />
-      <polyline points="155.08331298828125, 82, 214, 81.05000305175781, 214, 137.0500030517578, 156, 136.0500030517578"fill="blue"/>
+        <!-- To insert into -->
     </svg>
   </div>
-  <button (click)="showModal()" class="roomInfoBtn">feziezfjz</button>
 </div>
 
-<hr />
 
-<!-- <script src="js/etages.js"></script> -->
-
-<!-- Modal -->
 <div id="infoModal" class="modal">
-  <div class="infoContent">
-    <div class="modal-header">
-      <h2>room number</h2>
-      <span class="close">&times;</span>
-    </div>
-    <div class="modal-body">
-      <h6>Statut réservation :</h6>
-      <h6>Capacité salle :</h6>
-      <h6>Projecteur :</h6>
-      <h6>Nombre de prises :</h6>
-      <hr />
-      <button class="openBook" (click)="bookModalFromInfo()">Réserver</button>
-    </div>
+    <div class="infoContent">
+        <!-- To insert into -->
   </div>
 </div>
-
-<!-- To change into an <area> -->
-<button type="button" (click)="showModal()" class="roomInfoBtn">
-  Informations sur la salle
-</button>
