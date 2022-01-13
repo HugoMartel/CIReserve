@@ -171,7 +171,7 @@ const Connection = (function() {
         deletUser : (name) => suppr("Users", {userName : name}),
         deletUserWithMail : (mail) => suppr("Users", {email : mail}),
         deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),
-        allRoomFloor : (nbFloorMin, nbFloorMax, callback) => get("Rooms", {floor : {$lte : nbFloorMax, $gte : nbFloorMin}},{projection : {_id:0,planning:0,hasPlug :0,isBookable:0}}, callback),
+        allRoomFloor : (nbFloorMin, nbFloorMax, callback) => get("Rooms", {floor : {$lte : nbFloorMax, $gte : nbFloorMin}},{projection : {_id:0,planning:0,hasPlug :0}}, callback),
         allReservationDuring : (nbFloorMin, nbFloorMax, begin, end, callback) => get("Reservations", {floor : {$lte : nbFloorMax, $gte : nbFloorMin}, begin : {$lt : new Date(end)}, end : {$gt : new Date(begin)}}, {projection : {_id:0,user:0,duration:0}}, callback),
     };
 })();

@@ -278,8 +278,9 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
                 let index = 0;
                 let toPush = {}
 
-                
+                toPush.name = room.building + room.floor;
                 toPush.imgPos = room.imgPos;
+                toPush.isBookable = room.isBookable;
 
                 // Generate the room's modal info
                 /*

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 @Component({
   selector: 'app-map',
@@ -8,11 +9,12 @@ import { BookService } from '../services/book.service';
 })
 export class MapComponent implements OnInit {
 
+  modalMap:Map<string,string>;
   current_button:number;
 
   constructor(private bookService:BookService) {
     this.current_button = 3;
-    console.log("Constructor", this.current_button);
+    this.modalMap = new Map;
   }
 
   // Btn 1 Click Event Callback
@@ -134,9 +136,51 @@ export class MapComponent implements OnInit {
           //TODO
           console.error(response.errors);
 
-        } else if (response.rooms !== undefined) {
-          // Create the area elements and associated modals
-          //TODO
+        } else if (response.fail !== undefined) {
+          /* 5s fail notification */
+          Notify.failure(response.fail, {
+            timeout: 5000,
+            position: 'center-top',
+            clickToClose: true
+          });
+
+        }else if (response.rooms !== undefined) {
+          // Clear Map
+          this.modalMap.clear();
+
+          // Create the svg elements and associated modals
+          const svgElement = (document.getElementById("room_coords") as HTMLElement);
+          svgElement.innerHTML = "";
+
+          // For each room of the floor
+          response.rooms.forEach( (room:any):void => {
+
+            // Create polyline html element inside the svg element
+            let poly = '<polyline points="';
+
+            // Add the points of the shape
+            room.imgPos.forEach((pos:any):void => {
+              poly += pos + ',';
+            });
+
+            poly += '" id="room' + room.name + '"';
+
+            // Opacity & fill color
+            poly += ' style="opacity:.8;" fill="' + (room.isBookable ? (room.booked ? 'red' : 'green') : 'blue') + '"/>';
+
+            // Append to the svg
+            svgElement.innerHTML += poly;
+
+            (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
+              (e.target as HTMLElement).style.display = 'block';
+              document.addEventListener('click', this.closingModalFunc, false);
+            });
+
+            // Add the modal content to the modal map paired with its name
+            this.modalMap.set(room.name, room.modalContent);
+
+          });
+
         } else {
           console.error("wrong response...");
         }
@@ -146,6 +190,26 @@ export class MapComponent implements OnInit {
     });
   }
 
+  closingModalFunc = (event: MouseEvent): void => {
+    // If user either clicks X button OR clicks outside the modal window, then close modal
+    if (event != null && event.target != null) {
+      const element = event.target as Element;
+
+      // Check if the element is closable
+      if (
+        (element.matches('.close') ||
+          !element.closest('.infoContent')) &&
+        !element.matches('.roomInfoBtn') &&
+        !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
+      ) {
+        // remove the modal
+        (document.getElementById('infoModal') as HTMLElement).style.display =
+          'none';
+        // Remove the close event listener
+        document.removeEventListener('click', this.closingModalFunc);
+      }
+    }
+  };
 
   ngOnInit(): void {
 
