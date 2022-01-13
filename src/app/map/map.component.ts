@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-map',
@@ -51,7 +52,7 @@ export class MapComponent implements OnInit {
       this.current_button = 2;
 
       // Change the img src
-      (document.getElementById('current_etage') as HTMLImageElement).src = '../../assets/img/300.png';
+      (document.getElementById('current_etage') as HTMLImageElement).src = '../../assets/img/300.jpg';
       this.dateUpdateCallback();
     }
   }
@@ -304,19 +305,25 @@ ____*/
 
   ngOnInit(): void {
     // Put current dates
-    const nowDate:string[] = new Date().toLocaleDateString().split('/');
-    const nowTime:string = new Date().toLocaleTimeString();
-    const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));
-    (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[2] + "-" + nowDate[1] + "-" + nowDate[0];
-    (document.getElementById("beginTime") as HTMLInputElement).value = nowTime;
-    (document.getElementById("endTime") as HTMLInputElement).value = parseInt((nowTime).split(':')[0]) < 23 ? (pastTime.length == 8 ? pastTime : '0' + pastTime ) : "23:59:00";
+    // const nowDate:string = new Date().toISOString().slice(0, 10);
+    // const nowTime:string = new Date().toLocaleTimeString();
+    // const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));
+
+    const nowDate:string[] = moment().toISOString().split('T');
+    const pastTime:string = moment().add(1, "hour").toISOString().split('T')[1].substr(0,5);
+
+    (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[0];
+    (document.getElementById("beginTime") as HTMLInputElement).value = nowDate[1].substr(0,5);
+    (document.getElementById("endTime") as HTMLInputElement).value = pastTime;
+
+    console.log(nowDate, pastTime);
 
     // Request the default floor
     this.dateUpdateCallback();
 
     // DEBUG to generate points array
     (document.getElementById("room_coords") as HTMLElement).addEventListener("click", (e:MouseEvent) => {
-      e.preventDefault();
+      
       this.point_array.push(e.clientX - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().x);
       this.point_array.push(e.clientY - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().y);
       console.log(this.point_array);
