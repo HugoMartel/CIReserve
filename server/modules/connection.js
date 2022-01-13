@@ -15,14 +15,14 @@ const ObjectId = require('mongodb').ObjectId;
  * @namespace Connection
  */
 const Connection = (function() {
-    
-    /* Init Code */    
+
+    /* Init Code */
     const url = 'mongodb://localhost:27017';
     const dbName = 'CIReserve';
-   
+
 
     /**
-     * @function Connection.getRoom/Connection.getUser/Connection.getBook/Connection.getRoomWithId/Connection.getUserWithId/Connection.getBookWithId/Connection.getUserWithMail
+     * @function Connection.get
      * @param {String} collection
      * @param {Object} elem 
      * @param {Object} options
@@ -154,36 +154,6 @@ const Connection = (function() {
         })
     }
 
-    /**
-     * @function Connection.allRoomFloor
-     * @param {Number} nbFloor 
-     * @param {Callback} callback 
-     * Callback function to return the data to
-     * @returns {}/
-     * @description Exucte a query to get all room of a specifyed floor
-     */
-    function getRoomFloor(nbFloor, callback){
-        let min = nbFloor * 100;
-        let max = (nbFloor+1) * 100;
-        
-        get("Rooms", {floor : {$lte : max, $gte : min}},{projection : {_id:0}}, callback);
-    }
-
-    /**
-     * @function Connection.allReservationDuring
-     * @param {Number} nbFloor 
-     * @param {Date} time 
-     * @param {Callback} callback 
-     * Callback function to return the data to
-     * @returns {}/
-     * @description Execute a query to get all reservation for a specifyed floor at a specifyed time
-     */
-    function getReservationDuring(nbFloor, begin, end, callback){
-        let min = nbFloor * 100;
-        let max = (nbFloor+1) * 100;
-        get("Reservations", {floor : {$lte : max, $gte : min}, begin : {$lte : end}, end : {$gte : begin}}, {projection : {_id:0}}, callback);
-    }
-
     return {
         getRoom : (nbFloor, nbBuild, options, callback) => get("Rooms", {floor : nbFloor, building : nbBuild}, options, callback),
         getUser : (name, options, callback) => get("Users", {userName : name}, options, callback),
@@ -200,9 +170,9 @@ const Connection = (function() {
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
         deletUser : (name) => suppr("Users", {userName : name}),
         deletUserWithMail : (mail) => suppr("Users", {email : mail}),
-        deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),        
-        allRoomFloor : (nbFloor, callback) => getRoomFloor(nbFloor, callback),
-        allReservationDuring : (nbFloor, begin, end, callback) => getReservationDuring(nbFloor, begin, end, callback),
+        deletBook : (nbFloor, nbBuild, start, finish, userId) => suppr("Reservations", {floor : nbFloor, building : nbBuild, begin : start, end : finish, user : userId}),
+        allRoomFloor : (nbFloorMin, nbFloorMax, callback) => get("Rooms", {floor : {$lte : nbFloorMax, $gte : nbFloorMin}},{projection : {_id:0,planning:0,hasPlug :0,isBookable:0}}, callback),
+        allReservationDuring : (nbFloorMin, nbFloorMax, begin, end, callback) => get("Reservations", {floor : {$lte : nbFloorMax, $gte : nbFloorMin}, begin : {$lte : end}, end : {$gte : begin}}, {projection : {_id:0,user:0,duration:0}}, callback),
     };
 })();
 

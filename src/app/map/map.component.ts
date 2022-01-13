@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-map',
@@ -10,7 +10,7 @@ export class MapComponent implements OnInit {
 
   current_button:number;
 
-  constructor(/*private route:Router*/) {
+  constructor(private bookService:BookService) {
     this.current_button = 3;
   }
 
@@ -92,13 +92,63 @@ export class MapComponent implements OnInit {
     }
   }
 
+  //
+  dateUpdateCallback() {
+    let date = (document.getElementById('selectDate') as HTMLInputElement).value;
+    let beginTime = (document.getElementById('beginTime') as HTMLInputElement).value;
+    let endTime = (document.getElementById('endTime') as HTMLInputElement).value;
 
-  // Request info on the floor from the server
+    if(date == null && beginTime == null && endTime == null){
+      return;
+    }
 
+    let dateBegin = new Date(date+ "T" + beginTime) as Date;
+    let dateEnd = new Date(date+ "T" + endTime) as Date;
+    // Send POST request
+    //
+    // +-----------+-----------------+
+    // | Btn Value | Floors to query |
+    // +===========+=================+
+    // |         1 | 100             |
+    // |         2 | 200/300         |
+    // |         3 | 400/500         |
+    // |         4 | 600             |
+    // |         5 | 700/800         |
+    // |         6 | 900             |
+    // +-----------+-----------------+
+    this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
+      if (response !== undefined) {
+        console.log(response);
+        console.log(localStorage);
+
+        if (response.errors !== undefined) {
+          //TODO
+          console.error(response.errors);
+
+        } else if (response.rooms !== undefined) {
+          // Create the area elements and associated modals
+          //TODO
+        } else {
+          console.error("wrong response...");
+        }
+      }else {
+        console.error("no response...");
+      }
+    });
+  }
 
 
   ngOnInit(): void {
-    // this.route.navigate(['/home']);
+    (document.getElementById("selectDate") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
+    (document.getElementById("beginTime") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
+    (document.getElementById("endTime") as HTMLInputElement).addEventListener("change", this.dateUpdateCallback);
+
+
+    // Set Current date
+
+
+    // Request info on the floor from the server for the default floor (4)
+    //TODO
   }
 
 }

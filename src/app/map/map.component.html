@@ -1,7 +1,12 @@
 <div class='parent'>
 
     <div class="buttonGroup">
-        <input type="datetime-local" id="horaire" name="selectDate">
+        <label for="selectDate">Heure & date de réservation</label>
+        <input type="date" id="selectDate" name="selectDate">
+        <label for="beginTime">Début :</label>
+        <input type="time" name="beginTime" id="beginTime">
+        <label for="endTime">Fin :</label>
+        <input type="time" name="endTime" id="endTime">
         <hr />
         <button (click)="clickBtn1()" id="btn1" type="button" class="">Etage 100</button>
         <button (click)="clickBtn2()" id="btn2" type="button" class="">Etage 2/300</button>

@@ -13,7 +13,6 @@ const express = require("express");
 const { body, validationResult } = require("express-validator");
 const app = express();
 const fs = require("fs");
-const { connect } = require("http2");
 const https = require("https");
 
 const jwt = require('jsonwebtoken');
@@ -231,6 +230,28 @@ app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNum
     let floor = res.body.floor;
     let begin = res.body.begin;
     let end = res.body.end;
+    let floorMax, floorMin;
+
+    switch(floor){
+        case 1: floorMax = 100; floorMin = 199; break;
+        case 2: floorMax = 200; floorMin = 399; break;
+        case 3: floorMax = 400; floorMin = 599; break;
+        case 4: floorMax = 600; floorMin = 699; break;
+        case 5: floorMax = 700; floorMin = 899; break;
+        case 6: floorMax = 900; floorMin = 999; break;
+        default : floorMax = 0; floorMin = 0;
+    }
+
+// +-----------+-----------------+
+// | Btn Value | Floors to query |
+// +===========+=================+
+// |         1 | 100             |
+// |         2 | 200/300         |
+// |         3 | 400/500         |
+// |         4 | 600             |
+// |         5 | 700/800         |
+// |         6 | 900             |
+// +-----------+-----------------+
 
     //Sanitize user intput
     const errors = validationResult(req);
@@ -239,7 +260,7 @@ app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNum
             errors: errors.array()
         });
     }
-    
+
     // Check value
     if(begin > end){
         return res.status(200).json({
@@ -248,24 +269,71 @@ app.post("/floor", body('begin').isDate, body('end').isDate, body('floor').isNum
     }
 
     // db query
-    connection.Connection.allRoomFloor(floor, (resultRoom) => {
-        connection.Connection.allReservationDuring(floor, begin, end, (resultReservation) => {
-            
-            resultReservation.forEach(reserv => {
+    connection.Connection.allRoomFloor(floorMin, floorMax, (resultRoom) => {
+        connection.Connection.allReservationDuring(floorMin, floorMax, begin, end, (resultReservation) => {
+            let result = [];
+
+
+            resultRoom.forEach(room => {
                 let find = false;
-                let x = 0;
-                while(x < resultRoom.length && !find){
-                    if(reserv.floor == resultRoom[x].floor && reserv.building == resultRoom[x].building){
+                let index = 0;
+                let toPush = {}
+
+                
+                toPush.imgPos = room.imgPos;
+
+                // Generate the room's modal info
+                /*
+                <div class="modal-header">
+                    <h2>room number</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h6> Statut réservation : </h6>
+                    <h6> Capacité salle : </h6>
+                    <h6> Projecteur :</h6>
+                    <h6> Nombre de prises :</h6>
+                    <hr/>
+                    <button class="book">Réserver</button>
+                </div>
+                */
+                toPush.modalContent = '<!-- Generated Modal --><div class="modal-header"><h2>' + room.building + room.floor
+                toPush.modalContent += '</h2><span class="close">&times;</span></div><div class="modal-body"><h6>Statut réservation : ';
+
+                while (index < resultReservation.length && !find) {
+                    if(room.floor == resultReservation[index].floor && room.building == resultReservation[index].building){
                         find = true;
-                        resultRoom[x].reservation = reserv;
+                        toPush.booked = true;
+                        toPush.modalContent += "Réservé (" + resultReservation[index].reason + ")";
                     }
-                    x++;
+                    index++;
                 }
+
+                // Check if the room isn't booked
+                if (!find) {
+                    toPush.booked = false;
+                    toPush.modalContent += "Libre";
+                }
+
+                toPush.modalContent += "</h6><h6>Capacité salle : " + room.bnPerson + "</h6>"
+                                    + "<h6>Projecteur : " + (room.hasProj ? "oui" : "non") + "</h6>"
+                                    + "<h6>Nombre de prises : " + room.nbPlug + "</h6>"
+                                    + "<h6>Taille : " +  room.roomSize_m2 + " m²</h6>"
+                                    + "<h6>Précisions : " + room.other + "</h6><hr/>";
+
+                if (find) {
+                    toPush.modalContent += '<button class="book">Réserver</button>';
+                }
+
+                toPush.modalContent += "</div>";
+
+                result.push(toPush);
             })
-            
-            
+
+            console.log(result);//! DEBUG
+
             return res.status(200).json({
-                rooms : resultRoom,
+                rooms : result,
             })
         })
     })
