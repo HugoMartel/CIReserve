@@ -20,7 +20,7 @@
                 de salle</a>
         </li>
         <!-- Redirections vers admin // accessible seulement aux admin -->
-        <li *ngIf="this.authService.admin" class="dropdown">
+        <li class="dropdown">
             <a class="dropbtn" href="javascript:void(0)" role="button">Administration</a>
             <div class="dropdown-content">
                 <a id="GoRegister" href="#" routerLink="/register" name="GoRegister">Création
@@ -35,7 +35,7 @@
                 <a id="GoModifResa" href="#" name="GoModifResa">Modification
                     de réservation existente</a>
                 <hr class="whiteHr" />
-                <a id="GoParametre" href="#" name="GoParametre">Paramètres
+                <a id="GoParametre" name="GoParametre" class="showOption" (click)="showOptionModal()" >Paramètres
                     généraux</a>
             </div>
         </li>
@@ -45,3 +45,20 @@
         </li>
     </ul>
 </nav>
+
+<!--begin the option modal-->
+<div id="optionModal" class="modal">
+    <div class="optionContent">
+        <div class="modal-header">
+            <h2>Options</h2>
+            <span class="close">&times;</span>
+        </div>
+        <form class="modal-body">
+            <label for="covidMode">Activer le mode COVID19 (capacité des salles divisée par 2): </label>
+            <input type="checkbox" id="covidodo">
+            <hr/>
+            <button class="saveOption">Enregistrer</button>
+        </form>
+    </div>
+</div>
+<!--end booking modal-->
