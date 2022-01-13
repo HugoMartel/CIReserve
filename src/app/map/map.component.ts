@@ -198,9 +198,7 @@ ____*/
             let poly = '<polyline points="';
 
             // Add the points of the shape
-            room.imgPos.forEach((pos:any):void => {
-              poly += pos + ',';
-            });
+            poly += room.imgPos.join(',');
 
             poly += '" id="room' + room.name + '"';
 
