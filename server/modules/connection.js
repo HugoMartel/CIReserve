@@ -23,9 +23,9 @@ const Connection = (function() {
 
     /**
      * @function Connection.get
-     * @param {String} collection
-     * @param {Object} elem 
-     * @param {Object} options
+     * @param {String} collection Name of the collection
+     * @param {Object} elem Json object containing the conditions of the request
+     * @param {Object} options Options of the query: fields to include/exclude, data order...
      * @param {Callback} callback
      * Callback function to return the data to
      * @returns {} /
@@ -45,13 +45,13 @@ const Connection = (function() {
 
     /**
      * @function Connection.newBook
-     * @param {Number} nbFloor
-     * @param {String} nbBuild
-     * @param {Date} start
-     * @param {Date} finish 
-     * @param {Number} time
-     * @param {String} userId 
-     * @param {String} Why 
+     * @param {Number} nbFloor Room number "102, 108, 956..."
+     * @param {String} nbBuild Letter from the building of the room "A,B,C"
+     * @param {Date} start Date of the beginning of the research
+     * @param {Date} finish Date of the end of the research 
+     * @param {Number} time Duration in hours of the reservation
+     * @param {String} userId Id of the user making the reservation
+     * @param {String} Why Reason for booking
      * @returns {}/
      * @description Execute a query to book a room
      */
@@ -64,11 +64,11 @@ const Connection = (function() {
     
     /**
      * @function Connection.newUser
-     * @param {String} name 
-     * @param {String} mail
-     * @param {String} mdp 
-     * @param {Boolean} admin 
-     * @param {Number} numClasse
+     * @param {String} name Name of the new user
+     * @param {String} mail email of the new user
+     * @param {String} mdp encrypted password of the new user
+     * @param {Boolean} admin If the new user is admin
+     * @param {Number} numClasse New user class
      * @returns {}/
      * @description Execute a query to add an user to the db
      */
@@ -81,7 +81,7 @@ const Connection = (function() {
 
     /**
      * @function Connection.getHash
-     * @param {String} mail 
+     * @param {String} mail User's email
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
@@ -101,7 +101,7 @@ const Connection = (function() {
 
     /**
      * @function Connection.checkUserName
-     * @param {String} name 
+     * @param {String} name User's user name
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
@@ -120,8 +120,8 @@ const Connection = (function() {
 
     /**
      * @function Connection.checkRoom
-     * @param {Number} nbFloor 
-     * @param {String} nbBuild 
+     * @param {Number} nbFloor Room number "102, 108, 956..."
+     * @param {String} nbBuild Letter from the building of the room "A,B,C"
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
@@ -140,9 +140,9 @@ const Connection = (function() {
 
     /**
      * @function Connection.modifyRoom/Connection.modifyUser
-     * @param {String} collection 
-     * @param {Object} elem 
-     * @param {Object} newElem 
+     * @param {String} collection Name of the collection
+     * @param {Object} elem Json object containing the conditions of the request
+     * @param {Object} newElem Json object containing the keys and the new values of the elements to be modified
      * @returns {}/
      * @description Execute a query to modify a documentation of a collection
      */
@@ -162,8 +162,8 @@ const Connection = (function() {
 
     /**
      * @function Connection.deletBook/Connection.deletUser/Connection.deletUserWithMail
-     * @param {String} collection 
-     * @param {Object} elem 
+     * @param {String} collection Name of the collection
+     * @param {Object} elem Json object containing the conditions of the request
      * @return {}/
      * @description Execute a query to remove documents from a collection
      */
