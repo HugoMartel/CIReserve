@@ -38,7 +38,7 @@ import { BookModalComponent } from './book-modal/book-modal.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ RequestService ],
+  providers: [ RequestService, MapComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -26,13 +26,13 @@
                 <a id="GoRegister" href="#" routerLink="/register" name="GoRegister">Création
                     de compte</a>
                 <hr class="whiteHr" />
-                <a id="GoModifPlan" href="#" name="GoModifPlan">Modification
+                <a id="GoModifPlan" class="disabledLink" name="GoModifPlan">Modification
                     du plan</a>
                 <hr class="whiteHr" />
-                <a id="GoResaPerm" href="#" name="GoResaPerm">Création
+                <a id="GoResaPerm" class="disabledLink" name="GoResaPerm">Création
                     de réservation permanente</a>
                 <hr class="whiteHr" />
-                <a id="GoModifResa" href="#" name="GoModifResa">Modification
+                <a id="GoModifResa" class="disabledLink" name="GoModifResa">Modification
                     de réservation existente</a>
                 <hr class="whiteHr" />
                 <a id="GoParametre" name="GoParametre" class="showOption" (click)="showOptionModal()" >Paramètres
@@ -57,7 +57,7 @@
             <label for="covidMode">Activer le mode COVID19 (capacité des salles divisée par 2): </label>
             <input type="checkbox" id="covidodo">
             <hr/>
-            <button class="saveOption">Enregistrer</button>
+            <button (click)="saveOption()" class="saveOption">Enregistrer</button>
         </form>
     </div>
 </div>

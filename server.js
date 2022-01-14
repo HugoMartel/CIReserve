@@ -339,10 +339,12 @@ app.post("/book/", body('userName').isLength({min:1}), body('room').trim().escap
 app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').isDate(), body('end').isDate()
     console.log("POST -> /floor");
 
+    let covid = req.body.covid;
     let floor = req.body.floor;
     let begin = req.body.begin;
     let end = req.body.end;
     let floorMax, floorMin;
+
 
     switch(floor){
         case 1: floorMin = 100; floorMax = 199; break;
@@ -409,7 +411,25 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
                     <button class="book">Réserver</button>
                 </div>
                 */
-                toPush.modalContent = '<!-- Generated Modal --><div class="modal-header"><h2>' + room.building + room.floor
+                toPush.modalContent = `<style>.close:hover,
+                .close:focus {
+                  color: #000;
+                  text-decoration: none;
+                  cursor: pointer;
+                }
+                </style><!-- Generated Modal --><div class="modal-header" style = "border-radius: 25px 25px 0 0;
+                font-family: Lato;
+                text-align: center;
+                padding: 2px 16px;
+                background-image: linear-gradient(
+                  to right,
+                  rgb(254, 102, 125),
+                  rgb(255, 163, 117)
+                );
+                color: white;"><h2 style = "padding-top: 0.5rem;
+                color: white;
+                text-align: center;
+                width: 100%;">` + room.building + room.floor
                 toPush.modalContent += '</h2><span class="close">&times;</span></div><div class="modal-body"><h6>Statut réservation : ';
 
                 while (index < resultReservation.length && !find) {
@@ -424,18 +444,15 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
                 // Check if the room isn't booked
                 if (!find) {
                     toPush.booked = false;
-                    toPush.modalContent += "Libre";
+                    toPush.modalContent += (room.isBookable) ? "Libre" : "Non réservable";
                 }
 
-                toPush.modalContent += "</h6><h6>Capacité salle : " + room.nbPerson + "</h6>"
+                toPush.modalContent += "</h6><h6>Capacité salle : " + ((covid) ? Math.trunc(room.nbPerson/2) : room.nbPerson) + "</h6>"
                                     + "<h6>Projecteur : " + (room.hasProj ? "oui" : "non") + "</h6>"
                                     + "<h6>Nombre de prises : " + room.nbPlug + "</h6>"
                                     + "<h6>Taille : " +  room.roomSize_m2 + " m²</h6>"
                                     + "<h6>Précisions : " + room.other + "</h6><hr/>";
 
-                if (find) {
-                    toPush.modalContent += '<button class="book">Réserver</button>';
-                }
 
                 toPush.modalContent += "</div>";
                 result.push(toPush);

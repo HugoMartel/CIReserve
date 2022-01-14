@@ -18,14 +18,15 @@ export class BookService {
   }
 
   // Make a request to get info about the current floor
-  public getFloorInfo(floor:number, begin:Date, end:Date) {
-
+  public getFloorInfo(floor:number, begin:Date, end:Date, covid:Boolean) {
+    
     return this.http.post<any>(
       '/floor',
       {
         'floor': floor,
         'begin': begin,
-        'end': end
+        'end': end,
+        'covid' : covid
       },
       {
         headers: jsonHeaders

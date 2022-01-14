@@ -139,7 +139,7 @@ export class MapComponent implements OnInit {
   }
 
   // Callback if the dates values have changed and query the database/server
-  dateUpdateCallback() {
+  public dateUpdateCallback() {
 
     let date = (document.getElementById('selectDate') as HTMLInputElement).value;
     let beginTime = (document.getElementById('beginTime') as HTMLInputElement).value;
@@ -170,7 +170,9 @@ export class MapComponent implements OnInit {
 ------m-m---------------m-m---
 ____*/
 
-    this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
+    let covid = (localStorage.getItem("admin") != undefined && localStorage.getItem("admin")) ? (localStorage.getItem("covidMode") == "true" ? true : false) : false;
+
+    this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd, covid).subscribe((response) => {
       if (response !== undefined) {
         // console.log(response);
         // console.log(localStorage);
@@ -215,7 +217,14 @@ ____*/
           response.rooms.forEach( (room:any):void => {
             // Display room informations
             (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
-              (document.getElementsByClassName("infoContent")[0] as HTMLElement).innerHTML = room.modalContent;
+              const container = (document.getElementsByClassName("infoContent")[0] as HTMLElement);
+              console.log(container, container.childElementCount);
+              if (container.childElementCount > 3) {
+                container.firstElementChild?.remove();
+                container.firstElementChild?.remove();
+                container.firstElementChild?.remove();
+              }
+              container.innerHTML = room.modalContent + (document.getElementsByClassName("infoContent")[0] as HTMLElement).innerHTML;
               (document.getElementById('infoModal') as HTMLElement).style.display = 'block';
               document.addEventListener('click', this.closingModalFunc, true);
             });
@@ -276,40 +285,54 @@ ____*/
 
   //function to open the booking modal from the info one
   bookModalFromInfo() {
-    (document.getElementById('bookModal') as HTMLElement).style.display =
-      'block';
+    console.log("SHOW MODAL BOOK");
+
+    (document.getElementById('bookModal') as HTMLElement).style.display = 'block';
     document.addEventListener('click', this.closingBookFromInfoFunc, false);
   }
 
   //callback to close the booking modal if clicked somewhere else
   closingBookFromInfoFunc = (event: MouseEvent): void => {
-    // If user either clicks X button OR clicks outside the modal window, then close modal but no click on
-    if (event != null && event.target != null) {
-      const element = event.target as Element;
+    // If user conenctes
+    if(localStorage.getItem("id") != undefined){    
+      // If user either clicks X button OR clicks outside the modal window, then close modal but no click on
+      if (event != null && event.target != null) {
+        const element = event.target as Element;
 
-      // Check if the element is closable
-      if (
-        (element.matches('.close') || !element.closest('.bookContent')) &&
-        !element.matches('.openBook') &&
-        !element.matches('.bookContent') &&
-        !element.matches('.bookSubmit')
-      ) {
-        // remove the modal
-        (document.getElementById('bookModal') as HTMLElement).style.display =
-          'none';
-        // Remove the close event listener
-        document.removeEventListener('click', this.closingBookFromInfoFunc);
+        // Check if the element is closable
+        if (
+          (element.matches('.close') || !element.closest('.bookContent')) &&
+          !element.matches('.openBook') &&
+          !element.matches('.bookContent') &&
+          !element.matches('.bookSubmit')
+        ) {
+          // remove the modal
+          (document.getElementById('bookModal') as HTMLElement).style.display =
+            'none';
+          // Remove the close event listener
+          document.removeEventListener('click', this.closingBookFromInfoFunc);
+        }
       }
+      //closing the other one;
+      (document.getElementById('infoModal') as HTMLElement).style.display =
+        'none';
+    }else{
+      Notify.warning("Vous devez être conencté pour pouvoir effecteur une réservation.", {
+        timeout: 5000,
+        position: 'center-top',
+        clickToClose: true
+      });
     }
-    //closing the other one;
-    (document.getElementById('infoModal') as HTMLElement).style.display =
-      'none';
   };
 
   // Request info on the floor from the server
 
   ngOnInit(): void {
-    // Put current dates
+
+    // Add book event listener
+    (document.getElementById("bookModal") as HTMLButtonElement).addEventListener("click", this.bookModalFromInfo);
+
+    // Put current dates (old method not taking locale into account)
     // const nowDate:string = new Date().toISOString().slice(0, 10);
     // const nowTime:string = new Date().toLocaleTimeString();
     // const pastTime:string = (parseInt((nowTime).split(':')[0]) + 1 ).toString().concat(nowTime.slice(2));

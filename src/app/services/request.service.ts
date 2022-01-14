@@ -79,6 +79,7 @@ export class RequestService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     localStorage.setItem("name", authResult.name);
     localStorage.setItem("admin", authResult.admin == true ? "true":"false");
+    localStorage.setItem("covidMode", "false");
   }
 
   logout():void {
@@ -87,6 +88,7 @@ export class RequestService {
     localStorage.removeItem("admin");
     localStorage.removeItem("name");
     localStorage.removeItem("id");
+    localStorage.removeItem("covidMode");
   }
 
   public isLoggedIn() {

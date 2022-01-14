@@ -201,3 +201,11 @@ nav ul li:last-child {
 .modal-body input {
   padding: 0.5rem;
 }
+
+/* Links that are not ready yet */
+.disabledLink {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
