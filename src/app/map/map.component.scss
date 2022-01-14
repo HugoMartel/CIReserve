@@ -18,6 +18,8 @@
 
 #etageContainer {
   margin-top: 1rem;
+  max-height: 850px;
+  overflow: hidden;
 }
 
 #current_etage {
@@ -30,6 +32,7 @@
   border-radius: 7px;
   box-shadow: 2px 2px rgb(0, 0, 0, 0.5);
   overflow: hidden;
+  display: block;
 }
 
 svg#room_coords {
@@ -41,6 +44,7 @@ svg#room_coords {
   top: -723px;
   left: 0;
   overflow: hidden;
+  display: block;
 }
 
 .buttonGroup {
