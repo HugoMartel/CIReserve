@@ -31,8 +31,8 @@ export class AccountComponent implements OnInit {
             // Check if the element is closable
             if (
                 (element.matches('.close') ||
-                    element.matches('.submitLogin') ||
-                    !element.closest('.loginContent')) &&
+                element.matches('.submitLogin') ||
+                !element.closest('.loginContent')) &&
                 (!element.matches('.navBut') && !element.matches(".submitLogin"))
             ) {
                 // remove the modal
@@ -54,15 +54,15 @@ export class AccountComponent implements OnInit {
 
             if (
                 (element.matches('.close') ||
-                    element.matches('.disconnect') ||
-                    !element.closest('.accountContent')) &&
+                element.matches('.disconnect') ||
+                !element.closest('.accountContent')) &&
                 !element.matches('.navBut')
             ) {
                 // remove the modal
                 (document.getElementById('accountContent') as HTMLElement).classList.remove("animateIn");
                 (document.getElementById('accountContent') as HTMLElement).classList.add("animateOut");
                 //adding the listener for the animation end
-                document.addEventListener('animationend', this.loginModalRemove);
+                document.addEventListener('animationend', this.accountModalRemove);
                 document.removeEventListener('click', this.closingConnectedFunc);
             }
         }
