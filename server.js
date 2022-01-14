@@ -13,7 +13,6 @@ const express = require("express");
 const { body, validationResult } = require("express-validator");
 const app = express();
 const fs = require("fs");
-const { connect } = require("http2");
 const https = require("https");
 
 const jwt = require('jsonwebtoken');
@@ -223,22 +222,27 @@ app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 1
 
     // Check email in the db
     connection.Connection.isEmailExist(email, (result) =>{
-        if(result){ 
+        if(result){
             return res.status(200).json({ fail : "Cet addresse mail existe déjà.." });
         }
         // Store in the database and get the user id
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(password, salt, function(err, hash) {
-                
+
                 if(err){
                     return res.status(400).json({
-                        errors: "Impossible de générer un moto de passe.."
+                        errors: "Impossible de générer un mot de passe.."
                     })
                 }
 
-                connection.Connection.newUser(username, email, hash, isAdmin, classe);
-                
-                return res.status(200).json(generateAccessToken({ id: 0 }))//! move into the request callback (?)
+                connection.Connection.newUser(username, email, hash, isAdmin, classe, (success) => {
+                    if (success) {
+                        return res.status(200).json({ success: "L'utilisateur " + username + " a bien été ajouté à la collection !" });
+                    } else {
+                        return res.status(200).json({ fail: "Impossible d'ajouter l'utilisateur à la collection..." });
+                    }
+                });
+
             });
         });
     })

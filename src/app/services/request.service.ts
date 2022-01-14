@@ -18,8 +18,14 @@ export class RequestService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Function used to send a POST login request to the server
+   * @param email 
+   * @param password 
+   * @returns 
+   */
   login(email: string, password: string):Observable<any> {
-    console.log(email, password);
+    console.log(email, password);//! DEBUG
     return this.http.post<any>(
       '/login',
       {
@@ -30,7 +36,24 @@ export class RequestService {
         'headers': jsonHeaders
       }
     );
+  }
 
+
+  register(email: string, password: string, username: string, isAdmin: boolean, classe: number):Observable<any> {
+    console.log(email, password, username, isAdmin, classe);//! DEBUG
+    return this.http.post<any>(
+      '/register',
+      {
+        'email': email,
+        'password': password,
+        'username': username,
+        'isAdmin': isAdmin,
+        'classe': classe
+      },
+      {
+        'headers': jsonHeaders
+      }
+    );
   }
 
   public setSession(authResult:any) {

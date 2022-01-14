@@ -15,11 +15,11 @@ const ObjectId = require('mongodb').ObjectId;
  * @namespace Connection
  */
 const Connection = (function() {
-    
-    /* Init Code */    
+
+    /* Init Code */
     const url = 'mongodb://localhost:27017';
     const dbName = 'CIReserve';
-   
+
 
     /**
      * @function Connection.getRoom/Connection.getUser/Connection.getBook/Connection.getRoomWithId/Connection.getUserWithId/Connection.getBookWithId/Connection.getUserWithMail
@@ -61,21 +61,28 @@ const Connection = (function() {
             let cursor = db.collection('Reservations').insertOne({begin : start, end : finish, duration : time, user : userId, reason : why, building : nbBuild, floor : nbFloor})
         })
     }
-    
+
     /**
      * @function Connection.newUser
      * @param {String} name 
      * @param {String} mail
      * @param {String} mdp 
      * @param {Boolean} admin 
-     * @param {Number} numClasse
+     * @param {Number} numClasse 
+     * @param {Function} callback 
      * @returns {}/
      * @description Execute a query to add an user to the db
      */
-    function addUser(name, mail, mdp, admin, numClasse){
+    function addUser(name, mail, mdp, admin, numClasse, callback){
         MongoClient.connect(url, async function(err, client){
+            if (err) {
+                console.error("Error while add an user...");
+                return callback(false);
+            }
+
             let db = client.db(dbName);
             let cursor = db.collection('Users').insertOne({userName : name, isAdmin : admin, classe : numClasse, hash : mdp, email : mail});
+            return callback(true);
         })
     }
 
@@ -135,7 +142,7 @@ const Connection = (function() {
             for(let key in newElem){
                 result[key] = newElem[key];
             }
-            
+
             db.collection(collection).findOneAndUpdate(elem, {"$set" : result});
         })
     }
@@ -163,7 +170,7 @@ const Connection = (function() {
         getReservationWithId : (id, options, callback) => get("Reservations", {_id : new ObjectID(id)}, options, callback),
         getUserWithMail : (mail, options, callback) => get("Users", {email : mail}, options, callback),
         newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
-        newUser : (name, mail, mdp, admin, numClasse) => addUser(name, mail, mdp, admin, numClasse),
+        newUser : (name, mail, mdp, admin, numClasse, callback) => addUser(name, mail, mdp, admin, numClasse, callback),
         getHash : (mail, callback) => userHash(mail, callback),
         isEmailExist : (mail, callback) => checkEmail(mail, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
