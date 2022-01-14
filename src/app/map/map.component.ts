@@ -215,8 +215,10 @@ ____*/
           response.rooms.forEach( (room:any):void => {
             // Display room informations
             (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
+              document.removeEventListener('animationend', this.infoModalRemove);
               (document.getElementsByClassName("infoContent")[0] as HTMLElement).innerHTML = room.modalContent;
               (document.getElementById('infoModal') as HTMLElement).style.display = 'block';
+              (document.getElementById('infoContent') as HTMLElement).classList.add("animateIn");
               document.addEventListener('click', this.closingModalFunc, true);
             });
           });
@@ -228,6 +230,11 @@ ____*/
         console.error("no response...");
       }
     });
+  }
+
+  infoModalRemove() {
+    (document.getElementById('infoContent') as HTMLElement).classList.remove('animateOut');
+    (document.getElementById('infoModal') as HTMLElement).style.display = 'none';
   }
 
   //callback of the info modal to close it if click somewhere
@@ -244,8 +251,10 @@ ____*/
         !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
       ) {
         // remove the modal
-        (document.getElementById('infoModal') as HTMLElement).style.display =
-          'none';
+        (document.getElementById('infoContent') as HTMLElement).classList.remove("animateIn");
+        (document.getElementById('infoContent') as HTMLElement).classList.add("animateOut");
+        //adding the listener for the animation end
+        document.addEventListener('animationend', this.infoModalRemove);
         // Remove the close event listener
         document.removeEventListener('click', this.closingModalFunc);
       }
@@ -253,32 +262,38 @@ ____*/
   };
 
 
-  closingLoginFunc = (event: MouseEvent): void => {
-    // If user either clicks X button OR clicks outside the modal window, then close modal
-    if (event != null && event.target != null) {
-      const element = event.target as Element;
-
-      // Check if the element is closable
-      if (
-        (element.matches('.close') || !element.closest('.infoContent')) &&
-        !element.matches('.roomInfoBtn') &&
-        !element.matches('.infoContent') &&
-        !element.matches('.roomInfoBtn')/*TMP TO REMOVE */
-      ) {
-        // remove the modal
-        (document.getElementById('infoModal') as HTMLElement).style.display =
-          'none';
-        // Remove the close event listener
-        document.removeEventListener('click', this.closingLoginFunc);
-      }
-    }
-  };
+  //closingLoginFunc = (event: MouseEvent): void => {
+  //  // If user either clicks X button OR clicks outside the modal window, then close modal
+  //  if (event != null && event.target != null) {
+  //    const element = event.target as Element;
+//
+  //    // Check if the element is closable
+  //    if (
+  //      (element.matches('.close') || !element.closest('.infoContent')) &&
+  //      !element.matches('.roomInfoBtn') &&
+  //      !element.matches('.infoContent') &&
+  //      !element.matches('.roomInfoBtn')/*TMP TO REMOVE */
+  //    ) {
+  //      // remove the modal
+  //      (document.getElementById('infoModal') as HTMLElement).style.display =
+  //        'none';
+  //      // Remove the close event listener
+  //      document.removeEventListener('click', this.closingLoginFunc);
+  //    }
+  //  }
+  //};
 
   //function to open the booking modal from the info one
   bookModalFromInfo() {
-    (document.getElementById('bookModal') as HTMLElement).style.display =
-      'block';
+    document.removeEventListener('animationend', this.bookModalRemove);
+    (document.getElementById('bookModal') as HTMLElement).style.display = 'block';
+    (document.getElementById('bookContent') as HTMLElement).classList.add("animateIn");
     document.addEventListener('click', this.closingBookFromInfoFunc, false);
+  }
+
+  bookModalRemove() {
+    (document.getElementById('bookContent') as HTMLElement).classList.remove('animateOut');
+    (document.getElementById('bookModal') as HTMLElement).style.display = 'none';
   }
 
   //callback to close the booking modal if clicked somewhere else
@@ -295,8 +310,10 @@ ____*/
         !element.matches('.bookSubmit')
       ) {
         // remove the modal
-        (document.getElementById('bookModal') as HTMLElement).style.display =
-          'none';
+        (document.getElementById('bookContent') as HTMLElement).classList.remove("animateIn");
+        (document.getElementById('bookContent') as HTMLElement).classList.add("animateOut");
+        //adding the listener for the animation end
+        document.addEventListener('animationend', this.bookModalRemove);
         // Remove the close event listener
         document.removeEventListener('click', this.closingBookFromInfoFunc);
       }

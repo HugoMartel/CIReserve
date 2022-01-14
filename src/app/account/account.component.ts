@@ -12,10 +12,16 @@ export class AccountComponent implements OnInit {
 
     //put this on the click of the login button
     loginModalClick() {
+        document.removeEventListener('animationend', this.loginModalRemove);
         (document.getElementById('loginModal') as HTMLElement).style.display = 'block';
+        (document.getElementById('loginContent') as HTMLElement).classList.add("animateIn");
         document.addEventListener('click', this.closingLoginFunc, false);
     }
 
+    loginModalRemove() {
+        (document.getElementById('loginContent') as HTMLElement).classList.remove('animateOut');
+        (document.getElementById('loginModal') as HTMLElement).style.display = 'none';
+    }
 
     closingLoginFunc = (event: MouseEvent): void => {
         // If user either clicks X button OR clicks outside the modal window, then close modal
@@ -30,7 +36,10 @@ export class AccountComponent implements OnInit {
                 (!element.matches('.navBut') && !element.matches(".submitLogin"))
             ) {
                 // remove the modal
-                (document.getElementById('loginModal') as HTMLElement).style.display = 'none';
+                (document.getElementById('loginContent') as HTMLElement).classList.remove("animateIn");
+                (document.getElementById('loginContent') as HTMLElement).classList.add("animateOut");
+                //adding the listener for the animation end
+                document.addEventListener('animationend', this.loginModalRemove);
                 // Remove the close event listener
                 document.removeEventListener('click', this.closingLoginFunc);
             }
@@ -49,15 +58,25 @@ export class AccountComponent implements OnInit {
                     !element.closest('.accountContent')) &&
                 !element.matches('.navBut')
             ) {
-                (document.getElementById('accountModal') as HTMLElement).style.display =
-                    'none';
+                // remove the modal
+                (document.getElementById('accountContent') as HTMLElement).classList.remove("animateIn");
+                (document.getElementById('accountContent') as HTMLElement).classList.add("animateOut");
+                //adding the listener for the animation end
+                document.addEventListener('animationend', this.loginModalRemove);
                 document.removeEventListener('click', this.closingConnectedFunc);
             }
         }
     }
 
+    accountModalRemove() {
+        (document.getElementById('accountContent') as HTMLElement).classList.remove('animateOut');
+        (document.getElementById('accountModal') as HTMLElement).style.display = 'none';
+    }
+
     //put this on the click of the account button
     accountModalClick() {
+        document.removeEventListener('animationend', this.accountModalRemove);
+        (document.getElementById('accountContent') as HTMLElement).classList.add("animateIn");
         (document.getElementById('accountModal') as HTMLElement).style.display = 'block';
         document.addEventListener('click', this.closingLoginFunc, false);
     }
