@@ -37,12 +37,14 @@ export class BookModalComponent implements OnInit {
           });
 
         } else {
+          location.reload();
           /* 5s success notification */
           Notify.success(response.success, {
             timeout: 5000,
             position: 'center-top',
             clickToClose: true
           });
+
         }
 
       } else {

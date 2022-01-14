@@ -55,7 +55,8 @@ export class BookComponent implements OnInit {
   showBookModal() {
     document.removeEventListener('animationend', this.bookModalRemove);
     (document.getElementById('bookModal') as HTMLElement).style.display ='block';
-    document.addEventListener('click', this.closingBookFunc, false);
+    (document.getElementById('bookContent') as HTMLElement).classList.add("animateIn");
+    document.addEventListener('click', this.closingBookFunc);
   }
 
   bookModalRemove() {
@@ -72,9 +73,10 @@ export class BookComponent implements OnInit {
       if (
         (element.matches('.close') ||
         !element.closest('.bookContent')) &&
-        !element.matches('.showBook') &&
-        !element.matches('.bookContent') &&  (!element.matches('.bookSubmit'))
+        (!element.matches('.showBook') &&
+        !element.matches('.bookContent'))
       ) {
+        console.log("passed if shit");
         // remove the modal
         (document.getElementById('bookContent') as HTMLElement).classList.remove("animateIn");
         (document.getElementById('bookContent') as HTMLElement).classList.add("animateOut");

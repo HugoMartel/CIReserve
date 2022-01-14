@@ -78,7 +78,7 @@ export class AccountComponent implements OnInit {
         document.removeEventListener('animationend', this.accountModalRemove);
         (document.getElementById('accountContent') as HTMLElement).classList.add("animateIn");
         (document.getElementById('accountModal') as HTMLElement).style.display = 'block';
-        document.addEventListener('click', this.closingLoginFunc, false);
+        document.addEventListener('click', this.closingConnectedFunc, false);
     }
 
     // ON INIT

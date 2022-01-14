@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { MapComponent } from '../map/map.component';
-    
+
 @Component({
       selector: 'app-navbar',
       templateUrl: './navbar.component.html',
       styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-      
+
       constructor(public authService:RequestService, private mapComponent:MapComponent) {}
-      
-      
+
+
       saveOption() {
         localStorage.setItem("covidMode", (document.getElementById("covidodo") as HTMLInputElement).checked ? "true" : "false");
-        
+
         if (document.getElementById('current_etage') !== null) {
           this.mapComponent.current_button = parseInt(document.getElementsByClassName("current")[0].id[3]);
           this.mapComponent.dateUpdateCallback();
         }
-        
+
         // remove the modal
-        (document.getElementById('optionModal') as HTMLElement).style.display = 'none'; 
+        (document.getElementById('optionModal') as HTMLElement).style.display = 'none';
       }
       showOptionModal() {
         document.removeEventListener('animationend', this.optionModalRemove);
@@ -33,12 +33,12 @@ export class NavbarComponent implements OnInit {
         (document.getElementById('optionContent') as HTMLElement).classList.remove('animateOut');
         (document.getElementById('optionModal') as HTMLElement).style.display = 'none';
       }
-      
+
       closingOptionFunc = (event: MouseEvent): void => {
         // If user either clicks X button OR clicks outside the modal window, then close modal
         if (event != null && event.target != null) {
           const element = event.target as Element;
-          
+
           // Check if the element is closable
           if (
             (element.matches('.close') || !element.closest('.optionContent')) &&
@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
             }
           }
         };
-        
+
         ngOnInit(): void {
           /* Update admin variable */
           if (this.authService.isLoggedIn()) {
