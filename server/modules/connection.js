@@ -100,7 +100,7 @@ const Connection = (function() {
     }
 
     /**
-     * @function Connection.isUserNameExist
+     * @function Connection.checkUserName
      * @param {String} name 
      * @param {Callback} callback 
      * Callback function to return the data to
@@ -113,6 +113,26 @@ const Connection = (function() {
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
             let cursor = db.collection('Users').find({userName : name});
+            result = await cursor.toArray();
+            callback(Boolean(result.length));
+        })
+    }
+
+    /**
+     * @function Connection.checkRoom
+     * @param {Number} nbFloor 
+     * @param {String} nbBuild 
+     * @param {Callback} callback 
+     * Callback function to return the data to
+     * @returns {}/
+     * @description Execute a query to know if a room exist
+     */
+    function checkRoom(nbFloor, nbBuild, callback){
+        let result = [];
+
+        MongoClient.connect(url, async function(err, client){
+            let db = client.db(dbName);
+            let cursor = db.collection('Rooms').find({floor: nbFloor, building: nbBuild});
             result = await cursor.toArray();
             callback(Boolean(result.length));
         })
@@ -166,6 +186,7 @@ const Connection = (function() {
         newUser : (name, mail, mdp, admin, numClasse) => addUser(name, mail, mdp, admin, numClasse),
         getHash : (mail, callback) => userHash(mail, callback),
         isUserNameExist : (name, callback) => checkUserName(name, callback),
+        isRoomExist : (nbFloor, nbBuild, callback) => checkRoom(nbFloor, nbBuild, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
         deletUser : (name) => suppr("Users", {userName : name}),

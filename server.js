@@ -219,9 +219,74 @@ app.post("/register/", (req, res) => {
 
 });
 
-app.post("/book/", (req, res) => {
+app.post("/book/", body('userName').isLength({min:1}), body('room').trim().escape().isAlphanumeric().isLength({min:3}), body('reason').trim().isLength({min : 1}),(req, res) => {
     console.log("POST -> /book");
 
+    let begin = req.body.beging; // new Date 
+    let end = req.body.end; // new Date
+    let reason = req.body.reason; // String
+    let room = req.body.room; // String : building + floor
+    let userName = req.body.userName; // String userName from localStorage.getItem("name")
+
+    //Sanitize user intput
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
+
+    // Check value
+    if(begin > end){
+        return res.status(200).json({
+            fail : "La tranche horaire est incohérente.."
+        });
+    }
+
+    let building = room[0];
+    let floor = eval(room.substr(1));
+
+    // Check if room exist and if it is bookable
+    connection.Connection.getRoom(floor, building, {projection : {_id:0, isBookable:1}}, (roomCheck) =>{
+        if(roomCheck[0] ==  undefined){
+            return res.status(200).json({
+                fail: "Cette salle n'existe pas."
+            })
+        }
+        if(!roomCheck[0].isBookable){
+            return res.status(200).json({
+                fail: "Cette salle ne peut pas être réservée."
+            })
+        }
+
+        // Check available
+        connection.Connection.allReservationDuring(floor, floor, begin, end, (reservationCheck) =>{
+            if(reservationCheck.length != 0){
+                return res.status(200).json({
+                    fail: "Cette salle est déjà réservée sur ce créneau."
+                })
+            }
+
+            // Get user Id
+            connection.Connection.getUser(userName, {projection : { _id : 1}}, (userId) =>{
+
+                // If nothing find
+                if(userId[0] == undefined){
+                    return res.status(200).json({
+                        fail : "Impossible de vous reconnaitre."
+                    })
+                }        
+
+                // Add in db
+                connection.Connection.newBook(floor, building, begin, end, Math.trunc((end - debut) * 2.77778e-7), userId[0]._id.toString(), reason);
+    
+                return res.status(200).json({
+                    // Same that register for Cookie
+                    // TODO
+                })
+            })      
+        })
+    })
 });
 
 app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').isDate(), body('end').isDate()
