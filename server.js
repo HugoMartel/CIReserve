@@ -413,7 +413,7 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
                     toPush.modalContent += "Libre";
                 }
 
-                toPush.modalContent += "</h6><h6>Capacité salle : " + room.bnPerson + "</h6>"
+                toPush.modalContent += "</h6><h6>Capacité salle : " + room.nbPerson + "</h6>"
                                     + "<h6>Projecteur : " + (room.hasProj ? "oui" : "non") + "</h6>"
                                     + "<h6>Nombre de prises : " + room.nbPlug + "</h6>"
                                     + "<h6>Taille : " +  room.roomSize_m2 + " m²</h6>"
@@ -432,6 +432,42 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
             })
         })
     })
+})
+
+app.post("/user_bookings", body('id').isAlphanumeric(), (req, res) => { 
+    console.log("POST -> /user_bookings");
+
+    let id = req.body.id;   // String userName from localStorage.getItem("name")
+
+    //Sanitize user intput
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        });
+    }
+
+    // Get reservations from db
+    connection.Connection.getReservationWithId(id, { projection : {_id: 0, duration: 0, user: 0}}, (reservations) => {
+        let result = [];
+
+        // Prepare the data for display
+        reservations.forEach(reserv => {
+            let toPush = {};
+            
+            toPush.room = reserv.building + reserv.floor;
+            toPush.reason = reserv.reason;
+            toPush.time = ((reserv.begin.getMonth()+1 < 10) ? "0" + (reserv.begin.getMonth()+1) : reserv.begin.getMonth()+1) + "/"+reserv.begin.getDate() + " " + ((reserv.begin.getHours() < 10) ? "0"+reserv.begin.getHours() : reserv.begin.getHours()) + "h" + ((reserv.begin.getMinutes() < 10) ? "0"+reserv.begin.getMinutes() : reserv.begin.getMinutes()) + ", " + ((reserv.end.getMonth()+1 < 10) ? "0" + (reserv.end.getMonth()+1) : reserv.end.getMonth()+1) + "/"+reserv.end.getDate() + " " + ((reserv.end.getHours() < 10) ? "0"+reserv.end.getHours() : reserv.end.getHours()) + "h" + ((reserv.end.getMinutes() < 10) ? "0"+reserv.end.getMinutes() : reserv.end.getMinutes());
+            
+            result.push(toPush);
+        })
+
+        return res.status(200).json({
+            reservations : result,
+        })
+    })
+
+
 })
 
 
