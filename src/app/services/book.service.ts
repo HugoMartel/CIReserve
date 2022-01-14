@@ -49,4 +49,17 @@ export class BookService {
       }
     );
   }
+
+  public getUserBooked(id:string) {
+
+    return this.http.post<any>(
+      '/user_bookings',
+      {
+        'id': id
+      },
+      {
+        'headers': jsonHeaders
+      }
+    );
+  }
 }

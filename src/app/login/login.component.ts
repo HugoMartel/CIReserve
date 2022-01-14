@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe((response) => {
       if (response !== undefined) {
-        // console.log(response);
-        // console.log(localStorage);
+        // console.log(response);//! DEBUG
+        // console.log(localStorage);//! DEBUG
 
         if (response.errors !== undefined) {
           //TODO

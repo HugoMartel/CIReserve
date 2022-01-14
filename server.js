@@ -133,7 +133,7 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
 
 
     // db request
-    connection.Connection.getUserWithMail(email, { _id: 0 }, (result) => {
+    connection.Connection.getUserWithMail(email, { }, (result) => {
 
         console.log(result);
 
@@ -197,6 +197,7 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
                     name: result[0].userName,
                     admin: result[0].isAdmin,
                     idToken: jwtBearerToken,
+                    id: result[0]._id,
                     expiresIn: 120
                 });
             }
@@ -447,6 +448,10 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
     })
 })
 
+
+//==============================
+//        USER BOOKINGS
+//==============================
 app.post("/user_bookings", body('id').isAlphanumeric(), (req, res) => { 
     console.log("POST -> /user_bookings");
 
@@ -467,11 +472,13 @@ app.post("/user_bookings", body('id').isAlphanumeric(), (req, res) => {
         // Prepare the data for display
         reservations.forEach(reserv => {
             let toPush = {};
-            
+
+            // console.log(reserv);//! DEBUG
+
             toPush.room = reserv.building + reserv.floor;
             toPush.reason = reserv.reason;
             toPush.time = ((reserv.begin.getMonth()+1 < 10) ? "0" + (reserv.begin.getMonth()+1) : reserv.begin.getMonth()+1) + "/"+reserv.begin.getDate() + " " + ((reserv.begin.getHours() < 10) ? "0"+reserv.begin.getHours() : reserv.begin.getHours()) + "h" + ((reserv.begin.getMinutes() < 10) ? "0"+reserv.begin.getMinutes() : reserv.begin.getMinutes()) + ", " + ((reserv.end.getMonth()+1 < 10) ? "0" + (reserv.end.getMonth()+1) : reserv.end.getMonth()+1) + "/"+reserv.end.getDate() + " " + ((reserv.end.getHours() < 10) ? "0"+reserv.end.getHours() : reserv.end.getHours()) + "h" + ((reserv.end.getMinutes() < 10) ? "0"+reserv.end.getMinutes() : reserv.end.getMinutes());
-            
+
             result.push(toPush);
         })
 
@@ -484,6 +491,7 @@ app.post("/user_bookings", body('id').isAlphanumeric(), (req, res) => {
 })
 
 
+
 //****************************s
 //*       Server Start       *
 //****************************
@@ -491,6 +499,8 @@ app.post("/user_bookings", body('id').isAlphanumeric(), (req, res) => {
 server.listen(port, () => {
     console.log("Server is up and running on https://localhost:" + port + "/");
 });
+
+
 
 //****************************
 //*     Clean up on exit     *

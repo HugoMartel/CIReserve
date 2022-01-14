@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book',
@@ -7,14 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService:BookService) { }
 
   ngOnInit(): void {
     // Init the table
     this.updateTable();
   }
 
+  // Update the user's reservation table
   updateTable() {
+    this.bookService.getUserBooked(localStorage.getItem('id') as string).subscribe(response => {
+      if (response !== undefined) {
+
+        if (response.errors != undefined) {
+          console.error(response.errors);
+          //TODO
+
+        } else {
+
+          let content = '';
+
+          response.reservations.forEach((reserv:any) => {
+            content += '<tr><td>' + reserv.time;
+            content += '</td><td>' + reserv.room;
+            content += '</td><td>' + reserv.reason;
+            content += '</td></tr>';
+          });
+
+          // Insert into the table
+          (document.getElementById("userReservTable") as HTMLTableElement).innerHTML += content;
+
+        }
+
+      } else {
+        console.error("Request didn't send anything...");
+      }
+    });
 
   }
 

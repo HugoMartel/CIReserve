@@ -75,6 +75,7 @@ export class RequestService {
     const expiresAt:moment.Moment = moment().add(authResult.expiresIn, 'second');
 
     localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('id', authResult.id);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     localStorage.setItem("name", authResult.name);
     localStorage.setItem("admin", authResult.admin == true ? "true":"false");
@@ -85,6 +86,7 @@ export class RequestService {
     localStorage.removeItem("expires_at");
     localStorage.removeItem("admin");
     localStorage.removeItem("name");
+    localStorage.removeItem("id");
   }
 
   public isLoggedIn() {
