@@ -19,7 +19,7 @@ export class BookService {
 
   // Make a request to get info about the current floor
   public getFloorInfo(floor:number, begin:Date, end:Date) {
-    console.log(floor, begin, end);
+
     return this.http.post<any>(
       '/floor',
       {
