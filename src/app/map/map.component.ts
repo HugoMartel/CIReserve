@@ -319,20 +319,20 @@ ____*/
 
     (document.getElementById("selectDate") as HTMLInputElement).value = nowDate[0];
     (document.getElementById("beginTime") as HTMLInputElement).value = nowDate[1].substr(0,5);
-    (document.getElementById("endTime") as HTMLInputElement).value = pastTime;
+    (document.getElementById("endTime") as HTMLInputElement).value = parseInt(pastTime.substr(0,2)) == 0 ? "23:59" : pastTime;
 
-    console.log(nowDate, pastTime);
+    //console.log(nowDate, pastTime);//! DEBUG
 
     // Request the default floor
     this.dateUpdateCallback();
 
     // DEBUG to generate points array
-    (document.getElementById("room_coords") as HTMLElement).addEventListener("click", (e:MouseEvent) => {
-      
-      this.point_array.push(e.clientX - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().x);
-      this.point_array.push(e.clientY - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().y);
-      console.log(this.point_array);
-    });
+    // (document.getElementById("room_coords") as HTMLElement).addEventListener("click", (e:MouseEvent) => {
+
+    //   this.point_array.push(e.clientX - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().x);
+    //   this.point_array.push(e.clientY - (document.getElementById("room_coords") as HTMLElement).getBoundingClientRect().y);
+    //   console.log(this.point_array);
+    // });
   }
 }
 
