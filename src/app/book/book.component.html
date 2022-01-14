@@ -1,7 +1,7 @@
 <div class="bookings">
     <div class="bookingHeader">
         <h1>Mes réservations</h1>
-        <button (click)="showBookModal()" class="showBook">Ajouter une réservation</button>
+        <button *ngIf="this.authService.isLoggedIn()" (click)="showBookModal()" class="showBook">Ajouter une réservation</button>
     </div>
     <hr /><br />
     <table id="userReservTable">

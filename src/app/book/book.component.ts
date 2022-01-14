@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
+import { RequestService } from '../services/request.service';
 
 @Component({
   selector: 'app-book',
@@ -8,11 +9,15 @@ import { BookService } from '../services/book.service';
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookService:BookService) { }
+  constructor(private bookService:BookService, public authService:RequestService) { }
 
   ngOnInit(): void {
     // Init the table
-    this.updateTable();
+    if (this.authService.isLoggedIn()) {
+      this.updateTable();
+    } else {
+      (document.getElementById("userReservTable") as HTMLTableElement).innerHTML += '<tr><td></td><td></td><td>Connectez vous pour afficher vos réservations !</td></tr>';
+    }
   }
 
   // Update the user's reservation table
