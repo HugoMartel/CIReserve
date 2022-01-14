@@ -10,9 +10,15 @@ A video of the project is available at this **[link](https://youtu.be/O1B8IpH0_h
 
 ---
 
-## Run the project:
+## Run the project
 
 First run `npm install` to setup the project, then `npm start` to start the [Express](https://expressjs.com/) webserver
+
+---
+
+## Populate the database
+
+Import the JSON files located in `server/database` in a new database called `CIReserve` or use the `mongoimport` tool and run the commands found in `note.txt` !
 
 ---
 
