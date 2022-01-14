@@ -52,16 +52,24 @@ const Connection = (function() {
      * @param {Number} time Duration in hours of the reservation
      * @param {String} userId Id of the user making the reservation
      * @param {String} Why Reason for booking
+     * @param {Function} callback 
+     * Callback function to return the data to
      * @returns {}/
      * @description Execute a query to book a room
      */
-    function book(nbFloor, nbBuild, start, finish, time, userId, why){
+    function book(nbFloor, nbBuild, start, finish, time, userId, why, callback){
         MongoClient.connect(url, async function(err, client){
+            if (err) {
+                console.error("Error while add an user...");
+                return callback(false);
+            }
+
             let db = client.db(dbName);
             let cursor = db.collection('Reservations').insertOne({begin : start, end : finish, duration : time, user : userId, reason : why, building : nbBuild, floor : nbFloor})
+            return callback(true);
         })
     }
-    
+
     /**
      * @function Connection.newUser
      * @param {String} name Name of the new user
@@ -69,13 +77,21 @@ const Connection = (function() {
      * @param {String} mdp encrypted password of the new user
      * @param {Boolean} admin If the new user is admin
      * @param {Number} numClasse New user class
+     * @param {Function} callback 
+     * Callback function to return the data to
      * @returns {}/
      * @description Execute a query to add an user to the db
      */
-    function addUser(name, mail, mdp, admin, numClasse){
+    function addUser(name, mail, mdp, admin, numClasse, callback){
         MongoClient.connect(url, async function(err, client){
+            if (err) {
+                console.error("Error while add an user...");
+                return callback(false);
+            }
+
             let db = client.db(dbName);
             let cursor = db.collection('Users').insertOne({userName : name, isAdmin : admin, classe : numClasse, hash : mdp, email : mail});
+            return callback(true);
         })
     }
 
@@ -100,19 +116,19 @@ const Connection = (function() {
     }
 
     /**
-     * @function Connection.checkUserName
-     * @param {String} name User's user name
+     * @function Connection.isEmailExist
+     * @param {String} mail
      * @param {Callback} callback 
      * Callback function to return the data to
      * @returns {}/
-     * @description Execute a query to know if a userName already exist
+     * @description Execute a query to know if an email already exist
      */
-    function checkUserName(name, callback){
+    function checkEmail(mail, callback){
         let result = [];
 
         MongoClient.connect(url, async function(err, client){
             let db = client.db(dbName);
-            let cursor = db.collection('Users').find({userName : name});
+            let cursor = db.collection('Users').find({email : mail});
             result = await cursor.toArray();
             callback(Boolean(result.length));
         })
@@ -155,7 +171,7 @@ const Connection = (function() {
             for(let key in newElem){
                 result[key] = newElem[key];
             }
-            
+
             db.collection(collection).findOneAndUpdate(elem, {"$set" : result});
         })
     }
@@ -182,11 +198,12 @@ const Connection = (function() {
         getUserWithId : (id, options, callback) => get("Users", {_id : new ObjectId(id)}, options, callback),
         getReservationWithId : (id, options, callback) => get("Reservations", {_id : new ObjectID(id)}, options, callback),
         getUserWithMail : (mail, options, callback) => get("Users", {email : mail}, options, callback),
-        newBook : (nbFloor, nbBuild, begin, end, duration, user, reason) => book(nbFloor, nbBuild, begin, end, duration, user, reason),
-        newUser : (name, mail, mdp, admin, numClasse) => addUser(name, mail, mdp, admin, numClasse),
+        newBook : (nbFloor, nbBuild, begin, end, duration, user, reason, callback) => book(nbFloor, nbBuild, begin, end, duration, user, reason, callback),
+        newUser : (name, mail, mdp, admin, numClasse, callback) => addUser(name, mail, mdp, admin, numClasse, callback),
         getHash : (mail, callback) => userHash(mail, callback),
         isUserNameExist : (name, callback) => checkUserName(name, callback),
         isRoomExist : (nbFloor, nbBuild, callback) => checkRoom(nbFloor, nbBuild, callback),
+        isEmailExist : (mail, callback) => checkEmail(mail, callback),
         modifyRoom : (nbFloor, nbBuild, newElem) => change("Rooms", {floor : nbFloor, building : nbBuild}, newElem),
         modifyUser : (name, newElem) => change("Users", {userName : name}, newElem),
         deletUser : (name) => suppr("Users", {userName : name}),

@@ -25,39 +25,14 @@ export class RequestService {
     this.name = "";
   }
 
-  // Setter for connected variable
-  // public setConnected(c:boolean):void {
-  //   this.connected = c;
-  // }
-
-  // // Getter for connected variable
-  // public getConnected():boolean {
-  //   return this.connected;
-  // }
-
-  // // Setter for connected variable
-  // public setAdmin(a:boolean):void {
-  //   this.admin = a;
-  // }
-
-  // // Getter for connected variable
-  // public getAdmin():boolean {
-  //   return this.admin;
-  // }
-
-  // // Setter for connected variable
-  // public setName(n:string):void {
-  //   this.name = n;
-  // }
-
-  // // Getter for connected variable
-  // public getName():string {
-  //   return this.name;
-  // }
-
-  // Login POST XHR
+  /**
+   * Function used to send a POST login request to the server
+   * @param email 
+   * @param password 
+   * @returns 
+   */
   login(email: string, password: string):Observable<any> {
-    console.log(email, password);
+    console.log(email, password);//! DEBUG
     return this.http.post<any>(
       '/login',
       {
@@ -68,7 +43,32 @@ export class RequestService {
         'headers': jsonHeaders
       }
     );
+  }
 
+  /**
+   * Function used to send a POST XHR to '/register'
+   * @param email user new email
+   * @param password user new password
+   * @param username user's name
+   * @param isAdmin is user an admin ?
+   * @param classe user's "classe"
+   * @returns {Observable<any>} use subscribe((res) => {}) to use the response from the server
+   */
+  register(email: string, password: string, username: string, isAdmin: boolean, classe: number):Observable<any> {
+    console.log(email, password, username, isAdmin, classe);//! DEBUG
+    return this.http.post<any>(
+      '/register',
+      {
+        'email': email,
+        'password': password,
+        'username': username,
+        'isAdmin': isAdmin,
+        'classe': classe
+      },
+      {
+        'headers': jsonHeaders
+      }
+    );
   }
 
   public setSession(authResult:any):void {

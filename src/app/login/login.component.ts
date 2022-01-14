@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     const beginEmail = document.getElementById("login-emailbegin") as HTMLInputElement;
     const endEmail = document.getElementById("login-emailend") as HTMLSelectElement;
 
-    let email = beginEmail.value + endEmail.value;
+    const email = beginEmail.value + endEmail.value;
 
     /* Check password */
     const password = (document.getElementById("login-password") as HTMLInputElement).value;
