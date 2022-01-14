@@ -172,8 +172,8 @@ ____*/
 
     this.bookService.getFloorInfo(this.current_button, dateBegin, dateEnd).subscribe((response) => {
       if (response !== undefined) {
-        console.log(response);
-        console.log(localStorage);
+        // console.log(response);
+        // console.log(localStorage);
 
         if (response.errors !== undefined) {
           //TODO

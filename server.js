@@ -70,7 +70,7 @@ const checkIfAuthenticated = expressJwt({
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    console.log(token);//! DEBUG
+    console.log("token: " + token);//! DEBUG
 
     if (token == null) {
         next();
@@ -103,10 +103,6 @@ app.get("/home", authenticateToken, (req, res) => {
     res.sendFile(__dirname + "/dist/cireserve/index.html");
 });
 
-// app.get("/book", authenticateToken, (req, res) => {
-//     console.log("GET <- " + __dirname + "/dist/cireserve/index.html");
-//     res.sendFile(__dirname + "/dist/cireserve/index.html");
-// });
 
 app.get("*", (req, res) => {
     console.log("REDIRECT -> /home");
@@ -118,6 +114,9 @@ app.get("*", (req, res) => {
 //*******************
 //!     POST        !
 //*******************
+//==============================
+//            LOGIN
+//==============================
 app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }), body('password').isLength({ max: 100 }), (req, res) => {
     console.log("POST -> /login");
 
@@ -205,6 +204,10 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
     });
 });
 
+
+//==============================
+//          REGISTER
+//==============================
 app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 100 }), body('password').trim().escape().isLength({min : 5, max: 100 }), body('username').trim().escape().isLength({min : 1, max : 20}), body('isAdmin').isBoolean(), body('classe').isNumeric(), (req, res) => {
     console.log("POST -> /register");
 
@@ -251,11 +254,17 @@ app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 1
 
 });
 
+
+//==============================
+//            BOOK
+//==============================
 app.post("/book/", body('userName').isLength({min:1}), body('room').trim().escape().isAlphanumeric().isLength({min:3}), body('reason').trim().isLength({min : 1}),(req, res) => {
     console.log("POST -> /book");
 
-    let begin = req.body.beging; // new Date 
-    let end = req.body.end; // new Date
+    console.log(req.body);
+
+    let begin = new Date(req.body.begin); // new Date
+    let end = new Date(req.body.end); // new Date
     let reason = req.body.reason; // String
     let room = req.body.room; // String : building + floor
     let userName = req.body.userName; // String userName from localStorage.getItem("name")
@@ -307,21 +316,25 @@ app.post("/book/", body('userName').isLength({min:1}), body('room').trim().escap
                     return res.status(200).json({
                         fail : "Impossible de vous reconnaitre."
                     })
-                }        
+                }
 
                 // Add in db
-                connection.Connection.newBook(floor, building, begin, end, Math.trunc((end - debut) * 2.77778e-7), userId[0]._id.toString(), reason, (success) => {
+                connection.Connection.newBook(floor, building, begin, end, Math.trunc((end - begin) * 2.77778e-7), userId[0]._id.toString(), reason, (success) => {
                     if (success) {
-                        return res.status(200).json({ success: "L'utilisateur " + username + " a bien été ajouté à la collection !" });
+                        return res.status(200).json({ success: "L'utilisateur " + userName + " a bien réservé la salle " + room + " !" });
                     } else {
                         return res.status(200).json({ fail: "Impossible d'ajouter l'utilisateur à la collection..." });
                     }
                 });
-            })      
+            })
         })
     })
 });
 
+
+//==============================
+//            FLOOR
+//==============================
 app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').isDate(), body('end').isDate()
     console.log("POST -> /floor");
 

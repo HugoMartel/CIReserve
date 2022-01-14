@@ -32,7 +32,7 @@ export class RequestService {
    * @returns 
    */
   login(email: string, password: string):Observable<any> {
-    console.log(email, password);//! DEBUG
+    // console.log(email, password);//! DEBUG
     return this.http.post<any>(
       '/login',
       {
@@ -55,7 +55,7 @@ export class RequestService {
    * @returns {Observable<any>} use subscribe((res) => {}) to use the response from the server
    */
   register(email: string, password: string, username: string, isAdmin: boolean, classe: number):Observable<any> {
-    console.log(email, password, username, isAdmin, classe);//! DEBUG
+    // console.log(email, password, username, isAdmin, classe);//! DEBUG
     return this.http.post<any>(
       '/register',
       {

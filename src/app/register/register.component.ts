@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(email, password, name, admin, classe).subscribe((response) => {
       if (response !== undefined) {
-        console.log(response);
+        // console.log(response);//! DEBUG
 
         if (response.errors !== undefined) {
           //TODO

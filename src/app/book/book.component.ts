@@ -10,6 +10,12 @@ export class BookComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Init the table
+    this.updateTable();
+  }
+
+  updateTable() {
+
   }
 
   showBookModal() {

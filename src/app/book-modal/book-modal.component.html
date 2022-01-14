@@ -9,19 +9,15 @@
             <!--todo: maybe add checks so that the end time can't be before the begin time-->
             <!--todo can we book for multiple days ??-->
             <label for="dateB">Date du début: </label>
-            <input type="date" id="dateE"><br/>
+            <input type="datetime-local" id="dateB"><br/>
             <label for="dateE">Date fin: </label>
-            <input type="date" id="dateB"><br/>
-            <label for="heureD">Heure début</label>
-            <input type="time" id="timeB"><br/>
-            <label for="heureD">Heure Fin</label>
-            <input type="time" id="timeE"><br/>
+            <input type="datetime-local" id="dateE"><br/>
             <label for="reason">Motif: </label>
             <input type="text" id="reason"><br/>
             <label for="room">Salle: </label>
             <input type="text" id="room"><br/>
             <hr/>
-            <button class="bookSubmit">Réserver</button>
+            <button (click)="bookRoomSubmit()" class="bookSubmit">Réserver</button>
         </form>
     </div>
 </div>

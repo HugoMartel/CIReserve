@@ -32,4 +32,21 @@ export class BookService {
       }
     );
   }
+
+  public bookRoom(begin:Date, end:Date, reason:string, room:string, name:string) {
+
+    return this.http.post<any>(
+      '/book',
+      {
+        'begin': begin,
+        'end': end,
+        'reason': reason,
+        'room': room,
+        'userName': name,
+      },
+      {
+        'headers': jsonHeaders
+      }
+    );
+  }
 }
