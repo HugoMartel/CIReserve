@@ -218,14 +218,14 @@ ____*/
             // Display room informations
             (document.getElementById("room"+room.name) as HTMLElement).addEventListener("click", (e:Event) => {
               const container = (document.getElementsByClassName("infoContent")[0] as HTMLElement);
-              console.log(container, container.childElementCount);
-              if (container.childElementCount > 3) {
-                container.firstElementChild?.remove();
-                container.firstElementChild?.remove();
-                container.firstElementChild?.remove();
-              }
-              container.innerHTML = room.modalContent + (document.getElementsByClassName("infoContent")[0] as HTMLElement).innerHTML;
+              
+              container.innerHTML = room.modalContent;
+              
+              // Check if working
+              document.removeEventListener('animationend', this.infoModalRemove);
+
               (document.getElementById('infoModal') as HTMLElement).style.display = 'block';
+              (document.getElementById('infoContent') as HTMLElement).classList.add("animateIn");
               document.addEventListener('click', this.closingModalFunc, true);
             });
           });
@@ -239,6 +239,13 @@ ____*/
     });
   }
 
+  infoModalRemove() {
+    console.log('here ?');
+    (document.getElementById('infoContent') as HTMLElement).classList.remove("animateOut");
+    (document.getElementById('infoModal') as HTMLElement).style.display = 'none';
+    document.removeEventListener('animationend', this.infoModalRemove);
+  }
+
   //callback of the info modal to close it if click somewhere
   closingModalFunc = (event: MouseEvent): void => {
     // If user either clicks X button OR clicks outside the modal window, then close modal
@@ -246,49 +253,56 @@ ____*/
       const element = event.target as Element;
 
       // Check if the element is closable
-      if (
-        (element.matches('.close') ||
-          !element.closest('.infoContent')) &&
-        !element.matches('.roomInfoBtn') &&
-        !element.matches('.infoContent') &&  (!element.matches('.roomInfoBtn'))
-      ) {
+      // if (
+      //   (element.matches('.close') ||
+      //     !element.closest('.infoContent')) &&
+      //   /* !element.matches('.roomInfoBtn') && */
+      //   !element.matches('.infoContent') /* && (!element.matches('.roomInfoBtn')) */
+      // )
+      {
         // remove the modal
-        (document.getElementById('infoModal') as HTMLElement).style.display =
-          'none';
-        // Remove the close event listener
+        (document.getElementById('infoContent') as HTMLElement).classList.remove("animateIn");
+        (document.getElementById('infoContent') as HTMLElement).classList.add("animateOut");
+        //adding the listener for the animation end
+        document.getElementById("infoModal")?.addEventListener('animationend', this.infoModalRemove);
         document.removeEventListener('click', this.closingModalFunc);
       }
     }
   };
 
 
-  closingLoginFunc = (event: MouseEvent): void => {
-    // If user either clicks X button OR clicks outside the modal window, then close modal
-    if (event != null && event.target != null) {
-      const element = event.target as Element;
-
-      // Check if the element is closable
-      if (
-        (element.matches('.close') || !element.closest('.infoContent')) &&
-        !element.matches('.roomInfoBtn') &&
-        !element.matches('.infoContent') &&
-        !element.matches('.roomInfoBtn')/*TMP TO REMOVE */
-      ) {
-        // remove the modal
-        (document.getElementById('infoModal') as HTMLElement).style.display =
-          'none';
-        // Remove the close event listener
-        document.removeEventListener('click', this.closingLoginFunc);
-      }
-    }
-  };
+  //closingLoginFunc = (event: MouseEvent): void => {
+  //  // If user either clicks X button OR clicks outside the modal window, then close modal
+  //  if (event != null && event.target != null) {
+  //    const element = event.target as Element;
+//
+  //    // Check if the element is closable
+  //    if (
+  //      (element.matches('.close') || !element.closest('.infoContent')) &&
+  //      !element.matches('.roomInfoBtn') &&
+  //      !element.matches('.infoContent') &&
+  //      !element.matches('.roomInfoBtn')/*TMP TO REMOVE */
+  //    ) {
+  //      // remove the modal
+  //      (document.getElementById('infoModal') as HTMLElement).style.display =
+  //        'none';
+  //      // Remove the close event listener
+  //      document.removeEventListener('click', this.closingLoginFunc);
+  //    }
+  //  }
+  //};
 
   //function to open the booking modal from the info one
   bookModalFromInfo() {
-    console.log("SHOW MODAL BOOK");
-
+    document.removeEventListener('animationend', this.bookModalRemove);
     (document.getElementById('bookModal') as HTMLElement).style.display = 'block';
+    (document.getElementById('bookContent') as HTMLElement).classList.add("animateIn");
     document.addEventListener('click', this.closingBookFromInfoFunc, false);
+  }
+
+  bookModalRemove() {
+    (document.getElementById('bookContent') as HTMLElement).classList.remove('animateOut');
+    (document.getElementById('bookModal') as HTMLElement).style.display = 'none';
   }
 
   //callback to close the booking modal if clicked somewhere else
@@ -306,6 +320,14 @@ ____*/
           !element.matches('.bookContent') &&
           !element.matches('.bookSubmit')
         ) {
+           // remove the modal
+          (document.getElementById('bookContent') as HTMLElement).classList.remove("animateIn");
+          (document.getElementById('bookContent') as HTMLElement).classList.add("animateOut");
+          //adding the listener for the animation end
+          document.addEventListener('animationend', this.bookModalRemove);
+          // Remove the close event listener
+          document.removeEventListener('click', this.closingBookFromInfoFunc);
+
           // remove the modal
           (document.getElementById('bookModal') as HTMLElement).style.display =
             'none';
@@ -317,7 +339,7 @@ ____*/
       (document.getElementById('infoModal') as HTMLElement).style.display =
         'none';
     }else{
-      Notify.warning("Vous devez être conencté pour pouvoir effecteur une réservation.", {
+      Notify.warning("Vous devez être connecté pour pouvoir effecteur une réservation.", {
         timeout: 5000,
         position: 'center-top',
         clickToClose: true

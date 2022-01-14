@@ -53,9 +53,14 @@ export class BookComponent implements OnInit {
   }
 
   showBookModal() {
-    (document.getElementById('bookModal') as HTMLElement).style.display =
-      'block';
+    document.removeEventListener('animationend', this.bookModalRemove);
+    (document.getElementById('bookModal') as HTMLElement).style.display ='block';
     document.addEventListener('click', this.closingBookFunc, false);
+  }
+
+  bookModalRemove() {
+    (document.getElementById('bookContent') as HTMLElement).classList.remove('animateOut');
+    (document.getElementById('bookModal') as HTMLElement).style.display = 'none';
   }
 
   closingBookFunc = (event: MouseEvent): void => {
@@ -66,14 +71,15 @@ export class BookComponent implements OnInit {
       // Check if the element is closable
       if (
         (element.matches('.close') ||
-          !element.closest('.bookContent')) &&
+        !element.closest('.bookContent')) &&
         !element.matches('.showBook') &&
         !element.matches('.bookContent') &&  (!element.matches('.bookSubmit'))
       ) {
         // remove the modal
-        (document.getElementById('bookModal') as HTMLElement).style.display =
-          'none';
-        // Remove the close event listener
+        (document.getElementById('bookContent') as HTMLElement).classList.remove("animateIn");
+        (document.getElementById('bookContent') as HTMLElement).classList.add("animateOut");
+        //adding the listener for the animation end
+        document.addEventListener('animationend', this.bookModalRemove);        // Remove the close event listener
         document.removeEventListener('click', this.closingBookFunc);
       }
     }

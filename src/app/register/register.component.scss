@@ -152,7 +152,7 @@ input:hover {
 
 .topBefore input:hover {
   background-color: #ecf0f1;
-  color: #e2dedb;
+  color: grey;
 }
 .topBefore select:hover {
   background-color: #ecf0f1;
@@ -161,4 +161,13 @@ input:hover {
 
 .topBefore option{
     color: black;
+}
+
+.submitRegister {
+  background: linear-gradient(to right,#cb2d3e 0%,#ef473a 35%);
+    color: white;
+    border-radius: 15px;
+    margin-left:30%;
+    width: 9rem;
+    height: 4rem;
 }

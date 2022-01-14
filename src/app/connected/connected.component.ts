@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { RequestService } from '../services/request.service';
 
@@ -19,6 +19,7 @@ export class ConnectedComponent implements OnInit {
       position: 'center-top',
       clickToClose: true
     });
+    location.reload();
   }
 
   ngOnInit(): void {

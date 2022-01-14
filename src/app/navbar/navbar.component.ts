@@ -1,61 +1,65 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { MapComponent } from '../map/map.component';
-
+    
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+      selector: 'app-navbar',
+      templateUrl: './navbar.component.html',
+      styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
-    constructor(public authService:RequestService, private mapComponent:MapComponent) {}
-
-    showOptionModal() {
-        (document.getElementById('optionModal') as HTMLElement).style.display =
-          'block';
+      
+      constructor(public authService:RequestService, private mapComponent:MapComponent) {}
+      
+      
+      saveOption() {
+        localStorage.setItem("covidMode", (document.getElementById("covidodo") as HTMLInputElement).checked ? "true" : "false");
+        
+        if (document.getElementById('current_etage') !== null) {
+          this.mapComponent.current_button = parseInt(document.getElementsByClassName("current")[0].id[3]);
+          this.mapComponent.dateUpdateCallback();
+        }
+        
+        // remove the modal
+        (document.getElementById('optionModal') as HTMLElement).style.display = 'none'; 
+      }
+      showOptionModal() {
+        document.removeEventListener('animationend', this.optionModalRemove);
+        (document.getElementById('optionModal') as HTMLElement).style.display = 'block';
+        (document.getElementById('optionContent') as HTMLElement).classList.add("animateIn");
         document.addEventListener('click', this.closingOptionFunc, false);
       }
-    
-    closingOptionFunc = (event: MouseEvent): void => {
-      // If user either clicks X button OR clicks outside the modal window, then close modal
-      if (event != null && event.target != null) {
-        const element = event.target as Element;
-
-        // Check if the element is closable
-        if (
-          (element.matches('.close') ||
-            !element.closest('.optionContent')) &&
-          !element.matches('.showOption') &&
-          !element.matches('.optionContent')
-        ) {
-          // remove the modal
-          (document.getElementById('optionModal') as HTMLElement).style.display =
-            'none';
-          // Remove the close event listener
-          document.removeEventListener('click', this.closingOptionFunc);
+      optionModalRemove() {
+        (document.getElementById('optionContent') as HTMLElement).classList.remove('animateOut');
+        (document.getElementById('optionModal') as HTMLElement).style.display = 'none';
+      }
+      
+      closingOptionFunc = (event: MouseEvent): void => {
+        // If user either clicks X button OR clicks outside the modal window, then close modal
+        if (event != null && event.target != null) {
+          const element = event.target as Element;
+          
+          // Check if the element is closable
+          if (
+            (element.matches('.close') || !element.closest('.optionContent')) &&
+            !element.matches('.showOption') &&
+            !element.matches('.optionContent')
+            ) {
+              // remove the modal
+              (document.getElementById('optionContent') as HTMLElement).classList.remove("animateIn");
+              (document.getElementById('optionContent') as HTMLElement).classList.add("animateOut");
+              //adding the listener for the animation end
+              document.addEventListener('animationend', this.optionModalRemove);
+              // Remove the close event listener
+              document.removeEventListener('click', this.closingOptionFunc);
+            }
+          }
+        };
+        
+        ngOnInit(): void {
+          /* Update admin variable */
+          if (this.authService.isLoggedIn()) {
+            this.authService.admin = localStorage.getItem('admin') == 'true';
+          }
         }
       }
-    }
-
-    saveOption() {
-      localStorage.setItem("covidMode", (document.getElementById("covidodo") as HTMLInputElement).checked ? "true" : "false");
-
-      if (document.getElementById('current_etage') !== null) {
-        this.mapComponent.current_button = parseInt(document.getElementsByClassName("current")[0].id[3]);
-        this.mapComponent.dateUpdateCallback();
-      }
-
-      // remove the modal
-      (document.getElementById('optionModal') as HTMLElement).style.display = 'none'; 
-    }
-
-    ngOnInit(): void {
-
-        /* Update admin variable */
-        if (this.authService.isLoggedIn()) {
-            this.authService.admin = localStorage.getItem("admin") == "true";
-        }
-    }
-
-}

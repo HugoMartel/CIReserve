@@ -1,5 +1,5 @@
 <div id="loginModal" class="modal">
-  <div class="loginContent">
+  <div class="loginContent" id="loginContent">
     <div class="modal-header">
       <h2>Login</h2>
       <span class="close">&times;</span>
@@ -12,10 +12,10 @@
         <option value="@student.junia.com">@student.junia.com</option>
       </select>
       <hr />
-      <label for="login-password">Password</label><br />
+      <label for="login-password">Mot de passe</label><br />
       <input type="password" name="login-password" id="login-password">
       <hr />
-      <button class="submitLogin" (click)="submitLogin()">Login</button>
+      <button class="submitLogin" (click)="submitLogin()">Connexion</button>
     </form>
   </div>
 </div>

@@ -70,7 +70,7 @@ const checkIfAuthenticated = expressJwt({
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    console.log("token: " + token);//! DEBUG
+    //console.log("token: " + token);//! DEBUG
 
     if (token == null) {
         next();
@@ -79,7 +79,7 @@ function authenticateToken(req, res, next) {
     } else {
 
         jwt.verify(token, TOKEN_RSA_PUBLIC_KEY, (err, id) => {
-            console.log(err)
+            //console.log(err)
 
             if (err) {
                 console.log("Wrong auth token");
@@ -134,8 +134,6 @@ app.post("/login", body('email').trim().escape().isEmail().isLength({ max: 100 }
 
     // db request
     connection.Connection.getUserWithMail(email, { }, (result) => {
-
-        console.log(result);
 
         if (
             result[0] == undefined ||
@@ -262,8 +260,6 @@ app.post("/register/", body('email').trim().escape().isEmail().isLength({ max: 1
 app.post("/book/", body('userName').isLength({min:1}), body('room').trim().escape().isAlphanumeric().isLength({min:3}), body('reason').trim().isLength({min : 1}),(req, res) => {
     console.log("POST -> /book");
 
-    console.log(req.body);
-
     let begin = new Date(req.body.begin); // new Date
     let end = new Date(req.body.end); // new Date
     let reason = req.body.reason; // String
@@ -344,7 +340,6 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
     let begin = req.body.begin;
     let end = req.body.end;
     let floorMax, floorMin;
-
 
     switch(floor){
         case 1: floorMin = 100; floorMax = 199; break;
@@ -447,7 +442,7 @@ app.post("/floor", (req, res) => { //body('floor').isNumeric(), body('begin').is
                     toPush.modalContent += (room.isBookable) ? "Libre" : "Non réservable";
                 }
 
-                toPush.modalContent += "</h6><h6>Capacité salle : " + ((covid) ? Math.trunc(room.nbPerson/2) : room.nbPerson) + "</h6>"
+                toPush.modalContent += "</h6><h6>Capacité salle : " + ((covid) ? Math.trunc((room.nbPerson+0.5)/2) : room.nbPerson) + "</h6>"
                                     + "<h6>Projecteur : " + (room.hasProj ? "oui" : "non") + "</h6>"
                                     + "<h6>Nombre de prises : " + room.nbPlug + "</h6>"
                                     + "<h6>Taille : " +  room.roomSize_m2 + " m²</h6>"
